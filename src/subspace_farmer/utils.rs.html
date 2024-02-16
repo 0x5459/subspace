@@ -1,4 +1,6 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `crates/subspace-farmer/src/utils.rs`."><title>utils.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-deb46770fd761b69.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="subspace_farmer" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0-nightly (42b1224e9 2023-10-15)" data-channel="nightly" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-5f34af1a0ee6bacd.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `crates/subspace-farmer/src/utils.rs`."><title>utils.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-4e54bb2b497cc83f.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="subspace_farmer" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (25f8d01fd 2024-01-18)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-0b2e2def73e61cbe.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="src-sidebar-title">
+            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../subspace_farmer/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -408,9 +410,78 @@
 <a href="#408" id="408">408</a>
 <a href="#409" id="409">409</a>
 <a href="#410" id="410">410</a>
+<a href="#411" id="411">411</a>
+<a href="#412" id="412">412</a>
+<a href="#413" id="413">413</a>
+<a href="#414" id="414">414</a>
+<a href="#415" id="415">415</a>
+<a href="#416" id="416">416</a>
+<a href="#417" id="417">417</a>
+<a href="#418" id="418">418</a>
+<a href="#419" id="419">419</a>
+<a href="#420" id="420">420</a>
+<a href="#421" id="421">421</a>
+<a href="#422" id="422">422</a>
+<a href="#423" id="423">423</a>
+<a href="#424" id="424">424</a>
+<a href="#425" id="425">425</a>
+<a href="#426" id="426">426</a>
+<a href="#427" id="427">427</a>
+<a href="#428" id="428">428</a>
+<a href="#429" id="429">429</a>
+<a href="#430" id="430">430</a>
+<a href="#431" id="431">431</a>
+<a href="#432" id="432">432</a>
+<a href="#433" id="433">433</a>
+<a href="#434" id="434">434</a>
+<a href="#435" id="435">435</a>
+<a href="#436" id="436">436</a>
+<a href="#437" id="437">437</a>
+<a href="#438" id="438">438</a>
+<a href="#439" id="439">439</a>
+<a href="#440" id="440">440</a>
+<a href="#441" id="441">441</a>
+<a href="#442" id="442">442</a>
+<a href="#443" id="443">443</a>
+<a href="#444" id="444">444</a>
+<a href="#445" id="445">445</a>
+<a href="#446" id="446">446</a>
+<a href="#447" id="447">447</a>
+<a href="#448" id="448">448</a>
+<a href="#449" id="449">449</a>
+<a href="#450" id="450">450</a>
+<a href="#451" id="451">451</a>
+<a href="#452" id="452">452</a>
+<a href="#453" id="453">453</a>
+<a href="#454" id="454">454</a>
+<a href="#455" id="455">455</a>
+<a href="#456" id="456">456</a>
+<a href="#457" id="457">457</a>
+<a href="#458" id="458">458</a>
+<a href="#459" id="459">459</a>
+<a href="#460" id="460">460</a>
+<a href="#461" id="461">461</a>
+<a href="#462" id="462">462</a>
+<a href="#463" id="463">463</a>
+<a href="#464" id="464">464</a>
+<a href="#465" id="465">465</a>
+<a href="#466" id="466">466</a>
+<a href="#467" id="467">467</a>
+<a href="#468" id="468">468</a>
+<a href="#469" id="469">469</a>
+<a href="#470" id="470">470</a>
+<a href="#471" id="471">471</a>
+<a href="#472" id="472">472</a>
+<a href="#473" id="473">473</a>
+<a href="#474" id="474">474</a>
+<a href="#475" id="475">475</a>
+<a href="#476" id="476">476</a>
+<a href="#477" id="477">477</a>
+<a href="#478" id="478">478</a>
+<a href="#479" id="479">479</a>
 </pre></div><pre class="rust"><code><span class="kw">pub mod </span>farmer_piece_getter;
 <span class="kw">pub mod </span>piece_validator;
-<span class="kw">pub mod </span>readers_and_pieces;
+<span class="kw">pub mod </span>plotted_pieces;
 <span class="kw">pub mod </span>ss58;
 <span class="attr">#[cfg(test)]
 </span><span class="kw">mod </span>tests;
@@ -421,14 +492,20 @@
 <span class="kw">use </span>futures::future::Either;
 <span class="kw">use </span>rayon::{ThreadBuilder, ThreadPool, ThreadPoolBuildError, ThreadPoolBuilder};
 <span class="kw">use </span>std::future::Future;
-<span class="kw">use </span>std::num::NonZeroUsize;
+<span class="kw">use </span>std::num::{NonZeroUsize, ParseIntError};
 <span class="kw">use </span>std::ops::Deref;
 <span class="kw">use </span>std::pin::{pin, Pin};
+<span class="kw">use </span>std::str::FromStr;
 <span class="kw">use </span>std::task::{Context, Poll};
 <span class="kw">use </span>std::{io, thread};
 <span class="kw">use </span>tokio::runtime::Handle;
 <span class="kw">use </span>tokio::task;
-<span class="kw">use </span>tracing::{debug, warn};
+<span class="kw">use </span>tracing::debug;
+<span class="attr">#[cfg(feature = <span class="string">"numa"</span>)]
+</span><span class="kw">use </span>tracing::warn;
+
+<span class="doccomment">/// It doesn't make a lot of sense to have a huge number of farming threads, 32 is plenty
+</span><span class="kw">const </span>MAX_DEFAULT_FARMING_THREADS: usize = <span class="number">32</span>;
 
 <span class="doccomment">/// Joins async join handle on drop
 </span><span class="kw">pub struct </span>AsyncJoinOnDrop&lt;T&gt; {
@@ -465,11 +542,11 @@
 <span class="kw">impl</span>&lt;T&gt; Future <span class="kw">for </span>AsyncJoinOnDrop&lt;T&gt; {
     <span class="kw">type </span>Output = <span class="prelude-ty">Result</span>&lt;T, task::JoinError&gt;;
 
-    <span class="kw">fn </span>poll(<span class="kw-2">mut </span><span class="self">self</span>: Pin&lt;<span class="kw-2">&amp;mut </span><span class="self">Self</span>&gt;, cx: <span class="kw-2">&amp;mut </span>Context&lt;<span class="lifetime">&#39;_</span>&gt;) -&gt; Poll&lt;<span class="self">Self</span>::Output&gt; {
+    <span class="kw">fn </span>poll(<span class="kw-2">mut </span><span class="self">self</span>: Pin&lt;<span class="kw-2">&amp;mut </span><span class="self">Self</span>&gt;, cx: <span class="kw-2">&amp;mut </span>Context&lt;<span class="lifetime">'_</span>&gt;) -&gt; Poll&lt;<span class="self">Self</span>::Output&gt; {
         Pin::new(
             <span class="self">self</span>.handle
                 .as_mut()
-                .expect(<span class="string">&quot;Only dropped in Drop impl; qed&quot;</span>),
+                .expect(<span class="string">"Only dropped in Drop impl; qed"</span>),
         )
         .poll(cx)
     }
@@ -482,9 +559,9 @@
     <span class="kw">fn </span>drop(<span class="kw-2">&amp;mut </span><span class="self">self</span>) {
         <span class="self">self</span>.<span class="number">0
             </span>.take()
-            .expect(<span class="string">&quot;Always called exactly once; qed&quot;</span>)
+            .expect(<span class="string">"Always called exactly once; qed"</span>)
             .join()
-            .expect(<span class="string">&quot;Panic if background thread panicked&quot;</span>);
+            .expect(<span class="string">"Panic if background thread panicked"</span>);
     }
 }
 
@@ -500,7 +577,7 @@
 
     <span class="attr">#[inline]
     </span><span class="kw">fn </span>deref(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="self">Self</span>::Target {
-        <span class="self">self</span>.<span class="number">0</span>.as_ref().expect(<span class="string">&quot;Only dropped in Drop impl; qed&quot;</span>)
+        <span class="self">self</span>.<span class="number">0</span>.as_ref().expect(<span class="string">"Only dropped in Drop impl; qed"</span>)
     }
 }
 
@@ -511,9 +588,9 @@
     thread_name: String,
 ) -&gt; io::Result&lt;<span class="kw">impl </span>Future&lt;Output = <span class="prelude-ty">Result</span>&lt;T, Canceled&gt;&gt; + Send&gt;
 <span class="kw">where
-    </span>CreateFut: (FnOnce() -&gt; Fut) + Send + <span class="lifetime">&#39;static</span>,
-    Fut: Future&lt;Output = T&gt; + <span class="lifetime">&#39;static</span>,
-    T: Send + <span class="lifetime">&#39;static</span>,
+    </span>CreateFut: (FnOnce() -&gt; Fut) + Send + <span class="lifetime">'static</span>,
+    Fut: Future&lt;Output = T&gt; + <span class="lifetime">'static</span>,
+    T: Send + <span class="lifetime">'static</span>,
 {
     <span class="kw">let </span>(drop_tx, drop_rx) = oneshot::channel::&lt;()&gt;();
     <span class="kw">let </span>(result_tx, result_rx) = oneshot::channel();
@@ -533,7 +610,7 @@
         <span class="kw">if let </span><span class="prelude-val">Err</span>(_error) = result_tx.send(result) {
             <span class="macro">debug!</span>(
                 thread_name = <span class="question-mark">?</span>thread::current().name(),
-                <span class="string">&quot;Future finished, but receiver was already dropped&quot;</span>,
+                <span class="string">"Future finished, but receiver was already dropped"</span>,
             );
         }
     })<span class="question-mark">?</span>;
@@ -553,12 +630,33 @@
 </span><span class="kw">pub struct </span>CpuCoreSet {
     <span class="doccomment">/// CPU cores that belong to this set
     </span>cores: Vec&lt;usize&gt;,
-    <span class="attr">#[cfg(feature = <span class="string">&quot;numa&quot;</span>)]
+    <span class="attr">#[cfg(feature = <span class="string">"numa"</span>)]
     </span>topology: <span class="prelude-ty">Option</span>&lt;std::sync::Arc&lt;hwlocality::Topology&gt;&gt;,
 }
 
 <span class="kw">impl </span>CpuCoreSet {
-    <span class="kw">pub fn </span>cpu_cores(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span>[usize] {
+    <span class="doccomment">/// Regroup CPU core sets to contain at most `target_sets` sets, useful when there are many L3
+    /// cache groups and not as many farms
+    </span><span class="kw">pub fn </span>regroup(cpu_core_sets: <span class="kw-2">&amp;</span>[<span class="self">Self</span>], target_sets: usize) -&gt; Vec&lt;<span class="self">Self</span>&gt; {
+        cpu_core_sets
+            <span class="comment">// Chunk CPU core sets
+            </span>.chunks(cpu_core_sets.len().div_ceil(target_sets))
+            .map(|sets| <span class="self">Self </span>{
+                <span class="comment">// Combine CPU cores
+                </span>cores: sets
+                    .iter()
+                    .flat_map(|set| set.cores.iter())
+                    .copied()
+                    .collect(),
+                <span class="comment">// Preserve topology object
+                </span><span class="attr">#[cfg(feature = <span class="string">"numa"</span>)]
+                </span>topology: sets[<span class="number">0</span>].topology.clone(),
+            })
+            .collect()
+    }
+
+    <span class="doccomment">/// Get cpu core numbers in this set
+    </span><span class="kw">pub fn </span>cpu_cores(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span>[usize] {
         <span class="kw-2">&amp;</span><span class="self">self</span>.cores
     }
 
@@ -571,44 +669,64 @@
 
     <span class="doccomment">/// Pin current thread to this NUMA node (not just one CPU core)
     </span><span class="kw">pub fn </span>pin_current_thread(<span class="kw-2">&amp;</span><span class="self">self</span>) {
-        <span class="attr">#[cfg(feature = <span class="string">&quot;numa&quot;</span>)]
+        <span class="attr">#[cfg(feature = <span class="string">"numa"</span>)]
         </span><span class="kw">if let </span><span class="prelude-val">Some</span>(topology) = <span class="kw-2">&amp;</span><span class="self">self</span>.topology {
             <span class="kw">use </span>hwlocality::cpu::binding::CpuBindingFlags;
             <span class="kw">use </span>hwlocality::cpu::cpuset::CpuSet;
+            <span class="kw">use </span>hwlocality::current_thread_id;
             <span class="kw">use </span>hwlocality::ffi::PositiveInt;
-
-            <span class="attr">#[cfg(not(windows))]
-            </span><span class="kw">let </span>thread_id = <span class="kw">unsafe </span>{ libc::pthread_self() };
-            <span class="attr">#[cfg(windows)]
-            </span><span class="kw">let </span>thread_id = <span class="kw">unsafe </span>{ windows_sys::Win32::System::Threading::GetCurrentThread() };
 
             <span class="comment">// load the cpuset for the given core index.
             </span><span class="kw">let </span>cpu_cores = CpuSet::from_iter(
                 <span class="self">self</span>.cores
                     .iter()
-                    .map(|<span class="kw-2">&amp;</span>core| PositiveInt::try_from(core).expect(<span class="string">&quot;Valid CPU core&quot;</span>)),
+                    .map(|<span class="kw-2">&amp;</span>core| PositiveInt::try_from(core).expect(<span class="string">"Valid CPU core"</span>)),
             );
 
             <span class="kw">if let </span><span class="prelude-val">Err</span>(error) =
-                topology.bind_thread_cpu(thread_id, <span class="kw-2">&amp;</span>cpu_cores, CpuBindingFlags::empty())
+                topology.bind_thread_cpu(current_thread_id(), <span class="kw-2">&amp;</span>cpu_cores, CpuBindingFlags::empty())
             {
-                <span class="macro">warn!</span>(%error, <span class="question-mark">?</span>cpu_cores, <span class="string">&quot;Failed to pin thread to CPU cores&quot;</span>)
+                <span class="macro">warn!</span>(%error, <span class="question-mark">?</span>cpu_cores, <span class="string">"Failed to pin thread to CPU cores"</span>)
             }
         }
     }
 }
 
-<span class="doccomment">/// Get all cpu cores, grouped into sets according to NUMA nodes.
+<span class="doccomment">/// Recommended number of thread pool size for farming, equal to number of CPU cores in the first
+/// NUMA node
+</span><span class="kw">pub fn </span>recommended_number_of_farming_threads() -&gt; usize {
+    <span class="attr">#[cfg(feature = <span class="string">"numa"</span>)]
+    </span><span class="kw">match </span>hwlocality::Topology::new().map(std::sync::Arc::new) {
+        <span class="prelude-val">Ok</span>(topology) =&gt; {
+            <span class="kw">return </span>topology
+                <span class="comment">// Iterate over NUMA nodes
+                </span>.objects_at_depth(hwlocality::object::depth::Depth::NUMANode)
+                <span class="comment">// For each NUMA nodes get CPU set
+                </span>.filter_map(|node| node.cpuset())
+                <span class="comment">// Get number of CPU cores
+                </span>.map(|cpuset| cpuset.iter_set().count())
+                .find(|<span class="kw-2">&amp;</span>count| count &gt; <span class="number">0</span>)
+                .unwrap_or_else(num_cpus::get)
+                .min(MAX_DEFAULT_FARMING_THREADS);
+        }
+        <span class="prelude-val">Err</span>(error) =&gt; {
+            <span class="macro">warn!</span>(%error, <span class="string">"Failed to get NUMA topology"</span>);
+        }
+    }
+    num_cpus::get().min(MAX_DEFAULT_FARMING_THREADS)
+}
+
+<span class="doccomment">/// Get all cpu cores, grouped into sets according to NUMA nodes or L3 cache groups on large CPUs.
 ///
 /// Returned vector is guaranteed to have at least one element and have non-zero number of CPU cores
 /// in each set.
 </span><span class="kw">pub fn </span>all_cpu_cores() -&gt; Vec&lt;CpuCoreSet&gt; {
-    <span class="attr">#[cfg(feature = <span class="string">&quot;numa&quot;</span>)]
+    <span class="attr">#[cfg(feature = <span class="string">"numa"</span>)]
     </span><span class="kw">match </span>hwlocality::Topology::new().map(std::sync::Arc::new) {
         <span class="prelude-val">Ok</span>(topology) =&gt; {
             <span class="kw">let </span>cpu_cores = topology
-                <span class="comment">// Iterate over NUMA nodes
-                </span>.objects_at_depth(hwlocality::object::depth::Depth::NUMANode)
+                <span class="comment">// Iterate over groups of L3 caches
+                </span>.objects_with_type(hwlocality::object::types::ObjectType::L3Cache)
                 <span class="comment">// For each NUMA nodes get CPU set
                 </span>.filter_map(|node| node.cpuset())
                 <span class="comment">// For each CPU set extract individual cores
@@ -625,14 +743,36 @@
             }
         }
         <span class="prelude-val">Err</span>(error) =&gt; {
-            <span class="macro">warn!</span>(%error, <span class="string">&quot;Failed to get CPU topology&quot;</span>);
+            <span class="macro">warn!</span>(%error, <span class="string">"Failed to get L3 cache topology"</span>);
         }
     }
     <span class="macro">vec!</span>[CpuCoreSet {
         cores: (<span class="number">0</span>..num_cpus::get()).collect(),
-        <span class="attr">#[cfg(feature = <span class="string">&quot;numa&quot;</span>)]
+        <span class="attr">#[cfg(feature = <span class="string">"numa"</span>)]
         </span>topology: <span class="prelude-val">None</span>,
     }]
+}
+
+<span class="doccomment">/// Parse space-separated set of groups of CPU cores (individual cores are coma-separated) into
+/// vector of CPU core sets that can be used for creation of plotting/replotting thread pools.
+</span><span class="kw">pub fn </span>parse_cpu_cores_sets(s: <span class="kw-2">&amp;</span>str) -&gt; <span class="prelude-ty">Result</span>&lt;Vec&lt;CpuCoreSet&gt;, ParseIntError&gt; {
+    <span class="attr">#[cfg(feature = <span class="string">"numa"</span>)]
+    </span><span class="kw">let </span>topology = hwlocality::Topology::new().map(std::sync::Arc::new).ok();
+
+    s.split(<span class="string">' '</span>)
+        .map(|s| {
+            <span class="kw">let </span>cores = s
+                .split(<span class="string">','</span>)
+                .map(usize::from_str)
+                .collect::&lt;<span class="prelude-ty">Result</span>&lt;Vec&lt;usize&gt;, <span class="kw">_</span>&gt;&gt;()<span class="question-mark">?</span>;
+
+            <span class="prelude-val">Ok</span>(CpuCoreSet {
+                cores,
+                <span class="attr">#[cfg(feature = <span class="string">"numa"</span>)]
+                </span>topology: topology.clone(),
+            })
+        })
+        .collect()
 }
 
 <span class="doccomment">/// Thread indices for each thread pool
@@ -641,10 +781,10 @@
     thread_pools: <span class="prelude-ty">Option</span>&lt;NonZeroUsize&gt;,
 ) -&gt; Vec&lt;CpuCoreSet&gt; {
     <span class="kw">let </span>all_numa_nodes = all_cpu_cores();
-    <span class="attr">#[cfg(feature = <span class="string">&quot;numa&quot;</span>)]
+    <span class="attr">#[cfg(feature = <span class="string">"numa"</span>)]
     </span><span class="kw">let </span>topology = <span class="kw-2">&amp;</span>all_numa_nodes
         .first()
-        .expect(<span class="string">&quot;Not empty according to function description; qed&quot;</span>)
+        .expect(<span class="string">"Not empty according to function description; qed"</span>)
         .topology;
 
     <span class="kw">if let </span><span class="prelude-val">Some</span>(thread_pools) = thread_pools {
@@ -679,7 +819,7 @@
 
                 thread_pool_core_indices.push(CpuCoreSet {
                     cores: cpu_cores,
-                    <span class="attr">#[cfg(feature = <span class="string">&quot;numa&quot;</span>)]
+                    <span class="attr">#[cfg(feature = <span class="string">"numa"</span>)]
                     </span>topology: topology.clone(),
                 });
             }
@@ -696,7 +836,7 @@
                 .chunks_exact(total_cpu_cores / thread_pools)
                 .map(|cpu_cores| CpuCoreSet {
                     cores: cpu_cores.to_vec(),
-                    <span class="attr">#[cfg(feature = <span class="string">&quot;numa&quot;</span>)]
+                    <span class="attr">#[cfg(feature = <span class="string">"numa"</span>)]
                     </span>topology: topology.clone(),
                 })
                 .collect();
@@ -709,13 +849,13 @@
 }
 
 <span class="kw">fn </span>create_plotting_thread_pool_manager_thread_pool_pair(
-    thread_prefix: <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str,
+    thread_prefix: <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str,
     thread_pool_index: usize,
     cpu_core_set: CpuCoreSet,
 ) -&gt; <span class="prelude-ty">Result</span>&lt;ThreadPool, ThreadPoolBuildError&gt; {
     ThreadPoolBuilder::new()
         .thread_name(<span class="kw">move </span>|thread_index| {
-            <span class="macro">format!</span>(<span class="string">&quot;{thread_prefix}-{thread_pool_index}.{thread_index}&quot;</span>)
+            <span class="macro">format!</span>(<span class="string">"{thread_prefix}-{thread_pool_index}.{thread_index}"</span>)
         })
         .num_threads(cpu_core_set.cpu_cores().len())
         .spawn_handler({
@@ -756,23 +896,23 @@
         |thread_pool_index| {
             <span class="kw">let </span>(plotting_cpu_core_set, replotting_cpu_core_set) = cpu_core_sets
                 .next()
-                .expect(<span class="string">&quot;Number of thread pools is the same as cpu core sets; qed&quot;</span>);
+                .expect(<span class="string">"Number of thread pools is the same as cpu core sets; qed"</span>);
 
             <span class="prelude-val">Ok</span>(PlottingThreadPoolPair {
                 plotting: create_plotting_thread_pool_manager_thread_pool_pair(
-                    <span class="string">&quot;plotting&quot;</span>,
+                    <span class="string">"plotting"</span>,
                     thread_pool_index,
                     plotting_cpu_core_set,
                 )<span class="question-mark">?</span>,
                 replotting: create_plotting_thread_pool_manager_thread_pool_pair(
-                    <span class="string">&quot;replotting&quot;</span>,
+                    <span class="string">"replotting"</span>,
                     thread_pool_index,
                     replotting_cpu_core_set,
                 )<span class="question-mark">?</span>,
             })
         },
         NonZeroUsize::new(total_thread_pools)
-            .expect(<span class="string">&quot;Thread pool is guaranteed to be non-empty; qed&quot;</span>),
+            .expect(<span class="string">"Thread pool is guaranteed to be non-empty; qed"</span>),
     )
 }
 
@@ -780,14 +920,14 @@
 /// spawn handler with a custom logic defined by `spawn_hook_builder`.
 ///
 /// `spawn_hook_builder` is called with thread builder to create `spawn_handler` that in turn will
-/// be spawn rayon&#39;s thread with desired environment.
+/// be spawn rayon's thread with desired environment.
 </span><span class="kw">pub fn </span>rayon_custom_spawn_handler&lt;SpawnHandlerBuilder, SpawnHandler, SpawnHandlerResult&gt;(
     <span class="kw-2">mut </span>spawn_handler_builder: SpawnHandlerBuilder,
 ) -&gt; <span class="kw">impl </span>FnMut(ThreadBuilder) -&gt; io::Result&lt;()&gt;
 <span class="kw">where
     </span>SpawnHandlerBuilder: (FnMut(ThreadBuilder) -&gt; SpawnHandler) + Clone,
-    SpawnHandler: (FnOnce() -&gt; SpawnHandlerResult) + Send + <span class="lifetime">&#39;static</span>,
-    SpawnHandlerResult: Send + <span class="lifetime">&#39;static</span>,
+    SpawnHandler: (FnOnce() -&gt; SpawnHandlerResult) + Send + <span class="lifetime">'static</span>,
+    SpawnHandlerResult: Send + <span class="lifetime">'static</span>,
 {
     <span class="kw">move </span>|thread: ThreadBuilder| {
         <span class="kw">let </span><span class="kw-2">mut </span>b = thread::Builder::new();

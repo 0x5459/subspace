@@ -1,4 +1,6 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `domains/test/service/src/domain.rs`."><title>domain.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-deb46770fd761b69.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="domain_test_service" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0-nightly (42b1224e9 2023-10-15)" data-channel="nightly" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-5f34af1a0ee6bacd.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `domains/test/service/src/domain.rs`."><title>domain.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-4e54bb2b497cc83f.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="domain_test_service" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (25f8d01fd 2024-01-18)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-0b2e2def73e61cbe.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="src-sidebar-title">
+            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../domain_test_service/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -468,33 +470,6 @@
 <a href="#468" id="468">468</a>
 <a href="#469" id="469">469</a>
 <a href="#470" id="470">470</a>
-<a href="#471" id="471">471</a>
-<a href="#472" id="472">472</a>
-<a href="#473" id="473">473</a>
-<a href="#474" id="474">474</a>
-<a href="#475" id="475">475</a>
-<a href="#476" id="476">476</a>
-<a href="#477" id="477">477</a>
-<a href="#478" id="478">478</a>
-<a href="#479" id="479">479</a>
-<a href="#480" id="480">480</a>
-<a href="#481" id="481">481</a>
-<a href="#482" id="482">482</a>
-<a href="#483" id="483">483</a>
-<a href="#484" id="484">484</a>
-<a href="#485" id="485">485</a>
-<a href="#486" id="486">486</a>
-<a href="#487" id="487">487</a>
-<a href="#488" id="488">488</a>
-<a href="#489" id="489">489</a>
-<a href="#490" id="490">490</a>
-<a href="#491" id="491">491</a>
-<a href="#492" id="492">492</a>
-<a href="#493" id="493">493</a>
-<a href="#494" id="494">494</a>
-<a href="#495" id="495">495</a>
-<a href="#496" id="496">496</a>
-<a href="#497" id="497">497</a>
 </pre></div><pre class="rust"><code><span class="doccomment">//! Utilities used for testing with the domain.
 </span><span class="attr">#![warn(missing_docs)]
 
@@ -505,9 +480,9 @@
 <span class="kw">use </span>cross_domain_message_gossip::ChainTxPoolMsg;
 <span class="kw">use </span>domain_client_operator::{fetch_domain_bootstrap_info, BootstrapResult, OperatorStreams};
 <span class="kw">use </span>domain_runtime_primitives::opaque::Block;
-<span class="kw">use </span>domain_runtime_primitives::{Balance, DomainCoreApi};
+<span class="kw">use </span>domain_runtime_primitives::Balance;
 <span class="kw">use </span>domain_service::providers::DefaultProvider;
-<span class="kw">use </span>domain_service::FullClient;
+<span class="kw">use </span>domain_service::{FullClient, RuntimeExecutor};
 <span class="kw">use </span>domain_test_primitives::OnchainStateApi;
 <span class="kw">use </span>evm_domain_test_runtime;
 <span class="kw">use </span>evm_domain_test_runtime::AccountId <span class="kw">as </span>AccountId20;
@@ -516,7 +491,6 @@
 <span class="kw">use </span>frame_system::pallet_prelude::BlockNumberFor;
 <span class="kw">use </span>pallet_transaction_payment_rpc::TransactionPaymentRuntimeApi;
 <span class="kw">use </span>sc_client_api::HeaderBackend;
-<span class="kw">use </span>sc_executor::NativeExecutionDispatch;
 <span class="kw">use </span>sc_network::{NetworkService, NetworkStateInfo};
 <span class="kw">use </span>sc_network_sync::SyncingService;
 <span class="kw">use </span>sc_service::config::MultiaddrWithPeerId;
@@ -524,14 +498,15 @@
 <span class="kw">use </span>sc_transaction_pool_api::OffchainTransactionPoolFactory;
 <span class="kw">use </span>sc_utils::mpsc::{tracing_unbounded, TracingUnboundedSender};
 <span class="kw">use </span>serde::de::DeserializeOwned;
-<span class="kw">use </span>sp_api::{ApiExt, ConstructRuntimeApi, Metadata, NumberFor, ProvideRuntimeApi};
+<span class="kw">use </span>sp_api::{ApiExt, ConstructRuntimeApi, Metadata, ProvideRuntimeApi};
 <span class="kw">use </span>sp_block_builder::BlockBuilder;
 <span class="kw">use </span>sp_core::{Decode, Encode, H256};
+<span class="kw">use </span>sp_domains::core_api::DomainCoreApi;
 <span class="kw">use </span>sp_domains::DomainId;
 <span class="kw">use </span>sp_messenger::messages::ChainId;
 <span class="kw">use </span>sp_messenger::{MessengerApi, RelayerApi};
 <span class="kw">use </span>sp_offchain::OffchainWorkerApi;
-<span class="kw">use </span>sp_runtime::traits::Dispatchable;
+<span class="kw">use </span>sp_runtime::traits::{Dispatchable, NumberFor};
 <span class="kw">use </span>sp_runtime::OpaqueExtrinsic;
 <span class="kw">use </span>sp_session::SessionKeys;
 <span class="kw">use </span>sp_transaction_pool::runtime_api::TaggedTransactionQueue;
@@ -563,22 +538,16 @@
 <span class="doccomment">/// The backend type used by the test service.
 </span><span class="kw">pub type </span>Backend = TFullBackend&lt;Block&gt;;
 
-<span class="kw">type </span>Client&lt;RuntimeApi, ExecutorDispatch&gt; = FullClient&lt;Block, RuntimeApi, ExecutorDispatch&gt;;
+<span class="kw">type </span>Client&lt;RuntimeApi&gt; = FullClient&lt;Block, RuntimeApi&gt;;
 
 <span class="doccomment">/// Domain executor for the test service.
-</span><span class="kw">pub type </span>DomainOperator&lt;RuntimeApi, ExecutorDispatch&gt; = domain_service::DomainOperator&lt;
-    Block,
-    CBlock,
-    subspace_test_client::Client,
-    RuntimeApi,
-    ExecutorDispatch,
-&gt;;
+</span><span class="kw">pub type </span>DomainOperator&lt;RuntimeApi&gt; =
+    domain_service::DomainOperator&lt;Block, CBlock, subspace_test_client::Client, RuntimeApi&gt;;
 
 <span class="doccomment">/// A generic domain node instance used for testing.
-</span><span class="kw">pub struct </span>DomainNode&lt;Runtime, RuntimeApi, ExecutorDispatch, AccountId&gt;
+</span><span class="kw">pub struct </span>DomainNode&lt;Runtime, RuntimeApi, AccountId&gt;
 <span class="kw">where
-    </span>RuntimeApi:
-        ConstructRuntimeApi&lt;Block, Client&lt;RuntimeApi, ExecutorDispatch&gt;&gt; + Send + Sync + <span class="lifetime">&#39;static</span>,
+    </span>RuntimeApi: ConstructRuntimeApi&lt;Block, Client&lt;RuntimeApi&gt;&gt; + Send + Sync + <span class="lifetime">'static</span>,
     RuntimeApi::RuntimeApi: ApiExt&lt;Block&gt;
         + Metadata&lt;Block&gt;
         + BlockBuilder&lt;Block&gt;
@@ -590,49 +559,46 @@
         + AccountNonceApi&lt;Block, AccountId, Nonce&gt;
         + TransactionPaymentRuntimeApi&lt;Block, Balance&gt;
         + RelayerApi&lt;Block, NumberFor&lt;Block&gt;&gt;,
-    ExecutorDispatch: NativeExecutionDispatch + Send + Sync + <span class="lifetime">&#39;static</span>,
     AccountId: Encode + Decode + FromKeyring,
 {
     <span class="doccomment">/// The domain id
     </span><span class="kw">pub </span>domain_id: DomainId,
     <span class="comment">// TODO: Make the signing scheme generic over domains, because Ecdsa only used in the EVM domain,
     // other (incoming) domains may use Sr25519
-    </span><span class="doccomment">/// The node&#39;s account key
+    </span><span class="doccomment">/// The node's account key
     </span><span class="kw">pub </span>key: EcdsaKeyring,
-    <span class="doccomment">/// TaskManager&#39;s instance.
+    <span class="doccomment">/// TaskManager's instance.
     </span><span class="kw">pub </span>task_manager: TaskManager,
-    <span class="doccomment">/// Client&#39;s instance.
-    </span><span class="kw">pub </span>client: Arc&lt;Client&lt;RuntimeApi, ExecutorDispatch&gt;&gt;,
+    <span class="doccomment">/// Client's instance.
+    </span><span class="kw">pub </span>client: Arc&lt;Client&lt;RuntimeApi&gt;&gt;,
     <span class="doccomment">/// Client backend.
     </span><span class="kw">pub </span>backend: Arc&lt;Backend&gt;,
     <span class="doccomment">/// Code executor.
-    </span><span class="kw">pub </span>code_executor: Arc&lt;sc_executor::NativeElseWasmExecutor&lt;ExecutorDispatch&gt;&gt;,
+    </span><span class="kw">pub </span>code_executor: Arc&lt;RuntimeExecutor&gt;,
     <span class="doccomment">/// Network service.
     </span><span class="kw">pub </span>network_service: Arc&lt;NetworkService&lt;Block, H256&gt;&gt;,
     <span class="doccomment">/// Sync service.
     </span><span class="kw">pub </span>sync_service: Arc&lt;SyncingService&lt;Block&gt;&gt;,
-    <span class="doccomment">/// The `MultiaddrWithPeerId` to this node. This is useful if you want to pass it as &quot;boot node&quot;
+    <span class="doccomment">/// The `MultiaddrWithPeerId` to this node. This is useful if you want to pass it as "boot node"
     /// to other nodes.
     </span><span class="kw">pub </span>addr: MultiaddrWithPeerId,
     <span class="doccomment">/// RPCHandlers to make RPC queries.
     </span><span class="kw">pub </span>rpc_handlers: RpcHandlers,
     <span class="doccomment">/// Domain oeprator.
-    </span><span class="kw">pub </span>operator: DomainOperator&lt;RuntimeApi, ExecutorDispatch&gt;,
-    <span class="doccomment">/// Sink to the node&#39;s tx pool
+    </span><span class="kw">pub </span>operator: DomainOperator&lt;RuntimeApi&gt;,
+    <span class="doccomment">/// Sink to the node's tx pool
     </span><span class="kw">pub </span>tx_pool_sink: TracingUnboundedSender&lt;ChainTxPoolMsg&gt;,
     _phantom_data: PhantomData&lt;(Runtime, AccountId)&gt;,
 }
 
-<span class="kw">impl</span>&lt;Runtime, RuntimeApi, ExecutorDispatch, AccountId&gt;
-    DomainNode&lt;Runtime, RuntimeApi, ExecutorDispatch, AccountId&gt;
+<span class="kw">impl</span>&lt;Runtime, RuntimeApi, AccountId&gt; DomainNode&lt;Runtime, RuntimeApi, AccountId&gt;
 <span class="kw">where
     </span>Runtime: frame_system::Config&lt;Hash = H256&gt; + pallet_transaction_payment::Config + Send + Sync,
     Runtime::RuntimeCall:
         Dispatchable&lt;Info = DispatchInfo, PostInfo = PostDispatchInfo&gt; + Send + Sync,
     <span class="kw">crate</span>::BalanceOf&lt;Runtime&gt;: Send + Sync + From&lt;u64&gt; + sp_runtime::FixedPointOperand,
     u64: From&lt;BlockNumberFor&lt;Runtime&gt;&gt;,
-    RuntimeApi:
-        ConstructRuntimeApi&lt;Block, Client&lt;RuntimeApi, ExecutorDispatch&gt;&gt; + Send + Sync + <span class="lifetime">&#39;static</span>,
+    RuntimeApi: ConstructRuntimeApi&lt;Block, Client&lt;RuntimeApi&gt;&gt; + Send + Sync + <span class="lifetime">'static</span>,
     RuntimeApi::RuntimeApi: ApiExt&lt;Block&gt;
         + Metadata&lt;Block&gt;
         + BlockBuilder&lt;Block&gt;
@@ -646,7 +612,6 @@
         + RelayerApi&lt;Block, NumberFor&lt;Block&gt;&gt;
         + OnchainStateApi&lt;Block, AccountId, Balance&gt;
         + EthereumRuntimeRPCApi&lt;Block&gt;,
-    ExecutorDispatch: NativeExecutionDispatch + Send + Sync + <span class="lifetime">&#39;static</span>,
     AccountId: DeserializeOwned
         + Encode
         + Decode
@@ -657,7 +622,7 @@
         + Sync
         + Send
         + FromKeyring
-        + <span class="lifetime">&#39;static</span>,
+        + <span class="lifetime">'static</span>,
 {
     <span class="attr">#[allow(clippy::too_many_arguments)]
     </span><span class="kw">async fn </span>build(
@@ -677,7 +642,7 @@
             imported_block_notification_stream,
         } = fetch_domain_bootstrap_info::&lt;Block, <span class="kw">_</span>, <span class="kw">_</span>&gt;(<span class="kw-2">&amp;*</span>mock_consensus_node.client, domain_id)
             .<span class="kw">await
-            </span>.expect(<span class="string">&quot;Failed to get domain instance data&quot;</span>);
+            </span>.expect(<span class="string">"Failed to get domain instance data"</span>);
         <span class="kw">let </span>chain_spec = create_domain_spec(domain_instance_data.raw_genesis);
         <span class="kw">let </span>domain_config = node_config(
             domain_id,
@@ -686,10 +651,10 @@
             domain_nodes,
             domain_nodes_exclusive,
             role.clone(),
-            BasePath::new(base_path.path().join(<span class="macro">format!</span>(<span class="string">&quot;domain-{domain_id:?}&quot;</span>))),
+            BasePath::new(base_path.path().join(<span class="macro">format!</span>(<span class="string">"domain-{domain_id:?}"</span>))),
             chain_spec,
         )
-        .expect(<span class="string">&quot;could not generate domain node Configuration&quot;</span>);
+        .expect(<span class="string">"could not generate domain node Configuration"</span>);
 
         <span class="kw">let </span>span = <span class="macro">sc_tracing::tracing::info_span!</span>(
             sc_tracing::logging::PREFIX_LOG_SPAN,
@@ -712,7 +677,7 @@
         };
 
         <span class="kw">let </span>(domain_message_sink, domain_message_receiver) =
-            tracing_unbounded(<span class="string">&quot;domain_message_channel&quot;</span>, <span class="number">100</span>);
+            tracing_unbounded(<span class="string">"domain_message_channel"</span>, <span class="number">100</span>);
         <span class="kw">let </span>gossip_msg_sink = mock_consensus_node
             .xdm_gossip_worker_builder()
             .gossip_msg_sink();
@@ -737,21 +702,12 @@
             maybe_operator_id,
         };
 
-        <span class="kw">let </span>domain_node = domain_service::new_full::&lt;
-            <span class="kw">_</span>,
-            <span class="kw">_</span>,
-            <span class="kw">_</span>,
-            <span class="kw">_</span>,
-            <span class="kw">_</span>,
-            <span class="kw">_</span>,
-            RuntimeApi,
-            ExecutorDispatch,
-            AccountId,
-            <span class="kw">_</span>,
-            <span class="kw">_</span>,
-        &gt;(domain_params)
-        .<span class="kw">await
-        </span>.expect(<span class="string">&quot;failed to build domain node&quot;</span>);
+        <span class="kw">let </span>domain_node =
+            domain_service::new_full::&lt;<span class="kw">_</span>, <span class="kw">_</span>, <span class="kw">_</span>, <span class="kw">_</span>, <span class="kw">_</span>, <span class="kw">_</span>, RuntimeApi, AccountId, <span class="kw">_</span>, <span class="kw">_</span>&gt;(
+                domain_params,
+            )
+            .<span class="kw">await
+            </span>.expect(<span class="string">"failed to build domain node"</span>);
 
         <span class="kw">let </span>domain_service::NewFull {
             task_manager,
@@ -811,7 +767,7 @@
                 <span class="self">self</span>.client.info().best_hash,
                 &lt;AccountId <span class="kw">as </span>FromKeyring&gt;::from_keyring(<span class="self">self</span>.key),
             )
-            .expect(<span class="string">&quot;Fail to get account nonce&quot;</span>)
+            .expect(<span class="string">"Fail to get account nonce"</span>)
     }
 
     <span class="doccomment">/// Sends an system.remark extrinsic to the pool.
@@ -830,13 +786,24 @@
         <span class="kw-2">&amp;mut </span><span class="self">self</span>,
         function: <span class="kw">impl </span>Into&lt;&lt;Runtime <span class="kw">as </span>frame_system::Config&gt;::RuntimeCall&gt;,
     ) -&gt; <span class="prelude-ty">Result</span>&lt;RpcTransactionOutput, RpcTransactionError&gt; {
+        <span class="self">self</span>.construct_and_send_extrinsic_with(<span class="self">self</span>.account_nonce(), <span class="number">0</span>.into(), function)
+            .<span class="kw">await
+    </span>}
+
+    <span class="doccomment">/// Construct an extrinsic with the given nonce and tip for the node account and send it to this node.
+    </span><span class="kw">pub async fn </span>construct_and_send_extrinsic_with(
+        <span class="kw-2">&amp;</span><span class="self">self</span>,
+        nonce: u32,
+        tip: BalanceOf&lt;Runtime&gt;,
+        function: <span class="kw">impl </span>Into&lt;&lt;Runtime <span class="kw">as </span>frame_system::Config&gt;::RuntimeCall&gt;,
+    ) -&gt; <span class="prelude-ty">Result</span>&lt;RpcTransactionOutput, RpcTransactionError&gt; {
         <span class="kw">let </span>extrinsic = construct_extrinsic_generic::&lt;Runtime, <span class="kw">_</span>&gt;(
             <span class="kw-2">&amp;</span><span class="self">self</span>.client,
             function,
             <span class="self">self</span>.key,
             <span class="bool-val">false</span>,
-            <span class="self">self</span>.account_nonce(),
-            <span class="number">0</span>.into(),
+            nonce,
+            tip,
         );
         <span class="self">self</span>.rpc_handlers.send_transaction(extrinsic.into()).<span class="kw">await
     </span>}
@@ -887,7 +854,7 @@
         <span class="self">self</span>.client
             .runtime_api()
             .free_balance(<span class="self">self</span>.client.info().best_hash, account_id)
-            .expect(<span class="string">&quot;Fail to get account free balance&quot;</span>)
+            .expect(<span class="string">"Fail to get account free balance"</span>)
     }
 }
 
@@ -967,29 +934,10 @@
     </span>}
 }
 
-<span class="doccomment">/// Evm domain executor instance.
-</span><span class="kw">pub struct </span>EVMDomainExecutorDispatch;
-
-<span class="kw">impl </span>NativeExecutionDispatch <span class="kw">for </span>EVMDomainExecutorDispatch {
-    <span class="kw">type </span>ExtendHostFunctions = ();
-
-    <span class="kw">fn </span>dispatch(method: <span class="kw-2">&amp;</span>str, data: <span class="kw-2">&amp;</span>[u8]) -&gt; <span class="prelude-ty">Option</span>&lt;Vec&lt;u8&gt;&gt; {
-        evm_domain_test_runtime::api::dispatch(method, data)
-    }
-
-    <span class="kw">fn </span>native_version() -&gt; sc_executor::NativeVersion {
-        evm_domain_test_runtime::native_version()
-    }
-}
-
 <span class="doccomment">/// The evm domain node
-</span><span class="kw">pub type </span>EvmDomainNode = DomainNode&lt;
-    evm_domain_test_runtime::Runtime,
-    evm_domain_test_runtime::RuntimeApi,
-    EVMDomainExecutorDispatch,
-    AccountId20,
-&gt;;
+</span><span class="kw">pub type </span>EvmDomainNode =
+    DomainNode&lt;evm_domain_test_runtime::Runtime, evm_domain_test_runtime::RuntimeApi, AccountId20&gt;;
 
 <span class="doccomment">/// The evm domain client
-</span><span class="kw">pub type </span>EvmDomainClient = Client&lt;evm_domain_test_runtime::RuntimeApi, EVMDomainExecutorDispatch&gt;;
+</span><span class="kw">pub type </span>EvmDomainClient = Client&lt;evm_domain_test_runtime::RuntimeApi&gt;;
 </code></pre></div></section></main></body></html>

@@ -1,4 +1,6 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `crates/pallet-domains/src/lib.rs`."><title>lib.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-deb46770fd761b69.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="pallet_domains" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0-nightly (42b1224e9 2023-10-15)" data-channel="nightly" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-5f34af1a0ee6bacd.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `crates/pallet-domains/src/lib.rs`."><title>lib.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-4e54bb2b497cc83f.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="pallet_domains" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (25f8d01fd 2024-01-18)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-0b2e2def73e61cbe.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="src-sidebar-title">
+            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../pallet_domains/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -2012,34 +2014,129 @@
 <a href="#2012" id="2012">2012</a>
 <a href="#2013" id="2013">2013</a>
 <a href="#2014" id="2014">2014</a>
+<a href="#2015" id="2015">2015</a>
+<a href="#2016" id="2016">2016</a>
+<a href="#2017" id="2017">2017</a>
+<a href="#2018" id="2018">2018</a>
+<a href="#2019" id="2019">2019</a>
+<a href="#2020" id="2020">2020</a>
+<a href="#2021" id="2021">2021</a>
+<a href="#2022" id="2022">2022</a>
+<a href="#2023" id="2023">2023</a>
+<a href="#2024" id="2024">2024</a>
+<a href="#2025" id="2025">2025</a>
+<a href="#2026" id="2026">2026</a>
+<a href="#2027" id="2027">2027</a>
+<a href="#2028" id="2028">2028</a>
+<a href="#2029" id="2029">2029</a>
+<a href="#2030" id="2030">2030</a>
+<a href="#2031" id="2031">2031</a>
+<a href="#2032" id="2032">2032</a>
+<a href="#2033" id="2033">2033</a>
+<a href="#2034" id="2034">2034</a>
+<a href="#2035" id="2035">2035</a>
+<a href="#2036" id="2036">2036</a>
+<a href="#2037" id="2037">2037</a>
+<a href="#2038" id="2038">2038</a>
+<a href="#2039" id="2039">2039</a>
+<a href="#2040" id="2040">2040</a>
+<a href="#2041" id="2041">2041</a>
+<a href="#2042" id="2042">2042</a>
+<a href="#2043" id="2043">2043</a>
+<a href="#2044" id="2044">2044</a>
+<a href="#2045" id="2045">2045</a>
+<a href="#2046" id="2046">2046</a>
+<a href="#2047" id="2047">2047</a>
+<a href="#2048" id="2048">2048</a>
+<a href="#2049" id="2049">2049</a>
+<a href="#2050" id="2050">2050</a>
+<a href="#2051" id="2051">2051</a>
+<a href="#2052" id="2052">2052</a>
+<a href="#2053" id="2053">2053</a>
+<a href="#2054" id="2054">2054</a>
+<a href="#2055" id="2055">2055</a>
+<a href="#2056" id="2056">2056</a>
+<a href="#2057" id="2057">2057</a>
+<a href="#2058" id="2058">2058</a>
+<a href="#2059" id="2059">2059</a>
+<a href="#2060" id="2060">2060</a>
+<a href="#2061" id="2061">2061</a>
+<a href="#2062" id="2062">2062</a>
+<a href="#2063" id="2063">2063</a>
+<a href="#2064" id="2064">2064</a>
+<a href="#2065" id="2065">2065</a>
+<a href="#2066" id="2066">2066</a>
+<a href="#2067" id="2067">2067</a>
+<a href="#2068" id="2068">2068</a>
+<a href="#2069" id="2069">2069</a>
+<a href="#2070" id="2070">2070</a>
+<a href="#2071" id="2071">2071</a>
+<a href="#2072" id="2072">2072</a>
+<a href="#2073" id="2073">2073</a>
+<a href="#2074" id="2074">2074</a>
+<a href="#2075" id="2075">2075</a>
+<a href="#2076" id="2076">2076</a>
+<a href="#2077" id="2077">2077</a>
+<a href="#2078" id="2078">2078</a>
+<a href="#2079" id="2079">2079</a>
+<a href="#2080" id="2080">2080</a>
+<a href="#2081" id="2081">2081</a>
+<a href="#2082" id="2082">2082</a>
+<a href="#2083" id="2083">2083</a>
+<a href="#2084" id="2084">2084</a>
+<a href="#2085" id="2085">2085</a>
+<a href="#2086" id="2086">2086</a>
+<a href="#2087" id="2087">2087</a>
+<a href="#2088" id="2088">2088</a>
+<a href="#2089" id="2089">2089</a>
+<a href="#2090" id="2090">2090</a>
+<a href="#2091" id="2091">2091</a>
+<a href="#2092" id="2092">2092</a>
+<a href="#2093" id="2093">2093</a>
+<a href="#2094" id="2094">2094</a>
+<a href="#2095" id="2095">2095</a>
+<a href="#2096" id="2096">2096</a>
+<a href="#2097" id="2097">2097</a>
+<a href="#2098" id="2098">2098</a>
+<a href="#2099" id="2099">2099</a>
+<a href="#2100" id="2100">2100</a>
+<a href="#2101" id="2101">2101</a>
+<a href="#2102" id="2102">2102</a>
+<a href="#2103" id="2103">2103</a>
+<a href="#2104" id="2104">2104</a>
+<a href="#2105" id="2105">2105</a>
+<a href="#2106" id="2106">2106</a>
+<a href="#2107" id="2107">2107</a>
+<a href="#2108" id="2108">2108</a>
+<a href="#2109" id="2109">2109</a>
 </pre></div><pre class="rust"><code><span class="comment">// Copyright (C) 2021 Subspace Labs, Inc.
 // SPDX-License-Identifier: Apache-2.0
 
-// Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+// Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
 // You may obtain a copy of the License at
 //
 // 	http://www.apache.org/licenses/LICENSE-2.0
 //
 // Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+// distributed under the License is distributed on an "AS IS" BASIS,
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
 </span><span class="doccomment">//! Pallet Domains
 
-</span><span class="attr">#![cfg_attr(not(feature = <span class="string">&quot;std&quot;</span>), no_std)]
-#![feature(array_windows)]
-#![feature(associated_type_bounds)]
+</span><span class="attr">#![cfg_attr(not(feature = <span class="string">"std"</span>), no_std)]
+#![feature(array_windows, associated_type_bounds, let_chains, variant_count)]
 
-#[cfg(feature = <span class="string">&quot;runtime-benchmarks&quot;</span>)]
+#[cfg(feature = <span class="string">"runtime-benchmarks"</span>)]
 </span><span class="kw">mod </span>benchmarking;
 
 <span class="attr">#[cfg(test)]
 </span><span class="kw">mod </span>tests;
 
 <span class="kw">pub mod </span>block_tree;
+<span class="kw">mod </span>bundle_storage_fund;
 <span class="kw">pub mod </span>domain_registry;
 <span class="kw">pub mod </span>runtime_registry;
 <span class="kw">mod </span>staking;
@@ -2059,6 +2156,8 @@
 <span class="kw">use </span>frame_system::pallet_prelude::<span class="kw-2">*</span>;
 <span class="kw">pub use </span>pallet::<span class="kw-2">*</span>;
 <span class="kw">use </span>scale_info::TypeInfo;
+<span class="kw">use </span>sp_consensus_subspace::consensus::is_proof_of_time_valid;
+<span class="kw">use </span>sp_consensus_subspace::WrappedPotOutput;
 <span class="kw">use </span>sp_core::H256;
 <span class="kw">use </span>sp_domains::bundle_producer_election::BundleProducerElectionParams;
 <span class="kw">use </span>sp_domains::{
@@ -2066,21 +2165,21 @@
     OperatorPublicKey, RuntimeId, DOMAIN_EXTRINSICS_SHUFFLING_SEED_SUBJECT, EMPTY_EXTRINSIC_ROOT,
 };
 <span class="kw">use </span>sp_domains_fraud_proof::fraud_proof::{
-    FraudProof, InvalidDomainBlockHashProof, InvalidTotalRewardsProof,
+    FraudProof, InvalidBlockFeesProof, InvalidDomainBlockHashProof,
 };
 <span class="kw">use </span>sp_domains_fraud_proof::verification::{
-    verify_bundle_equivocation_fraud_proof, verify_invalid_bundles_fraud_proof,
-    verify_invalid_domain_block_hash_fraud_proof,
+    verify_bundle_equivocation_fraud_proof, verify_invalid_block_fees_fraud_proof,
+    verify_invalid_bundles_fraud_proof, verify_invalid_domain_block_hash_fraud_proof,
     verify_invalid_domain_extrinsics_root_fraud_proof, verify_invalid_state_transition_fraud_proof,
-    verify_invalid_total_rewards_fraud_proof, verify_valid_bundle_fraud_proof,
+    verify_invalid_transfers_fraud_proof, verify_valid_bundle_fraud_proof,
 };
-<span class="kw">use </span>sp_runtime::traits::{CheckedSub, Hash, Header, One, Zero};
+<span class="kw">use </span>sp_runtime::traits::{Hash, Header, One, Zero};
 <span class="kw">use </span>sp_runtime::{RuntimeAppPublic, SaturatedConversion, Saturating};
 <span class="kw">use </span>sp_std::boxed::Box;
 <span class="kw">use </span>sp_std::collections::btree_map::BTreeMap;
 <span class="kw">use </span>sp_std::vec::Vec;
 <span class="kw">pub use </span>staking::OperatorConfig;
-<span class="kw">use </span>subspace_core_primitives::U256;
+<span class="kw">use </span>subspace_core_primitives::{BlockHash, SlotNumber, U256};
 <span class="kw">use </span>subspace_runtime_primitives::Balance;
 
 <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">type </span>BalanceOf&lt;T&gt; =
@@ -2092,10 +2191,14 @@
 <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">type </span>NominatorId&lt;T&gt; = &lt;T <span class="kw">as </span>frame_system::Config&gt;::AccountId;
 
 <span class="kw">pub trait </span>HoldIdentifier&lt;T: Config&gt; {
-    <span class="kw">fn </span>staking_pending_deposit(operator_id: OperatorId) -&gt; FungibleHoldId&lt;T&gt;;
     <span class="kw">fn </span>staking_staked(operator_id: OperatorId) -&gt; FungibleHoldId&lt;T&gt;;
-    <span class="kw">fn </span>staking_pending_unlock(operator_id: OperatorId) -&gt; FungibleHoldId&lt;T&gt;;
     <span class="kw">fn </span>domain_instantiation_id(domain_id: DomainId) -&gt; FungibleHoldId&lt;T&gt;;
+    <span class="kw">fn </span>storage_fund_withdrawal(operator_id: OperatorId) -&gt; FungibleHoldId&lt;T&gt;;
+}
+
+<span class="kw">pub trait </span>BlockSlot {
+    <span class="kw">fn </span>current_slot() -&gt; sp_consensus_slots::Slot;
+    <span class="kw">fn </span>future_slot() -&gt; sp_consensus_slots::Slot;
 }
 
 <span class="kw">pub type </span>ExecutionReceiptOf&lt;T&gt; = ExecutionReceipt&lt;
@@ -2135,6 +2238,9 @@
         execution_receipt_type, process_execution_receipt, BlockTreeNode, Error <span class="kw">as </span>BlockTreeError,
         ReceiptType,
     };
+    <span class="attr">#[cfg(not(feature = <span class="string">"runtime-benchmarks"</span>))]
+    </span><span class="kw">use </span><span class="kw">crate</span>::bundle_storage_fund::refund_storage_fee;
+    <span class="kw">use </span><span class="kw">crate</span>::bundle_storage_fund::{charge_bundle_storage_fee, Error <span class="kw">as </span>BundleStorageFundError};
     <span class="kw">use </span><span class="kw">crate</span>::domain_registry::{
         do_instantiate_domain, do_update_domain_allow_list, DomainConfig, DomainObject,
         Error <span class="kw">as </span>DomainRegistryError,
@@ -2144,23 +2250,19 @@
         register_runtime_at_genesis, Error <span class="kw">as </span>RuntimeRegistryError, RuntimeObject,
         ScheduledRuntimeUpgrade,
     };
-    <span class="attr">#[cfg(not(feature = <span class="string">&quot;runtime-benchmarks&quot;</span>))]
+    <span class="attr">#[cfg(not(feature = <span class="string">"runtime-benchmarks"</span>))]
     </span><span class="kw">use </span><span class="kw">crate</span>::staking::do_reward_operators;
     <span class="kw">use </span><span class="kw">crate</span>::staking::{
         do_deregister_operator, do_nominate_operator, do_register_operator, do_slash_operators,
-        do_switch_operator_domain, do_withdraw_stake, Error <span class="kw">as </span>StakingError, Nominator, Operator,
-        OperatorConfig, StakingSummary, Withdraw,
+        do_switch_operator_domain, do_unlock_funds, do_unlock_operator, do_withdraw_stake, Deposit,
+        DomainEpoch, Error <span class="kw">as </span>StakingError, Operator, OperatorConfig, SharePrice, StakingSummary,
+        Withdrawal,
     };
-    <span class="attr">#[cfg(not(feature = <span class="string">&quot;runtime-benchmarks&quot;</span>))]
-    </span><span class="kw">use </span><span class="kw">crate</span>::staking_epoch::do_unlock_pending_withdrawals;
-    <span class="kw">use </span><span class="kw">crate</span>::staking_epoch::{
-        do_finalize_domain_current_epoch, Error <span class="kw">as </span>StakingEpochError, PendingNominatorUnlock,
-        PendingOperatorSlashInfo,
-    };
+    <span class="kw">use </span><span class="kw">crate</span>::staking_epoch::{do_finalize_domain_current_epoch, Error <span class="kw">as </span>StakingEpochError};
     <span class="kw">use </span><span class="kw">crate</span>::weights::WeightInfo;
     <span class="kw">use crate</span>::{
-        BalanceOf, DomainBlockNumberFor, ElectionVerificationParams, HoldIdentifier, NominatorId,
-        OpaqueBundleOf, ReceiptHashFor, STORAGE_VERSION,
+        BalanceOf, BlockSlot, DomainBlockNumberFor, ElectionVerificationParams, HoldIdentifier,
+        NominatorId, OpaqueBundleOf, ReceiptHashFor, STORAGE_VERSION,
     };
     <span class="kw">use </span>alloc::string::String;
     <span class="kw">use </span>codec::FullCodec;
@@ -2175,8 +2277,8 @@
     <span class="kw">use </span>sp_core::H256;
     <span class="kw">use </span>sp_domains::bundle_producer_election::ProofOfElectionError;
     <span class="kw">use </span>sp_domains::{
-        BundleDigest, DomainId, EpochIndex, GenesisDomain, OperatorAllowList, OperatorId,
-        OperatorPublicKey, RuntimeId, RuntimeType,
+        BundleDigest, ConfirmedDomainBlock, DomainId, DomainsTransfersTracker, EpochIndex,
+        GenesisDomain, OperatorAllowList, OperatorId, OperatorPublicKey, RuntimeId, RuntimeType,
     };
     <span class="kw">use </span>sp_domains_fraud_proof::fraud_proof::FraudProof;
     <span class="kw">use </span>sp_domains_fraud_proof::InvalidTransactionCode;
@@ -2184,7 +2286,7 @@
         AtLeast32BitUnsigned, BlockNumberProvider, CheckEqual, CheckedAdd, Header <span class="kw">as </span>HeaderT,
         MaybeDisplay, One, SimpleBitOps, Zero,
     };
-    <span class="kw">use </span>sp_runtime::{SaturatedConversion, Saturating};
+    <span class="kw">use </span>sp_runtime::Saturating;
     <span class="kw">use </span>sp_std::boxed::Box;
     <span class="kw">use </span>sp_std::collections::btree_map::BTreeMap;
     <span class="kw">use </span>sp_std::collections::btree_set::BTreeSet;
@@ -2192,6 +2294,7 @@
     <span class="kw">use </span>sp_std::vec;
     <span class="kw">use </span>sp_std::vec::Vec;
     <span class="kw">use </span>subspace_core_primitives::U256;
+    <span class="kw">use </span>subspace_runtime_primitives::StorageFee;
 
     <span class="attr">#[pallet::config]
     </span><span class="kw">pub trait </span>Config: frame_system::Config&lt;Hash: Into&lt;H256&gt;&gt; {
@@ -2319,6 +2422,25 @@
         <span class="doccomment">/// The sudo account id
         </span><span class="attr">#[pallet::constant]
         </span><span class="kw">type </span>SudoId: Get&lt;<span class="self">Self</span>::AccountId&gt;;
+
+        <span class="doccomment">/// The pallet-domains's pallet id.
+        </span><span class="attr">#[pallet::constant]
+        </span><span class="kw">type </span>PalletId: Get&lt;frame_support::PalletId&gt;;
+
+        <span class="doccomment">/// Storage fee interface used to deal with bundle storage fee
+        </span><span class="kw">type </span>StorageFee: StorageFee&lt;BalanceOf&lt;<span class="self">Self</span>&gt;&gt;;
+
+        <span class="doccomment">/// The block slot
+        </span><span class="kw">type </span>BlockSlot: BlockSlot;
+
+        <span class="doccomment">/// Transfers tracker.
+        </span><span class="kw">type </span>DomainsTransfersTracker: DomainsTransfersTracker&lt;BalanceOf&lt;<span class="self">Self</span>&gt;&gt;;
+
+        <span class="doccomment">/// Upper limit for total initial accounts domains
+        </span><span class="kw">type </span>MaxInitialDomainAccounts: Get&lt;u32&gt;;
+
+        <span class="doccomment">/// Minimum balance for each initial domain account
+        </span><span class="kw">type </span>MinInitialDomainAccountBalance: Get&lt;BalanceOf&lt;<span class="self">Self</span>&gt;&gt;;
     }
 
     <span class="attr">#[pallet::pallet]
@@ -2341,6 +2463,7 @@
 
     <span class="doccomment">/// Starting EVM chain ID for evm runtimes.
     </span><span class="kw">pub struct </span>StartingEVMChainId;
+
     <span class="kw">impl </span>Get&lt;EVMChainId&gt; <span class="kw">for </span>StartingEVMChainId {
         <span class="kw">fn </span>get() -&gt; EVMChainId {
             <span class="comment">// after looking at `https://chainlist.org/?testnets=false`
@@ -2388,8 +2511,13 @@
 
     <span class="doccomment">/// List of all registered operators and their configuration.
     </span><span class="attr">#[pallet::storage]
-    </span><span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">type </span>Operators&lt;T: Config&gt; =
-        StorageMap&lt;<span class="kw">_</span>, Identity, OperatorId, Operator&lt;BalanceOf&lt;T&gt;, T::Share&gt;, OptionQuery&gt;;
+    </span><span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">type </span>Operators&lt;T: Config&gt; = StorageMap&lt;
+        <span class="kw">_</span>,
+        Identity,
+        OperatorId,
+        Operator&lt;BalanceOf&lt;T&gt;, T::Share, DomainBlockNumberFor&lt;T&gt;&gt;,
+        OptionQuery,
+    &gt;;
 
     <span class="doccomment">/// Temporary hold of all the operators who decided to switch to another domain.
     /// Once epoch is complete, these operators are added to new domains under next_operators.
@@ -2397,15 +2525,33 @@
     </span><span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">type </span>PendingOperatorSwitches&lt;T: Config&gt; =
         StorageMap&lt;<span class="kw">_</span>, Identity, DomainId, BTreeSet&lt;OperatorId&gt;, OptionQuery&gt;;
 
-    <span class="doccomment">/// List of all current epoch&#39;s nominators and their shares under a given operator,
+    <span class="doccomment">/// Share price for the operator pool at the end of Domain epoch.
+    </span><span class="comment">// TODO: currently unbounded storage.
     </span><span class="attr">#[pallet::storage]
-    </span><span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">type </span>Nominators&lt;T: Config&gt; = StorageDoubleMap&lt;
+    </span><span class="kw">pub type </span>OperatorEpochSharePrice&lt;T: Config&gt; =
+        StorageDoubleMap&lt;<span class="kw">_</span>, Identity, OperatorId, Identity, DomainEpoch, SharePrice, OptionQuery&gt;;
+
+    <span class="doccomment">/// List of all deposits for given Operator.
+    </span><span class="attr">#[pallet::storage]
+    </span><span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">type </span>Deposits&lt;T: Config&gt; = StorageDoubleMap&lt;
         <span class="kw">_</span>,
         Identity,
         OperatorId,
         Identity,
         NominatorId&lt;T&gt;,
-        Nominator&lt;T::Share&gt;,
+        Deposit&lt;T::Share, BalanceOf&lt;T&gt;&gt;,
+        OptionQuery,
+    &gt;;
+
+    <span class="doccomment">/// List of all withdrawals for a given operator.
+    </span><span class="attr">#[pallet::storage]
+    </span><span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">type </span>Withdrawals&lt;T: Config&gt; = StorageDoubleMap&lt;
+        <span class="kw">_</span>,
+        Identity,
+        OperatorId,
+        Identity,
+        NominatorId&lt;T&gt;,
+        Withdrawal&lt;BalanceOf&lt;T&gt;, T::Share, DomainBlockNumberFor&lt;T&gt;&gt;,
         OptionQuery,
     &gt;;
 
@@ -2419,82 +2565,12 @@
     </span><span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">type </span>NominatorCount&lt;T: Config&gt; =
         StorageMap&lt;<span class="kw">_</span>, Identity, OperatorId, u32, ValueQuery&gt;;
 
-    <span class="doccomment">/// Deposits initiated a nominator under this operator.
-    /// Will be stored temporarily until the current epoch is complete.
-    /// Once, epoch is complete, these deposits are staked beginning next epoch.
-    </span><span class="attr">#[pallet::storage]
-    </span><span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">type </span>PendingDeposits&lt;T: Config&gt; = StorageDoubleMap&lt;
-        <span class="kw">_</span>,
-        Identity,
-        OperatorId,
-        Identity,
-        NominatorId&lt;T&gt;,
-        BalanceOf&lt;T&gt;,
-        OptionQuery,
-    &gt;;
-
-    <span class="doccomment">/// Withdrawals initiated a nominator under this operator.
-    /// Will be stored temporarily until the current epoch is complete.
-    /// Once, epoch is complete, these will be moved to PendingNominatorUnlocks.
-    </span><span class="attr">#[pallet::storage]
-    </span><span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">type </span>PendingWithdrawals&lt;T: Config&gt; = StorageDoubleMap&lt;
-        <span class="kw">_</span>,
-        Identity,
-        OperatorId,
-        Identity,
-        NominatorId&lt;T&gt;,
-        Withdraw&lt;BalanceOf&lt;T&gt;&gt;,
-        OptionQuery,
-    &gt;;
-
-    <span class="doccomment">/// Operators who chose to deregister from a domain.
-    /// Stored here temporarily until domain epoch is complete.
-    </span><span class="attr">#[pallet::storage]
-    </span><span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">type </span>PendingOperatorDeregistrations&lt;T: Config&gt; =
-        StorageMap&lt;<span class="kw">_</span>, Identity, DomainId, BTreeSet&lt;OperatorId&gt;, OptionQuery&gt;;
-
-    <span class="doccomment">/// Stores a list of operators who are unlocking in the coming blocks.
-    /// The operator will be removed when the wait period is over
-    /// or when the operator is slashed.
-    </span><span class="attr">#[pallet::storage]
-    </span><span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">type </span>PendingOperatorUnlocks&lt;T: Config&gt; =
-        StorageValue&lt;<span class="kw">_</span>, BTreeSet&lt;OperatorId&gt;, ValueQuery&gt;;
-
-    <span class="doccomment">/// All the pending unlocks for the nominators.
-    /// We use this storage to fetch all the pending unlocks under a operator pool at the time of slashing.
-    </span><span class="attr">#[pallet::storage]
-    </span><span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">type </span>PendingNominatorUnlocks&lt;T: Config&gt; = StorageDoubleMap&lt;
-        <span class="kw">_</span>,
-        Identity,
-        OperatorId,
-        Identity,
-        DomainBlockNumberFor&lt;T&gt;,
-        Vec&lt;PendingNominatorUnlock&lt;NominatorId&lt;T&gt;, BalanceOf&lt;T&gt;&gt;&gt;,
-        OptionQuery,
-    &gt;;
-
-    <span class="doccomment">/// A list of operators that are either unregistering or one more of the nominators
-    /// are withdrawing some staked funds.
-    </span><span class="attr">#[pallet::storage]
-    </span><span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">type </span>PendingUnlocks&lt;T: Config&gt; = StorageMap&lt;
-        <span class="kw">_</span>,
-        Identity,
-        (DomainId, DomainBlockNumberFor&lt;T&gt;),
-        BTreeSet&lt;OperatorId&gt;,
-        OptionQuery,
-    &gt;;
-
     <span class="doccomment">/// A list operators who were slashed during the current epoch associated with the domain.
     /// When the epoch for a given domain is complete, operator total stake is moved to treasury and
     /// then deleted.
     </span><span class="attr">#[pallet::storage]
-    </span><span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">type </span>PendingSlashes&lt;T: Config&gt; = StorageMap&lt;
-        <span class="kw">_</span>,
-        Identity,
-        DomainId,
-        BTreeMap&lt;OperatorId, PendingOperatorSlashInfo&lt;NominatorId&lt;T&gt;, BalanceOf&lt;T&gt;&gt;&gt;,
-        OptionQuery,
-    &gt;;
+    </span><span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">type </span>PendingSlashes&lt;T: Config&gt; =
+        StorageMap&lt;<span class="kw">_</span>, Identity, DomainId, BTreeSet&lt;OperatorId&gt;, OptionQuery&gt;;
 
     <span class="doccomment">/// The pending staking operation count of the current epoch, it should not larger than
     /// `MaxPendingStakingOperation` and will be resetted to 0 upon epoch transition.
@@ -2512,7 +2588,7 @@
         <span class="kw">_</span>,
         Identity,
         DomainId,
-        DomainObject&lt;BlockNumberFor&lt;T&gt;, ReceiptHashFor&lt;T&gt;, T::AccountId&gt;,
+        DomainObject&lt;BlockNumberFor&lt;T&gt;, ReceiptHashFor&lt;T&gt;, T::AccountId, BalanceOf&lt;T&gt;&gt;,
         OptionQuery,
     &gt;;
 
@@ -2556,17 +2632,6 @@
     </span><span class="attr">#[pallet::storage]
     </span><span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">type </span>HeadReceiptExtended&lt;T: Config&gt; =
         StorageMap&lt;<span class="kw">_</span>, Identity, DomainId, bool, ValueQuery&gt;;
-
-    <span class="doccomment">/// State root mapped again each domain (block, hash)
-    /// This acts as an index for other protocols like XDM to fetch state roots faster.
-    </span><span class="attr">#[pallet::storage]
-    </span><span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">type </span>StateRoots&lt;T: Config&gt; = StorageMap&lt;
-        <span class="kw">_</span>,
-        Identity,
-        (DomainId, DomainBlockNumberFor&lt;T&gt;, T::DomainHash),
-        T::DomainHash,
-        OptionQuery,
-    &gt;;
 
     <span class="doccomment">/// The consensus block hash used to verify ER,
     /// only store the consensus block hash for a domain
@@ -2621,6 +2686,16 @@
     </span><span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">type </span>LastEpochStakingDistribution&lt;T: Config&gt; =
         StorageMap&lt;<span class="kw">_</span>, Identity, DomainId, ElectionVerificationParams&lt;BalanceOf&lt;T&gt;&gt;, OptionQuery&gt;;
 
+    <span class="doccomment">/// Storage to hold all the domain's latest confirmed block.
+    </span><span class="attr">#[pallet::storage]
+    </span><span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">type </span>LatestConfirmedDomainBlock&lt;T: Config&gt; = StorageMap&lt;
+        <span class="kw">_</span>,
+        Identity,
+        DomainId,
+        ConfirmedDomainBlock&lt;DomainBlockNumberFor&lt;T&gt;, T::DomainHash&gt;,
+        OptionQuery,
+    &gt;;
+
     <span class="attr">#[derive(TypeInfo, Encode, Decode, PalletError, Debug, PartialEq)]
     </span><span class="kw">pub enum </span>BundleError {
         <span class="doccomment">/// Can not find the operator for given operator id.
@@ -2641,10 +2716,16 @@
         </span>Receipt(BlockTreeError),
         <span class="doccomment">/// Bundle size exceed the max bundle size limit in the domain config
         </span>BundleTooLarge,
-        <span class="comment">// Bundle with an invalid extrinsic root
+        <span class="doccomment">/// Bundle with an invalid extrinsic root
         </span>InvalidExtrinsicRoot,
         <span class="doccomment">/// This bundle duplicated with an already submitted bundle
         </span>DuplicatedBundle,
+        <span class="doccomment">/// Invalid proof of time in the proof of election  
+        </span>InvalidProofOfTime,
+        <span class="doccomment">/// The bundle is built on a slot in the future
+        </span>SlotInTheFuture,
+        <span class="doccomment">/// The bundle is built on a slot in the past
+        </span>SlotInThePast,
     }
 
     <span class="attr">#[derive(TypeInfo, Encode, Decode, PalletError, Debug, PartialEq)]
@@ -2656,8 +2737,10 @@
         </span>ChallengingGenesisReceipt,
         <span class="doccomment">/// The descendants of the fraudulent ER is not pruned
         </span>DescendantsOfFraudulentERNotPruned,
-        <span class="doccomment">/// Invalid fraud proof since total rewards are not mismatched.
-        </span>InvalidTotalRewardsFraudProof,
+        <span class="doccomment">/// Invalid fraud proof since block fees are not mismatched.
+        </span>InvalidBlockFeesFraudProof,
+        <span class="doccomment">/// Invalid fraud proof since transfers are not mismatched.
+        </span>InvalidTransfersFraudProof,
         <span class="doccomment">/// Invalid domain block hash fraud proof.
         </span>InvalidDomainBlockHashFraudProof,
         <span class="doccomment">/// Invalid domain extrinsic fraud proof
@@ -2723,6 +2806,12 @@
         }
     }
 
+    <span class="kw">impl</span>&lt;T&gt; From&lt;BundleStorageFundError&gt; <span class="kw">for </span>Error&lt;T&gt; {
+        <span class="kw">fn </span>from(err: BundleStorageFundError) -&gt; <span class="self">Self </span>{
+            Error::BundleStorageFund(err)
+        }
+    }
+
     <span class="attr">#[pallet::error]
     </span><span class="kw">pub enum </span>Error&lt;T&gt; {
         <span class="doccomment">/// Invalid fraud proof.
@@ -2737,6 +2826,8 @@
         </span>DomainRegistry(DomainRegistryError),
         <span class="doccomment">/// Block tree specific errors
         </span>BlockTree(BlockTreeError),
+        <span class="doccomment">/// Bundle storage fund specific errors
+        </span>BundleStorageFund(BundleStorageFundError),
     }
 
     <span class="doccomment">/// Reason for slashing an operator
@@ -2788,9 +2879,17 @@
         OperatorDeregistered {
             operator_id: OperatorId,
         },
+        OperatorUnlocked {
+            operator_id: OperatorId,
+        },
         WithdrewStake {
             operator_id: OperatorId,
             nominator_id: NominatorId&lt;T&gt;,
+        },
+        FundsUnlocked {
+            operator_id: OperatorId,
+            nominator_id: NominatorId&lt;T&gt;,
+            amount: BalanceOf&lt;T&gt;,
         },
         PreferredOperator {
             operator_id: OperatorId,
@@ -2799,6 +2898,10 @@
         OperatorRewarded {
             operator_id: OperatorId,
             reward: BalanceOf&lt;T&gt;,
+        },
+        OperatorTaxCollected {
+            operator_id: OperatorId,
+            tax: BalanceOf&lt;T&gt;,
         },
         DomainEpochCompleted {
             domain_id: DomainId,
@@ -2818,6 +2921,11 @@
         OperatorSlashed {
             operator_id: OperatorId,
             reason: SlashedReason&lt;DomainBlockNumberFor&lt;T&gt;, ReceiptHashFor&lt;T&gt;&gt;,
+        },
+        StorageFeeDeposited {
+            operator_id: OperatorId,
+            nominator_id: NominatorId&lt;T&gt;,
+            amount: BalanceOf&lt;T&gt;,
         },
     }
 
@@ -2855,18 +2963,19 @@
         ) -&gt; DispatchResultWithPostInfo {
             ensure_none(origin)<span class="question-mark">?</span>;
 
-            <span class="macro">log::trace!</span>(target: <span class="string">&quot;runtime::domains&quot;</span>, <span class="string">&quot;Processing bundle: {opaque_bundle:?}&quot;</span>);
+            <span class="macro">log::trace!</span>(target: <span class="string">"runtime::domains"</span>, <span class="string">"Processing bundle: {opaque_bundle:?}"</span>);
 
             <span class="kw">let </span>domain_id = opaque_bundle.domain_id();
             <span class="kw">let </span>bundle_hash = opaque_bundle.hash();
             <span class="kw">let </span>bundle_header_hash = opaque_bundle.sealed_header.pre_hash();
             <span class="kw">let </span>extrinsics_root = opaque_bundle.extrinsics_root();
             <span class="kw">let </span>operator_id = opaque_bundle.operator_id();
+            <span class="kw">let </span>bundle_size = opaque_bundle.size();
             <span class="kw">let </span>receipt = opaque_bundle.into_receipt();
 
-            <span class="attr">#[cfg(not(feature = <span class="string">&quot;runtime-benchmarks&quot;</span>))]
+            <span class="attr">#[cfg(not(feature = <span class="string">"runtime-benchmarks"</span>))]
             </span><span class="kw">let </span><span class="kw-2">mut </span>epoch_transitted = <span class="bool-val">false</span>;
-            <span class="attr">#[cfg(feature = <span class="string">&quot;runtime-benchmarks&quot;</span>)]
+            <span class="attr">#[cfg(feature = <span class="string">"runtime-benchmarks"</span>)]
             </span><span class="kw">let </span>epoch_transitted = <span class="bool-val">false</span>;
 
             <span class="kw">match </span>execution_receipt_type::&lt;T&gt;(domain_id, <span class="kw-2">&amp;</span>receipt) {
@@ -2875,7 +2984,7 @@
                 }
                 <span class="comment">// Add the exeuctione receipt to the block tree
                 </span>ReceiptType::Accepted(accepted_receipt_type) =&gt; {
-                    <span class="attr">#[cfg_attr(feature = <span class="string">&quot;runtime-benchmarks&quot;</span>, allow(unused_variables))]
+                    <span class="attr">#[cfg_attr(feature = <span class="string">"runtime-benchmarks"</span>, allow(unused_variables))]
                     </span><span class="kw">let </span>maybe_confirmed_domain_block_info = process_execution_receipt::&lt;T&gt;(
                         domain_id,
                         operator_id,
@@ -2892,8 +3001,14 @@
                     // TODO: in order to get a more accurate actual weight, separately benchmark:
                     // - `do_reward_operators`,`do_slash_operators`,`do_unlock_pending_withdrawals`
                     // - `do_finalize_domain_current_epoch`
-                    </span><span class="attr">#[cfg(not(feature = <span class="string">&quot;runtime-benchmarks&quot;</span>))]
+                    </span><span class="attr">#[cfg(not(feature = <span class="string">"runtime-benchmarks"</span>))]
                     </span><span class="kw">if let </span><span class="prelude-val">Some</span>(confirmed_block_info) = maybe_confirmed_domain_block_info {
+                        refund_storage_fee::&lt;T&gt;(
+                            confirmed_block_info.total_storage_fee,
+                            confirmed_block_info.paid_bundle_storage_fees,
+                        )
+                        .map_err(Error::&lt;T&gt;::from)<span class="question-mark">?</span>;
+
                         do_reward_operators::&lt;T&gt;(
                             domain_id,
                             confirmed_block_info.operator_ids.into_iter(),
@@ -2918,11 +3033,9 @@
                         <span class="kw">if </span>confirmed_block_info.domain_block_number % T::StakeEpochDuration::get()
                             == Zero::zero()
                         {
-                            <span class="kw">let </span>completed_epoch_index = do_finalize_domain_current_epoch::&lt;T&gt;(
-                                domain_id,
-                                confirmed_block_info.domain_block_number,
-                            )
-                            .map_err(Error::&lt;T&gt;::from)<span class="question-mark">?</span>;
+                            <span class="kw">let </span>completed_epoch_index =
+                                do_finalize_domain_current_epoch::&lt;T&gt;(domain_id)
+                                    .map_err(Error::&lt;T&gt;::from)<span class="question-mark">?</span>;
 
                             <span class="self">Self</span>::deposit_event(Event::DomainEpochCompleted {
                                 domain_id,
@@ -2930,19 +3043,13 @@
                             });
                             epoch_transitted = <span class="bool-val">true</span>;
                         }
-
-                        do_unlock_pending_withdrawals::&lt;T&gt;(
-                            domain_id,
-                            confirmed_block_info.domain_block_number,
-                        )
-                        .map_err(Error::&lt;T&gt;::from)<span class="question-mark">?</span>;
                     }
                 }
             }
 
             <span class="comment">// `SuccessfulBundles` is empty means this is the first accepted bundle for this domain in this
             // consensus block, which also mean a domain block will be produced thus update `HeadDomainNumber`
-            // to this domain block&#39;s block number.
+            // to this domain block's block number.
             </span><span class="kw">if </span>SuccessfulBundles::&lt;T&gt;::get(domain_id).is_empty() {
                 <span class="kw">let </span>next_number = HeadDomainNumber::&lt;T&gt;::get(domain_id)
                     .checked_add(<span class="kw-2">&amp;</span>One::one())
@@ -2958,6 +3065,7 @@
                 BundleDigest {
                     header_hash: bundle_header_hash,
                     extrinsics_root,
+                    size: bundle_size,
                 },
             );
 
@@ -2984,14 +3092,14 @@
 
         <span class="attr">#[pallet::call_index(<span class="number">1</span>)]
         </span><span class="comment">// TODO: proper weight
-        </span><span class="attr">#[pallet::weight((Weight::from_all(<span class="number">10_000</span>), Pays::No))]
+        </span><span class="attr">#[pallet::weight((Weight::from_all(<span class="number">10_000</span>), DispatchClass::Operational, Pays::No))]
         </span><span class="kw">pub fn </span>submit_fraud_proof(
             origin: OriginFor&lt;T&gt;,
             fraud_proof: Box&lt;FraudProof&lt;BlockNumberFor&lt;T&gt;, T::Hash, T::DomainHeader&gt;&gt;,
         ) -&gt; DispatchResult {
             ensure_none(origin)<span class="question-mark">?</span>;
 
-            <span class="macro">log::trace!</span>(target: <span class="string">&quot;runtime::domains&quot;</span>, <span class="string">&quot;Processing fraud proof: {fraud_proof:?}&quot;</span>);
+            <span class="macro">log::trace!</span>(target: <span class="string">"runtime::domains"</span>, <span class="string">"Processing fraud proof: {fraud_proof:?}"</span>);
             <span class="kw">let </span>domain_id = fraud_proof.domain_id();
 
             <span class="kw">if let </span><span class="prelude-val">Some</span>(bad_receipt_hash) = fraud_proof.targeted_bad_receipt_hash() {
@@ -3016,17 +3124,9 @@
                     <span class="kw">let </span>receipt_hash = BlockTree::&lt;T&gt;::take(domain_id, to_prune)
                         .ok_or::&lt;Error&lt;T&gt;&gt;(FraudProofError::BadReceiptNotFound.into())<span class="question-mark">?</span>;
 
-                    <span class="kw">let </span>BlockTreeNode {
-                        execution_receipt,
-                        operator_ids,
-                    } = BlockTreeNodes::&lt;T&gt;::take(receipt_hash)
-                        .ok_or::&lt;Error&lt;T&gt;&gt;(FraudProofError::BadReceiptNotFound.into())<span class="question-mark">?</span>;
-
-                    <span class="kw">let _ </span>= StateRoots::&lt;T&gt;::take((
-                        domain_id,
-                        execution_receipt.domain_block_number,
-                        execution_receipt.domain_block_hash,
-                    ));
+                    <span class="kw">let </span>BlockTreeNode { operator_ids, .. } =
+                        BlockTreeNodes::&lt;T&gt;::take(receipt_hash)
+                            .ok_or::&lt;Error&lt;T&gt;&gt;(FraudProofError::BadReceiptNotFound.into())<span class="question-mark">?</span>;
 
                     <span class="comment">// NOTE: the operator id will be deduplicated since we are using `BTreeMap`
                     // and slashed reason will hold earliest bad execution receipt hash which this
@@ -3145,11 +3245,10 @@
                 domain_id,
             });
 
-            <span class="comment">// if the domain&#39;s current epoch is 0,
+            <span class="comment">// if the domain's current epoch is 0,
             // then do an epoch transition so that operator can start producing bundles
             </span><span class="kw">if </span>current_epoch_index.is_zero() {
-                do_finalize_domain_current_epoch::&lt;T&gt;(domain_id, One::one())
-                    .map_err(Error::&lt;T&gt;::from)<span class="question-mark">?</span>;
+                do_finalize_domain_current_epoch::&lt;T&gt;(domain_id).map_err(Error::&lt;T&gt;::from)<span class="question-mark">?</span>;
             }
 
             <span class="prelude-val">Ok</span>(())
@@ -3179,7 +3278,7 @@
         #[pallet::weight(T::WeightInfo::instantiate_domain())]
         </span><span class="kw">pub fn </span>instantiate_domain(
             origin: OriginFor&lt;T&gt;,
-            domain_config: DomainConfig&lt;T::AccountId&gt;,
+            domain_config: DomainConfig&lt;T::AccountId, BalanceOf&lt;T&gt;&gt;,
         ) -&gt; DispatchResult {
             ensure_root(origin)<span class="question-mark">?</span>;
 
@@ -3235,11 +3334,11 @@
         </span><span class="kw">pub fn </span>withdraw_stake(
             origin: OriginFor&lt;T&gt;,
             operator_id: OperatorId,
-            withdraw: Withdraw&lt;BalanceOf&lt;T&gt;&gt;,
+            shares: T::Share,
         ) -&gt; DispatchResult {
             <span class="kw">let </span>who = ensure_signed(origin)<span class="question-mark">?</span>;
 
-            do_withdraw_stake::&lt;T&gt;(operator_id, who.clone(), withdraw).map_err(Error::&lt;T&gt;::from)<span class="question-mark">?</span>;
+            do_withdraw_stake::&lt;T&gt;(operator_id, who.clone(), shares).map_err(Error::&lt;T&gt;::from)<span class="question-mark">?</span>;
 
             <span class="self">Self</span>::deposit_event(Event::WithdrewStake {
                 operator_id,
@@ -3249,14 +3348,42 @@
             <span class="prelude-val">Ok</span>(())
         }
 
-        <span class="doccomment">/// Extrinsic to update domain&#39;s operator allow list.
+        <span class="doccomment">/// Unlocks the first withdrawal given the unlocking period is complete.
+        /// Even if rest of the withdrawals are out of unlocking period, nominator
+        /// should call this extrinsic to unlock each withdrawal
+        </span><span class="attr">#[pallet::call_index(<span class="number">10</span>)]
+        #[pallet::weight(Weight::from_all(<span class="number">10_000</span>))]
+        </span><span class="kw">pub fn </span>unlock_funds(origin: OriginFor&lt;T&gt;, operator_id: OperatorId) -&gt; DispatchResult {
+            <span class="kw">let </span>nominator_id = ensure_signed(origin)<span class="question-mark">?</span>;
+            <span class="kw">let </span>unlocked_funds = do_unlock_funds::&lt;T&gt;(operator_id, nominator_id.clone())
+                .map_err(<span class="kw">crate</span>::pallet::Error::&lt;T&gt;::from)<span class="question-mark">?</span>;
+            <span class="self">Self</span>::deposit_event(Event::FundsUnlocked {
+                operator_id,
+                nominator_id,
+                amount: unlocked_funds,
+            });
+            <span class="prelude-val">Ok</span>(())
+        }
+
+        <span class="doccomment">/// Unlocks the operator given the unlocking period is complete.
+        /// Anyone can initiate the operator unlock.
+        </span><span class="attr">#[pallet::call_index(<span class="number">11</span>)]
+        #[pallet::weight(Weight::from_all(<span class="number">10_000</span>))]
+        </span><span class="kw">pub fn </span>unlock_operator(origin: OriginFor&lt;T&gt;, operator_id: OperatorId) -&gt; DispatchResult {
+            ensure_signed(origin)<span class="question-mark">?</span>;
+            do_unlock_operator::&lt;T&gt;(operator_id).map_err(<span class="kw">crate</span>::pallet::Error::&lt;T&gt;::from)<span class="question-mark">?</span>;
+            <span class="self">Self</span>::deposit_event(Event::OperatorUnlocked { operator_id });
+            <span class="prelude-val">Ok</span>(())
+        }
+
+        <span class="doccomment">/// Extrinsic to update domain's operator allow list.
         /// Note:
         /// - If the previous allowed list is set to specific operators and new allow list is set
         ///   to `Anyone`, then domain will become permissioned to open for all operators.
         /// - If the previous allowed list is set to `Anyone` or specific operators and the new
         ///   allow list is set to specific operators, then all the registered not allowed operators
         ///   will continue to operate until they de-register themselves.
-        </span><span class="attr">#[pallet::call_index(<span class="number">10</span>)]
+        </span><span class="attr">#[pallet::call_index(<span class="number">12</span>)]
         #[pallet::weight(Weight::from_all(<span class="number">10_000</span>))]
         </span><span class="kw">pub fn </span>update_domain_operator_allow_list(
             origin: OriginFor&lt;T&gt;,
@@ -3271,7 +3398,7 @@
         }
 
         <span class="doccomment">/// Force staking epoch transition for a given domain
-        </span><span class="attr">#[pallet::call_index(<span class="number">11</span>)]
+        </span><span class="attr">#[pallet::call_index(<span class="number">13</span>)]
         #[pallet::weight(T::WeightInfo::pending_staking_operation())]
         </span><span class="kw">pub fn </span>force_staking_epoch_transition(
             origin: OriginFor&lt;T&gt;,
@@ -3279,14 +3406,8 @@
         ) -&gt; DispatchResult {
             ensure_root(origin)<span class="question-mark">?</span>;
 
-            <span class="kw">let </span>completed_epoch_index = do_finalize_domain_current_epoch::&lt;T&gt;(
-                domain_id,
-                <span class="comment">// This domain block number argument is used to calculate the `unlock_block_number` for
-                // withdrawal, using the `oldest_receipt_number` here such that the withdrawal can be
-                // unlocked later by the regular epoch transition with the same amount of locking period.
-                </span><span class="self">Self</span>::oldest_receipt_number(domain_id),
-            )
-            .map_err(Error::&lt;T&gt;::from)<span class="question-mark">?</span>;
+            <span class="kw">let </span>completed_epoch_index =
+                do_finalize_domain_current_epoch::&lt;T&gt;(domain_id).map_err(Error::&lt;T&gt;::from)<span class="question-mark">?</span>;
 
             <span class="self">Self</span>::deposit_event(Event::ForceDomainEpochTransition {
                 domain_id,
@@ -3298,7 +3419,7 @@
 
     <span class="attr">#[pallet::genesis_config]
     </span><span class="kw">pub struct </span>GenesisConfig&lt;T: Config&gt; {
-        <span class="kw">pub </span>genesis_domain: <span class="prelude-ty">Option</span>&lt;GenesisDomain&lt;T::AccountId&gt;&gt;,
+        <span class="kw">pub </span>genesis_domain: <span class="prelude-ty">Option</span>&lt;GenesisDomain&lt;T::AccountId, BalanceOf&lt;T&gt;&gt;&gt;,
     }
 
     <span class="kw">impl</span>&lt;T: Config&gt; Default <span class="kw">for </span>GenesisConfig&lt;T&gt; {
@@ -3321,7 +3442,7 @@
                     genesis_domain.raw_genesis_storage,
                     Zero::zero(),
                 )
-                .expect(<span class="string">&quot;Genesis runtime registration must always succeed&quot;</span>);
+                .expect(<span class="string">"Genesis runtime registration must always succeed"</span>);
 
                 <span class="comment">// Instantiate the genesis domain
                 </span><span class="kw">let </span>domain_config = DomainConfig {
@@ -3332,26 +3453,25 @@
                     bundle_slot_probability: genesis_domain.bundle_slot_probability,
                     target_bundles_per_block: genesis_domain.target_bundles_per_block,
                     operator_allow_list: genesis_domain.operator_allow_list,
+                    initial_balances: genesis_domain.initial_balances,
                 };
                 <span class="kw">let </span>domain_owner = genesis_domain.owner_account_id;
                 <span class="kw">let </span>domain_id =
                     do_instantiate_domain::&lt;T&gt;(domain_config, domain_owner.clone(), Zero::zero())
-                        .expect(<span class="string">&quot;Genesis domain instantiation must always succeed&quot;</span>);
+                        .expect(<span class="string">"Genesis domain instantiation must always succeed"</span>);
 
                 <span class="comment">// Register domain_owner as the genesis operator.
                 </span><span class="kw">let </span>operator_config = OperatorConfig {
                     signing_key: genesis_domain.signing_key.clone(),
-                    minimum_nominator_stake: genesis_domain
-                        .minimum_nominator_stake
-                        .saturated_into(),
+                    minimum_nominator_stake: genesis_domain.minimum_nominator_stake,
                     nomination_tax: genesis_domain.nomination_tax,
                 };
                 <span class="kw">let </span>operator_stake = T::MinOperatorStake::get();
                 do_register_operator::&lt;T&gt;(domain_owner, domain_id, operator_stake, operator_config)
-                    .expect(<span class="string">&quot;Genesis operator registration must succeed&quot;</span>);
+                    .expect(<span class="string">"Genesis operator registration must succeed"</span>);
 
-                do_finalize_domain_current_epoch::&lt;T&gt;(domain_id, Zero::zero())
-                    .expect(<span class="string">&quot;Genesis epoch must succeed&quot;</span>);
+                do_finalize_domain_current_epoch::&lt;T&gt;(domain_id)
+                    .expect(<span class="string">"Genesis epoch must succeed"</span>);
             }
         }
     }
@@ -3383,7 +3503,7 @@
     }
 
     <span class="doccomment">/// Constructs a `TransactionValidity` with pallet-executor specific defaults.
-    </span><span class="kw">fn </span>unsigned_validity(prefix: <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str, tag: <span class="kw">impl </span>Encode) -&gt; TransactionValidity {
+    </span><span class="kw">fn </span>unsigned_validity(prefix: <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str, tag: <span class="kw">impl </span>Encode) -&gt; TransactionValidity {
         ValidTransaction::with_tag_prefix(prefix)
             .priority(TransactionPriority::MAX)
             .and_provides(tag)
@@ -3398,8 +3518,15 @@
         <span class="kw">type </span>Call = Call&lt;T&gt;;
         <span class="kw">fn </span>pre_dispatch(call: <span class="kw-2">&amp;</span><span class="self">Self</span>::Call) -&gt; <span class="prelude-ty">Result</span>&lt;(), TransactionValidityError&gt; {
             <span class="kw">match </span>call {
-                Call::submit_bundle { opaque_bundle } =&gt; <span class="self">Self</span>::validate_bundle(opaque_bundle)
-                    .map_err(|<span class="kw">_</span>| InvalidTransaction::Call.into()),
+                Call::submit_bundle { opaque_bundle } =&gt; <span class="self">Self</span>::validate_bundle(opaque_bundle, <span class="bool-val">true</span>)
+                    .map_err(|<span class="kw">_</span>| InvalidTransaction::Call.into())
+                    .and_then(|<span class="kw">_</span>| {
+                        charge_bundle_storage_fee::&lt;T&gt;(
+                            opaque_bundle.operator_id(),
+                            opaque_bundle.size(),
+                        )
+                        .map_err(|<span class="kw">_</span>| InvalidTransaction::Call.into())
+                    }),
                 Call::submit_fraud_proof { fraud_proof } =&gt; <span class="self">Self</span>::validate_fraud_proof(fraud_proof)
                     .map_err(|<span class="kw">_</span>| InvalidTransaction::Call.into()),
                 <span class="kw">_ </span>=&gt; <span class="prelude-val">Err</span>(InvalidTransaction::Call.into()),
@@ -3409,7 +3536,7 @@
         <span class="kw">fn </span>validate_unsigned(_source: TransactionSource, call: <span class="kw-2">&amp;</span><span class="self">Self</span>::Call) -&gt; TransactionValidity {
             <span class="kw">match </span>call {
                 Call::submit_bundle { opaque_bundle } =&gt; {
-                    <span class="kw">if let </span><span class="prelude-val">Err</span>(e) = <span class="self">Self</span>::validate_bundle(opaque_bundle) {
+                    <span class="kw">if let </span><span class="prelude-val">Err</span>(e) = <span class="self">Self</span>::validate_bundle(opaque_bundle, <span class="bool-val">false</span>) {
                         <span class="kw">match </span>e {
                             <span class="comment">// These errors are common due to networking delay or chain re-org,
                             // using a lower log level to avoid the noise.
@@ -3417,16 +3544,18 @@
                             | BundleError::Receipt(BlockTreeError::StaleReceipt)
                             | BundleError::Receipt(BlockTreeError::NewBranchReceipt)
                             | BundleError::Receipt(BlockTreeError::UnavailableConsensusBlockHash)
-                            | BundleError::Receipt(BlockTreeError::BuiltOnUnknownConsensusBlock) =&gt; {
+                            | BundleError::Receipt(BlockTreeError::BuiltOnUnknownConsensusBlock)
+                            | BundleError::SlotInThePast
+                            | BundleError::SlotInTheFuture =&gt; {
                                 <span class="macro">log::debug!</span>(
-                                    target: <span class="string">&quot;runtime::domains&quot;</span>,
-                                    <span class="string">&quot;Bad bundle {:?}, error: {e:?}&quot;</span>, opaque_bundle.domain_id(),
+                                    target: <span class="string">"runtime::domains"</span>,
+                                    <span class="string">"Bad bundle {:?}, error: {e:?}"</span>, opaque_bundle.domain_id(),
                                 );
                             }
                             <span class="kw">_ </span>=&gt; {
                                 <span class="macro">log::warn!</span>(
-                                    target: <span class="string">&quot;runtime::domains&quot;</span>,
-                                    <span class="string">&quot;Bad bundle {:?}, operator {}, error: {e:?}&quot;</span>,
+                                    target: <span class="string">"runtime::domains"</span>,
+                                    <span class="string">"Bad bundle {:?}, operator {}, error: {e:?}"</span>,
                                     opaque_bundle.domain_id(),
                                     opaque_bundle.operator_id(),
                                 );
@@ -3439,10 +3568,23 @@
                         }
                     }
 
-                    ValidTransaction::with_tag_prefix(<span class="string">&quot;SubspaceSubmitBundle&quot;</span>)
+                    <span class="kw">if let </span><span class="prelude-val">Err</span>(e) = charge_bundle_storage_fee::&lt;T&gt;(
+                        opaque_bundle.operator_id(),
+                        opaque_bundle.size(),
+                    ) {
+                        <span class="macro">log::debug!</span>(
+                            target: <span class="string">"runtime::domains"</span>,
+                            <span class="string">"Operator {} unable to pay for the bundle storage fee, domain id {:?}, error: {e:?}"</span>,
+                            opaque_bundle.operator_id(),
+                            opaque_bundle.domain_id(),
+                        );
+                        <span class="kw">return </span>InvalidTransactionCode::BundleStorageFeePayment.into();
+                    }
+
+                    ValidTransaction::with_tag_prefix(<span class="string">"SubspaceSubmitBundle"</span>)
                         .priority(TransactionPriority::MAX)
                         .longevity(T::ConfirmationDepthK::get().try_into().unwrap_or_else(|<span class="kw">_</span>| {
-                            <span class="macro">panic!</span>(<span class="string">&quot;Block number always fits in TransactionLongevity; qed&quot;</span>)
+                            <span class="macro">panic!</span>(<span class="string">"Block number always fits in TransactionLongevity; qed"</span>)
                         }))
                         .and_provides(opaque_bundle.hash())
                         .propagate(<span class="bool-val">true</span>)
@@ -3451,14 +3593,14 @@
                 Call::submit_fraud_proof { fraud_proof } =&gt; {
                     <span class="kw">if let </span><span class="prelude-val">Err</span>(e) = <span class="self">Self</span>::validate_fraud_proof(fraud_proof) {
                         <span class="macro">log::warn!</span>(
-                            target: <span class="string">&quot;runtime::domains&quot;</span>,
-                            <span class="string">&quot;Bad fraud proof {:?}, error: {e:?}&quot;</span>, fraud_proof.domain_id(),
+                            target: <span class="string">"runtime::domains"</span>,
+                            <span class="string">"Bad fraud proof {:?}, error: {e:?}"</span>, fraud_proof.domain_id(),
                         );
                         <span class="kw">return </span>InvalidTransactionCode::FraudProof.into();
                     }
 
                     <span class="comment">// TODO: proper tag value.
-                    </span>unsigned_validity(<span class="string">&quot;SubspaceSubmitFraudProof&quot;</span>, fraud_proof)
+                    </span>unsigned_validity(<span class="string">"SubspaceSubmitFraudProof"</span>, fraud_proof)
                 }
 
                 <span class="kw">_ </span>=&gt; InvalidTransaction::Call.into(),
@@ -3485,14 +3627,6 @@
         <span class="prelude-val">Some</span>(HeadDomainNumber::&lt;T&gt;::get(domain_id))
     }
 
-    <span class="kw">pub fn </span>domain_state_root(
-        domain_id: DomainId,
-        domain_block_number: DomainBlockNumberFor&lt;T&gt;,
-        domain_block_hash: T::DomainHash,
-    ) -&gt; <span class="prelude-ty">Option</span>&lt;T::DomainHash&gt; {
-        StateRoots::&lt;T&gt;::get((domain_id, domain_block_number, domain_block_hash))
-    }
-
     <span class="kw">pub fn </span>runtime_id(domain_id: DomainId) -&gt; <span class="prelude-ty">Option</span>&lt;RuntimeId&gt; {
         DomainRegistry::&lt;T&gt;::get(domain_id)
             .map(|domain_object| domain_object.domain_config.runtime_id)
@@ -3504,8 +3638,15 @@
         <span class="kw">let </span>domain_obj = DomainRegistry::&lt;T&gt;::get(domain_id)<span class="question-mark">?</span>;
         <span class="kw">let </span>runtime_object = RuntimeRegistry::&lt;T&gt;::get(domain_obj.domain_config.runtime_id)<span class="question-mark">?</span>;
         <span class="kw">let </span>runtime_type = runtime_object.runtime_type.clone();
-        <span class="kw">let </span>raw_genesis =
-            runtime_object.into_complete_raw_genesis(domain_id, domain_obj.domain_runtime_info);
+        <span class="kw">let </span>total_issuance = domain_obj.domain_config.total_issuance()<span class="question-mark">?</span>;
+        <span class="kw">let </span>raw_genesis = runtime_object
+            .into_complete_raw_genesis::&lt;T&gt;(
+                domain_id,
+                domain_obj.domain_runtime_info,
+                total_issuance,
+                domain_obj.domain_config.initial_balances,
+            )
+            .ok()<span class="question-mark">?</span>;
         <span class="prelude-val">Some</span>((
             DomainInstanceData {
                 runtime_type,
@@ -3561,18 +3702,6 @@
         <span class="prelude-val">Ok</span>(())
     }
 
-    <span class="kw">fn </span>check_bundle_size(
-        opaque_bundle: <span class="kw-2">&amp;</span>OpaqueBundleOf&lt;T&gt;,
-        max_size: u32,
-    ) -&gt; <span class="prelude-ty">Result</span>&lt;(), BundleError&gt; {
-        <span class="kw">let </span>bundle_size = opaque_bundle
-            .extrinsics
-            .iter()
-            .fold(<span class="number">0</span>, |acc, xt| acc + xt.encoded_size() <span class="kw">as </span>u32);
-        <span class="macro">ensure!</span>(max_size &gt;= bundle_size, BundleError::BundleTooLarge);
-        <span class="prelude-val">Ok</span>(())
-    }
-
     <span class="kw">fn </span>check_extrinsics_root(opaque_bundle: <span class="kw-2">&amp;</span>OpaqueBundleOf&lt;T&gt;) -&gt; <span class="prelude-ty">Result</span>&lt;(), BundleError&gt; {
         <span class="kw">let </span>expected_extrinsics_root = &lt;T::DomainHeader <span class="kw">as </span>Header&gt;::Hashing::ordered_trie_root(
             opaque_bundle
@@ -3589,7 +3718,10 @@
         <span class="prelude-val">Ok</span>(())
     }
 
-    <span class="kw">fn </span>validate_bundle(opaque_bundle: <span class="kw-2">&amp;</span>OpaqueBundleOf&lt;T&gt;) -&gt; <span class="prelude-ty">Result</span>&lt;(), BundleError&gt; {
+    <span class="kw">fn </span>validate_bundle(
+        opaque_bundle: <span class="kw-2">&amp;</span>OpaqueBundleOf&lt;T&gt;,
+        pre_dispatch: bool,
+    ) -&gt; <span class="prelude-ty">Result</span>&lt;(), BundleError&gt; {
         <span class="kw">let </span>domain_id = opaque_bundle.domain_id();
         <span class="kw">let </span>operator_id = opaque_bundle.operator_id();
         <span class="kw">let </span>sealed_header = <span class="kw-2">&amp;</span>opaque_bundle.sealed_header;
@@ -3616,13 +3748,44 @@
 
         <span class="comment">// TODO: check bundle weight with `domain_config.max_block_weight`
 
-        </span><span class="self">Self</span>::check_bundle_size(opaque_bundle, domain_config.max_block_size)<span class="question-mark">?</span>;
+        </span><span class="macro">ensure!</span>(
+            opaque_bundle.size() &lt;= domain_config.max_block_size,
+            BundleError::BundleTooLarge
+        );
 
         <span class="self">Self</span>::check_extrinsics_root(opaque_bundle)<span class="question-mark">?</span>;
 
         <span class="kw">let </span>proof_of_election = <span class="kw-2">&amp;</span>sealed_header.header.proof_of_election;
+        <span class="kw">let </span>slot_number = proof_of_election.slot_number;
         <span class="kw">let </span>(operator_stake, total_domain_stake) =
             <span class="self">Self</span>::fetch_operator_stake_info(domain_id, <span class="kw-2">&amp;</span>operator_id)<span class="question-mark">?</span>;
+
+        <span class="comment">// Check if the bundle is built with slot and valid proof-of-time that produced between the parent block
+        // and the current block
+        //
+        // NOTE: during `validate_unsigned` `current_slot` is query from the parent block and during `pre_dispatch`
+        // the `future_slot` is query from the current block.
+        </span><span class="kw">if </span>pre_dispatch {
+            <span class="macro">ensure!</span>(
+                slot_number &lt;= <span class="kw-2">*</span>T::BlockSlot::future_slot(),
+                BundleError::SlotInTheFuture
+            )
+        } <span class="kw">else </span>{
+            <span class="macro">ensure!</span>(
+                slot_number &gt; <span class="kw-2">*</span>T::BlockSlot::current_slot(),
+                BundleError::SlotInThePast
+            );
+        }
+        <span class="kw">if </span>!is_proof_of_time_valid(
+            BlockHash::try_from(frame_system::Pallet::&lt;T&gt;::parent_hash().as_ref())
+                .expect(<span class="string">"Must be able to convert to block hash type"</span>),
+            SlotNumber::from(slot_number),
+            WrappedPotOutput::from(proof_of_election.proof_of_time),
+            <span class="comment">// Quick verification when entering transaction pool, but not when constructing the block
+            </span>!pre_dispatch,
+        ) {
+            <span class="kw">return </span><span class="prelude-val">Err</span>(BundleError::InvalidProofOfTime);
+        }
 
         sp_domains::bundle_producer_election::check_proof_of_election(
             <span class="kw-2">&amp;</span>operator.signing_key,
@@ -3652,10 +3815,8 @@
             );
 
             <span class="kw">match </span>fraud_proof {
-                FraudProof::InvalidTotalRewards(InvalidTotalRewardsProof {
-                    storage_proof, ..
-                }) =&gt; {
-                    verify_invalid_total_rewards_fraud_proof::&lt;
+                FraudProof::InvalidBlockFees(InvalidBlockFeesProof { storage_proof, .. }) =&gt; {
+                    verify_invalid_block_fees_fraud_proof::&lt;
                         T::Block,
                         DomainBlockNumberFor&lt;T&gt;,
                         T::DomainHash,
@@ -3664,10 +3825,26 @@
                     &gt;(bad_receipt, storage_proof)
                     .map_err(|err| {
                         <span class="macro">log::error!</span>(
-                            target: <span class="string">&quot;runtime::domains&quot;</span>,
-                            <span class="string">&quot;Total rewards proof verification failed: {err:?}&quot;
+                            target: <span class="string">"runtime::domains"</span>,
+                            <span class="string">"Block fees proof verification failed: {err:?}"
                         </span>);
-                        FraudProofError::InvalidTotalRewardsFraudProof
+                        FraudProofError::InvalidBlockFeesFraudProof
+                    })<span class="question-mark">?</span>;
+                }
+                FraudProof::InvalidTransfers(req) =&gt; {
+                    verify_invalid_transfers_fraud_proof::&lt;
+                        T::Block,
+                        DomainBlockNumberFor&lt;T&gt;,
+                        T::DomainHash,
+                        BalanceOf&lt;T&gt;,
+                        DomainHashingFor&lt;T&gt;,
+                    &gt;(bad_receipt, req)
+                    .map_err(|err| {
+                        <span class="macro">log::error!</span>(
+                            target: <span class="string">"runtime::domains"</span>,
+                            <span class="string">"Domain transfers proof verification failed: {err:?}"
+                        </span>);
+                        FraudProofError::InvalidTransfersFraudProof
                     })<span class="question-mark">?</span>;
                 }
                 FraudProof::InvalidDomainBlockHash(InvalidDomainBlockHashProof {
@@ -3689,8 +3866,8 @@
                     )
                     .map_err(|err| {
                         <span class="macro">log::error!</span>(
-                            target: <span class="string">&quot;runtime::domains&quot;</span>,
-                            <span class="string">&quot;Invalid Domain block hash proof verification failed: {err:?}&quot;
+                            target: <span class="string">"runtime::domains"</span>,
+                            <span class="string">"Invalid Domain block hash proof verification failed: {err:?}"
                         </span>);
                         FraudProofError::InvalidDomainBlockHashFraudProof
                     })<span class="question-mark">?</span>;
@@ -3704,8 +3881,8 @@
                     &gt;(bad_receipt, proof)
                     .map_err(|err| {
                         <span class="macro">log::error!</span>(
-                            target: <span class="string">&quot;runtime::domains&quot;</span>,
-                            <span class="string">&quot;Invalid Domain extrinsic root proof verification failed: {err:?}&quot;
+                            target: <span class="string">"runtime::domains"</span>,
+                            <span class="string">"Invalid Domain extrinsic root proof verification failed: {err:?}"
                         </span>);
                         FraudProofError::InvalidExtrinsicRootFraudProof
                     })<span class="question-mark">?</span>;
@@ -3723,8 +3900,8 @@
                     &gt;(bad_receipt, bad_receipt_parent, proof)
                     .map_err(|err| {
                         <span class="macro">log::error!</span>(
-                            target: <span class="string">&quot;runtime::domains&quot;</span>,
-                            <span class="string">&quot;Invalid State transition proof verification failed: {err:?}&quot;
+                            target: <span class="string">"runtime::domains"</span>,
+                            <span class="string">"Invalid State transition proof verification failed: {err:?}"
                         </span>);
                         FraudProofError::InvalidStateTransitionFraudProof
                     })<span class="question-mark">?</span>;
@@ -3742,8 +3919,8 @@
                     )
                     .map_err(|err| {
                         <span class="macro">log::error!</span>(
-                            target: <span class="string">&quot;runtime::domains&quot;</span>,
-                            <span class="string">&quot;Invalid Bundle proof verification failed: {err:?}&quot;
+                            target: <span class="string">"runtime::domains"</span>,
+                            <span class="string">"Invalid Bundle proof verification failed: {err:?}"
                         </span>);
                         FraudProofError::InvalidBundleFraudProof
                     })<span class="question-mark">?</span>;
@@ -3756,8 +3933,8 @@
                 &gt;(bad_receipt, proof)
                 .map_err(|err| {
                     <span class="macro">log::error!</span>(
-                        target: <span class="string">&quot;runtime::domains&quot;</span>,
-                        <span class="string">&quot;Valid bundle proof verification failed: {err:?}&quot;
+                        target: <span class="string">"runtime::domains"</span>,
+                        <span class="string">"Valid bundle proof verification failed: {err:?}"
                     </span>);
                     FraudProofError::BadValidBundleFraudProof
                 })<span class="question-mark">?</span>,
@@ -3778,8 +3955,8 @@
                     )
                     .map_err(|err| {
                         <span class="macro">log::error!</span>(
-                            target: <span class="string">&quot;runtime::domains&quot;</span>,
-                            <span class="string">&quot;Bundle equivocation proof verification failed: {err:?}&quot;
+                            target: <span class="string">"runtime::domains"</span>,
+                            <span class="string">"Bundle equivocation proof verification failed: {err:?}"
                         </span>);
                         FraudProofError::BadBundleEquivocationFraudProof
                     })<span class="question-mark">?</span>;
@@ -3795,7 +3972,7 @@
     <span class="doccomment">/// Return operators specific election verification params for Proof of Election verification.
     /// If there was an epoch transition in this block for this domain,
     ///     then return the parameters from previous epoch stored in LastEpochStakingDistribution
-    /// Else, return those details from the Domain&#39;s stake summary for this epoch.
+    /// Else, return those details from the Domain's stake summary for this epoch.
     </span><span class="kw">fn </span>fetch_operator_stake_info(
         domain_id: DomainId,
         operator_id: <span class="kw-2">&amp;</span>OperatorId,
@@ -3871,8 +4048,8 @@
                         );
 
                         <span class="macro">log::trace!</span>(
-                            target: <span class="string">&quot;runtime::domains&quot;</span>,
-                            <span class="string">&quot;tx range update: blocks = {interval_blocks}, bundles = {actual_bundle_count}, prev = {tx_range}, new = {new_tx_range}&quot;
+                            target: <span class="string">"runtime::domains"</span>,
+                            <span class="string">"tx range update: blocks = {interval_blocks}, bundles = {actual_bundle_count}, prev = {tx_range}, new = {new_tx_range}"
                         </span>);
 
                         <span class="comment">// Reset the tx range and start over.
@@ -3895,16 +4072,31 @@
         HeadReceiptNumber::&lt;T&gt;::get(domain_id)
     }
 
-    <span class="doccomment">/// Returns the block number of oldest execution receipt.
-    </span><span class="comment">// FIXME: the `oldest_receipt_number` may not be correct if fraud proof is submitted
-    // and bad ER were pruned, see https://github.com/subspace/subspace/issues/2354
-    </span><span class="kw">pub fn </span>oldest_receipt_number(domain_id: DomainId) -&gt; DomainBlockNumberFor&lt;T&gt; {
-        <span class="self">Self</span>::head_receipt_number(domain_id).saturating_sub(<span class="self">Self</span>::block_tree_pruning_depth())
+    <span class="doccomment">/// Returns the block number of the oldest existing unconfirmed execution receipt, return `None`
+    /// means there is no unconfirmed ER exist or submitted yet.
+    </span><span class="kw">pub fn </span>oldest_unconfirmed_receipt_number(
+        domain_id: DomainId,
+    ) -&gt; <span class="prelude-ty">Option</span>&lt;DomainBlockNumberFor&lt;T&gt;&gt; {
+        <span class="kw">let </span>oldest_nonconfirmed_er_number =
+            <span class="self">Self</span>::latest_confirmed_domain_block_number(domain_id).saturating_add(One::one());
+
+        <span class="kw">if </span>BlockTree::&lt;T&gt;::get(domain_id, oldest_nonconfirmed_er_number).is_some() {
+            <span class="prelude-val">Some</span>(oldest_nonconfirmed_er_number)
+        } <span class="kw">else </span>{
+            <span class="comment">// The `oldest_nonconfirmed_er_number` ER may not exist if
+            // - The domain just started and no ER submitted yet
+            // - The oldest ER just pruned by fraud proof and no new ER submitted yet
+            // - When using consensus block to derive the challenge period forward (unimplemented yet)
+            </span><span class="prelude-val">None
+        </span>}
     }
 
-    <span class="doccomment">/// Returns the block tree pruning depth.
-    </span><span class="kw">pub fn </span>block_tree_pruning_depth() -&gt; DomainBlockNumberFor&lt;T&gt; {
-        T::BlockTreePruningDepth::get()
+    <span class="doccomment">/// Returns the latest confirmed domain block number for a given domain
+    /// Zero block is always a default confirmed block.
+    </span><span class="kw">pub fn </span>latest_confirmed_domain_block_number(domain_id: DomainId) -&gt; DomainBlockNumberFor&lt;T&gt; {
+        LatestConfirmedDomainBlock::&lt;T&gt;::get(domain_id)
+            .map(|block| block.block_number)
+            .unwrap_or_default()
     }
 
     <span class="doccomment">/// Returns the domain block limit of the given domain.
@@ -3922,10 +4114,10 @@
             <span class="kw">return </span><span class="bool-val">true</span>;
         }
 
+        <span class="comment">// Start from the oldest non-confirmed ER to the head domain number
+        </span><span class="kw">let </span><span class="kw-2">mut </span>to_check =
+            <span class="self">Self</span>::latest_confirmed_domain_block_number(domain_id).saturating_add(One::one());
         <span class="kw">let </span>head_number = HeadDomainNumber::&lt;T&gt;::get(domain_id);
-        <span class="kw">let </span><span class="kw-2">mut </span>to_check = head_number
-            .checked_sub(<span class="kw-2">&amp;</span>T::BlockTreePruningDepth::get())
-            .unwrap_or(Zero::zero());
 
         <span class="kw">while </span>to_check &lt;= head_number {
             <span class="kw">if </span>!ExecutionInbox::&lt;T&gt;::iter_prefix_values((domain_id, to_check)).all(|digests| {
@@ -3974,12 +4166,12 @@
         <span class="kw">match </span>SubmitTransaction::&lt;T, Call&lt;T&gt;&gt;::submit_unsigned_transaction(call.into()) {
             <span class="prelude-val">Ok</span>(()) =&gt; {
                 <span class="macro">log::info!</span>(
-                    target: <span class="string">&quot;runtime::domains&quot;</span>,
-                    <span class="string">&quot;Submitted bundle from slot {slot}, extrinsics: {extrincis_count}&quot;</span>,
+                    target: <span class="string">"runtime::domains"</span>,
+                    <span class="string">"Submitted bundle from slot {slot}, extrinsics: {extrincis_count}"</span>,
                 );
             }
             <span class="prelude-val">Err</span>(()) =&gt; {
-                <span class="macro">log::error!</span>(target: <span class="string">&quot;runtime::domains&quot;</span>, <span class="string">&quot;Error submitting bundle&quot;</span>);
+                <span class="macro">log::error!</span>(target: <span class="string">"runtime::domains"</span>, <span class="string">"Error submitting bundle"</span>);
             }
         }
     }
@@ -3994,10 +4186,10 @@
 
         <span class="kw">match </span>SubmitTransaction::&lt;T, Call&lt;T&gt;&gt;::submit_unsigned_transaction(call.into()) {
             <span class="prelude-val">Ok</span>(()) =&gt; {
-                <span class="macro">log::info!</span>(target: <span class="string">&quot;runtime::domains&quot;</span>, <span class="string">&quot;Submitted fraud proof&quot;</span>);
+                <span class="macro">log::info!</span>(target: <span class="string">"runtime::domains"</span>, <span class="string">"Submitted fraud proof"</span>);
             }
             <span class="prelude-val">Err</span>(()) =&gt; {
-                <span class="macro">log::error!</span>(target: <span class="string">&quot;runtime::domains&quot;</span>, <span class="string">&quot;Error submitting fraud proof&quot;</span>);
+                <span class="macro">log::error!</span>(target: <span class="string">"runtime::domains"</span>, <span class="string">"Error submitting fraud proof"</span>);
             }
         }
     }

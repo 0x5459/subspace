@@ -1,4 +1,6 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `shared/subspace-metrics/src/lib.rs`."><title>lib.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-deb46770fd761b69.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="subspace_metrics" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0-nightly (42b1224e9 2023-10-15)" data-channel="nightly" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-5f34af1a0ee6bacd.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `shared/subspace-metrics/src/lib.rs`."><title>lib.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-4e54bb2b497cc83f.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="subspace_metrics" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (25f8d01fd 2024-01-18)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-0b2e2def73e61cbe.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="src-sidebar-title">
+            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../subspace_metrics/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -101,102 +103,53 @@
 <a href="#101" id="101">101</a>
 <a href="#102" id="102">102</a>
 <a href="#103" id="103">103</a>
-<a href="#104" id="104">104</a>
-<a href="#105" id="105">105</a>
-<a href="#106" id="106">106</a>
-<a href="#107" id="107">107</a>
-<a href="#108" id="108">108</a>
-<a href="#109" id="109">109</a>
-<a href="#110" id="110">110</a>
-<a href="#111" id="111">111</a>
-<a href="#112" id="112">112</a>
-<a href="#113" id="113">113</a>
-<a href="#114" id="114">114</a>
-<a href="#115" id="115">115</a>
-<a href="#116" id="116">116</a>
-<a href="#117" id="117">117</a>
-<a href="#118" id="118">118</a>
-<a href="#119" id="119">119</a>
-<a href="#120" id="120">120</a>
-<a href="#121" id="121">121</a>
-<a href="#122" id="122">122</a>
-<a href="#123" id="123">123</a>
-<a href="#124" id="124">124</a>
-<a href="#125" id="125">125</a>
-<a href="#126" id="126">126</a>
-<a href="#127" id="127">127</a>
-<a href="#128" id="128">128</a>
 </pre></div><pre class="rust"><code><span class="attr">#![warn(missing_docs)]
 </span><span class="doccomment">//! This Rust module serves as a bridge between two different Prometheus metrics libraries
-//! used within our frameworks — Substrate and Libp2p.
-//! The module exposes a web server endpoint at &quot;/metrics&quot; that outputs metrics in Prometheus
-//! format. It adapts metrics from either or both of the following libraries:
-//! - Official Rust Prometheus client (registry aliased as Libp2pMetricsRegistry)
-//! - TiKV&#39;s Prometheus client (registry aliased as SubstrateMetricsRegistry)
+//! used: `prometheus-client` (official library) and TiKV's `prometheus` client (used by Substrate).
+//! The module exposes a web server endpoint at "/metrics" that outputs metrics in Prometheus
+//! format. It adapts metrics from either or both of those libraries.
 
 </span><span class="kw">use </span>actix_web::http::StatusCode;
 <span class="kw">use </span>actix_web::web::Data;
 <span class="kw">use </span>actix_web::{get, App, HttpResponse, HttpServer};
-<span class="kw">use </span>parking_lot::Mutex;
-<span class="kw">use </span>prometheus::{Encoder, Registry <span class="kw">as </span>SubstrateMetricsRegistry, TextEncoder};
+<span class="kw">use </span>prometheus::{Registry <span class="kw">as </span>SubstrateRegistry, TextEncoder};
 <span class="kw">use </span>prometheus_client::encoding::text::encode;
-<span class="kw">use </span>prometheus_client::registry::Registry <span class="kw">as </span>Libp2pMetricsRegistry;
+<span class="kw">use </span>prometheus_client::registry::Registry <span class="kw">as </span>PrometheusClientRegistry;
 <span class="kw">use </span>std::error::Error;
 <span class="kw">use </span>std::future::Future;
 <span class="kw">use </span>std::io::ErrorKind;
 <span class="kw">use </span>std::net::SocketAddr;
-<span class="kw">use </span>std::ops::DerefMut;
-<span class="kw">use </span>std::sync::Arc;
 <span class="kw">use </span>tracing::{error, info, warn};
 
-<span class="kw">type </span>SharedRegistry = Arc&lt;Mutex&lt;RegistryAdapter&gt;&gt;;
-
-<span class="doccomment">/// An metrics registry adapter for Libp2p and Substrate frameworks.
+<span class="doccomment">/// Metrics registry adapter for prometheus-client and Substrate frameworks.
 /// It specifies which metrics registry or registries are in use.
 </span><span class="kw">pub enum </span>RegistryAdapter {
-    <span class="doccomment">/// Uses only the Libp2p metrics registry.
-    </span>Libp2p(Libp2pMetricsRegistry),
+    <span class="doccomment">/// Uses only the prometheus-client metrics registry.
+    </span>PrometheusClient(PrometheusClientRegistry),
     <span class="doccomment">/// Uses only the Substrate metrics registry.
-    </span>Substrate(SubstrateMetricsRegistry),
-    <span class="doccomment">/// We use both Substrate and Libp2p metrics registries.
-    </span>Both(Libp2pMetricsRegistry, SubstrateMetricsRegistry),
+    </span>Substrate(SubstrateRegistry),
+    <span class="doccomment">/// We use both Substrate and prometheus-client metrics registries.
+    </span>Both(PrometheusClientRegistry, SubstrateRegistry),
 }
 
-<span class="attr">#[get(<span class="string">&quot;/metrics&quot;</span>)]
-</span><span class="kw">async fn </span>metrics(registry: Data&lt;SharedRegistry&gt;) -&gt; <span class="prelude-ty">Result</span>&lt;HttpResponse, Box&lt;<span class="kw">dyn </span>Error&gt;&gt; {
-    <span class="kw">let </span>encoded_metrics = <span class="kw">match </span>registry.lock().deref_mut() {
-        RegistryAdapter::Libp2p(libp2p_registry) =&gt; {
-            <span class="kw">let </span><span class="kw-2">mut </span>encoded = String::new();
-            encode(<span class="kw-2">&amp;mut </span>encoded, libp2p_registry)<span class="question-mark">?</span>;
+<span class="attr">#[get(<span class="string">"/metrics"</span>)]
+</span><span class="kw">async fn </span>metrics(registry: Data&lt;RegistryAdapter&gt;) -&gt; <span class="prelude-ty">Result</span>&lt;HttpResponse, Box&lt;<span class="kw">dyn </span>Error&gt;&gt; {
+    <span class="kw">let </span><span class="kw-2">mut </span>encoded_metrics = String::new();
 
-            encoded
+    <span class="kw">match </span><span class="kw-2">&amp;**</span>registry {
+        RegistryAdapter::PrometheusClient(libp2p_registry) =&gt; {
+            encode(<span class="kw-2">&amp;mut </span>encoded_metrics, libp2p_registry)<span class="question-mark">?</span>;
         }
         RegistryAdapter::Substrate(substrate_registry) =&gt; {
-            <span class="kw">let </span>encoder = TextEncoder::new();
-            <span class="kw">let </span><span class="kw-2">mut </span>encoded = String::new();
-            <span class="kw">unsafe </span>{
-                encoder.encode(<span class="kw-2">&amp;</span>substrate_registry.gather(), <span class="kw-2">&amp;mut </span>encoded.as_mut_vec())<span class="question-mark">?</span>;
-            }
-            encoded
+            TextEncoder::new().encode_utf8(<span class="kw-2">&amp;</span>substrate_registry.gather(), <span class="kw-2">&amp;mut </span>encoded_metrics)<span class="question-mark">?</span>;
         }
         RegistryAdapter::Both(libp2p_registry, substrate_registry) =&gt; {
             <span class="comment">// We combine outputs of both metrics registries in one string.
-            </span><span class="kw">let </span><span class="kw-2">mut </span>libp2p_encoded = String::new();
-            encode(<span class="kw-2">&amp;mut </span>libp2p_encoded, libp2p_registry)<span class="question-mark">?</span>;
-
-            <span class="kw">let </span>encoder = TextEncoder::new();
-            <span class="kw">let </span><span class="kw-2">mut </span>substrate_encoded = String::new();
-            <span class="kw">unsafe </span>{
-                encoder.encode(
-                    <span class="kw-2">&amp;</span>substrate_registry.gather(),
-                    <span class="kw-2">&amp;mut </span>substrate_encoded.as_mut_vec(),
-                )<span class="question-mark">?</span>;
-            }
-
-            <span class="comment">// libp2p string contains #EOF, order is important here.
-            </span>substrate_encoded + <span class="kw-2">&amp;</span>libp2p_encoded
+            </span>TextEncoder::new().encode_utf8(<span class="kw-2">&amp;</span>substrate_registry.gather(), <span class="kw-2">&amp;mut </span>encoded_metrics)<span class="question-mark">?</span>;
+            <span class="comment">// prometheus-client string contains #EOF, order is important here
+            </span>encode(<span class="kw-2">&amp;mut </span>encoded_metrics, libp2p_registry)<span class="question-mark">?</span>;
         }
-    };
+    }
 
     <span class="kw">let </span>resp = HttpResponse::build(StatusCode::OK).body(encoded_metrics);
 
@@ -208,8 +161,7 @@
     <span class="kw-2">mut </span>endpoints: Vec&lt;SocketAddr&gt;,
     registry: RegistryAdapter,
 ) -&gt; std::io::Result&lt;<span class="kw">impl </span>Future&lt;Output = std::io::Result&lt;()&gt;&gt;&gt; {
-    <span class="kw">let </span>shared_registry = Arc::new(Mutex::new(registry));
-    <span class="kw">let </span>data = Data::new(shared_registry);
+    <span class="kw">let </span>data = Data::new(registry);
 
     <span class="kw">let </span>app_factory = <span class="kw">move </span>|| App::new().app_data(data.clone()).service(metrics);
     <span class="kw">let </span>result = HttpServer::new(app_factory.clone())
@@ -220,15 +172,15 @@
         <span class="prelude-val">Ok</span>(server) =&gt; server,
         <span class="prelude-val">Err</span>(error) =&gt; {
             <span class="kw">if </span>error.kind() != ErrorKind::AddrInUse {
-                <span class="macro">error!</span>(<span class="question-mark">?</span>error, <span class="string">&quot;Failed to start metrics server.&quot;</span>);
+                <span class="macro">error!</span>(<span class="question-mark">?</span>error, <span class="string">"Failed to start metrics server."</span>);
 
                 <span class="kw">return </span><span class="prelude-val">Err</span>(error);
             }
 
-            <span class="comment">// Trying to recover from &quot;address in use&quot; error.
+            <span class="comment">// Trying to recover from "address in use" error.
             </span><span class="macro">warn!</span>(
                 <span class="question-mark">?</span>error,
-                <span class="string">&quot;Failed to start metrics server. Falling back to the random port...&quot;</span>,
+                <span class="string">"Failed to start metrics server. Falling back to the random port..."</span>,
             );
 
             endpoints.iter_mut().for_each(|endpoint| {
@@ -242,7 +194,7 @@
             <span class="kw">match </span>result {
                 <span class="prelude-val">Ok</span>(server) =&gt; server,
                 <span class="prelude-val">Err</span>(error) =&gt; {
-                    <span class="macro">error!</span>(<span class="question-mark">?</span>error, <span class="string">&quot;Failed to start metrics server on the random port.&quot;</span>);
+                    <span class="macro">error!</span>(<span class="question-mark">?</span>error, <span class="string">"Failed to start metrics server on the random port."</span>);
 
                     <span class="kw">return </span><span class="prelude-val">Err</span>(error);
                 }
@@ -250,7 +202,7 @@
         }
     };
 
-    <span class="macro">info!</span>(endpoints = <span class="question-mark">?</span>server.addrs(), <span class="string">&quot;Metrics server started.&quot;</span>,);
+    <span class="macro">info!</span>(endpoints = <span class="question-mark">?</span>server.addrs(), <span class="string">"Metrics server started."</span>,);
 
     <span class="prelude-val">Ok</span>(server.run())
 }

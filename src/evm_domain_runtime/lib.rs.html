@@ -1,4 +1,6 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `domains/runtime/evm/src/lib.rs`."><title>lib.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-deb46770fd761b69.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="evm_domain_runtime" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0-nightly (42b1224e9 2023-10-15)" data-channel="nightly" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-5f34af1a0ee6bacd.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `domains/runtime/evm/src/lib.rs`."><title>lib.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-4e54bb2b497cc83f.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="evm_domain_runtime" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (25f8d01fd 2024-01-18)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-0b2e2def73e61cbe.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="src-sidebar-title">
+            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../evm_domain_runtime/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -1263,15 +1265,27 @@
 <a href="#1263" id="1263">1263</a>
 <a href="#1264" id="1264">1264</a>
 <a href="#1265" id="1265">1265</a>
-</pre></div><pre class="rust"><code><span class="attr">#![cfg_attr(not(feature = <span class="string">&quot;std&quot;</span>), no_std)]
+<a href="#1266" id="1266">1266</a>
+<a href="#1267" id="1267">1267</a>
+<a href="#1268" id="1268">1268</a>
+<a href="#1269" id="1269">1269</a>
+<a href="#1270" id="1270">1270</a>
+<a href="#1271" id="1271">1271</a>
+<a href="#1272" id="1272">1272</a>
+<a href="#1273" id="1273">1273</a>
+<a href="#1274" id="1274">1274</a>
+<a href="#1275" id="1275">1275</a>
+<a href="#1276" id="1276">1276</a>
+<a href="#1277" id="1277">1277</a>
+</pre></div><pre class="rust"><code><span class="attr">#![cfg_attr(not(feature = <span class="string">"std"</span>), no_std)]
 </span><span class="comment">// `construct_runtime!` does a lot of recursion and requires us to increase the limit to 256.
-</span><span class="attr">#![recursion_limit = <span class="string">&quot;256&quot;</span>]
+</span><span class="attr">#![recursion_limit = <span class="string">"256"</span>]
 
 </span><span class="kw">mod </span>precompiles;
 
 <span class="comment">// Make the WASM binary available.
-</span><span class="attr">#[cfg(feature = <span class="string">&quot;std&quot;</span>)]
-</span><span class="macro">include!</span>(<span class="macro">concat!</span>(<span class="macro">env!</span>(<span class="string">&quot;OUT_DIR&quot;</span>), <span class="string">&quot;/wasm_binary.rs&quot;</span>));
+</span><span class="attr">#[cfg(feature = <span class="string">"std"</span>)]
+</span><span class="macro">include!</span>(<span class="macro">concat!</span>(<span class="macro">env!</span>(<span class="string">"OUT_DIR"</span>), <span class="string">"/wasm_binary.rs"</span>));
 
 <span class="kw">extern crate </span>alloc;
 
@@ -1282,13 +1296,13 @@
     EXISTENTIAL_DEPOSIT, MAXIMUM_BLOCK_WEIGHT,
 };
 <span class="kw">use </span>domain_runtime_primitives::{
-    CheckExtrinsicsValidityError, DecodeExtrinsicError, MultiAccountId, TryConvertBack,
-    SLOT_DURATION,
+    CheckExtrinsicsValidityError, DecodeExtrinsicError, SLOT_DURATION,
 };
 <span class="kw">use </span>fp_account::EthereumSignature;
 <span class="kw">use </span>fp_self_contained::{CheckedSignature, SelfContainedCall};
 <span class="kw">use </span>frame_support::dispatch::{DispatchClass, DispatchInfo, GetDispatchInfo};
 <span class="kw">use </span>frame_support::inherent::ProvideInherent;
+<span class="kw">use </span>frame_support::traits::fungible::Credit;
 <span class="kw">use </span>frame_support::traits::{
     ConstU16, ConstU32, ConstU64, Currency, Everything, FindAuthor, Imbalance, OnFinalize,
     OnUnbalanced,
@@ -1297,6 +1311,7 @@
 <span class="kw">use </span>frame_support::weights::{ConstantMultiplier, IdentityFee, Weight};
 <span class="kw">use </span>frame_support::{construct_runtime, parameter_types};
 <span class="kw">use </span>frame_system::limits::{BlockLength, BlockWeights};
+<span class="kw">use </span>pallet_block_fees::fees::OnChargeDomainTransaction;
 <span class="kw">use </span>pallet_ethereum::Call::transact;
 <span class="kw">use </span>pallet_ethereum::{PostLogContent, Transaction <span class="kw">as </span>EthereumTransaction, TransactionStatus};
 <span class="kw">use </span>pallet_evm::{
@@ -1306,9 +1321,8 @@
 <span class="kw">use </span>pallet_transporter::EndpointHandler;
 <span class="kw">use </span>sp_api::impl_runtime_apis;
 <span class="kw">use </span>sp_core::crypto::KeyTypeId;
-<span class="kw">use </span>sp_core::storage::StateVersion;
 <span class="kw">use </span>sp_core::{Get, OpaqueMetadata, H160, H256, U256};
-<span class="kw">use </span>sp_domains::DomainId;
+<span class="kw">use </span>sp_domains::{DomainId, Transfers};
 <span class="kw">use </span>sp_messenger::endpoint::{Endpoint, EndpointHandler <span class="kw">as </span>EndpointHandlerT, EndpointId};
 <span class="kw">use </span>sp_messenger::messages::{
     BlockInfo, BlockMessagesWithStorageKey, ChainId, CrossDomainMessage,
@@ -1316,9 +1330,9 @@
 };
 <span class="kw">use </span>sp_runtime::generic::Era;
 <span class="kw">use </span>sp_runtime::traits::{
-    BlakeTwo256, Block <span class="kw">as </span>BlockT, Checkable, Convert, DispatchInfoOf, Dispatchable,
-    IdentifyAccount, IdentityLookup, One, PostDispatchInfoOf, SignedExtension, UniqueSaturatedInto,
-    ValidateUnsigned, Verify,
+    BlakeTwo256, Block <span class="kw">as </span>BlockT, Checkable, DispatchInfoOf, Dispatchable, IdentifyAccount,
+    IdentityLookup, One, PostDispatchInfoOf, SignedExtension, UniqueSaturatedInto,
+    ValidateUnsigned, Verify, Zero,
 };
 <span class="kw">use </span>sp_runtime::transaction_validity::{
     InvalidTransaction, TransactionSource, TransactionValidity, TransactionValidityError,
@@ -1329,8 +1343,6 @@
 <span class="kw">pub use </span>sp_runtime::{MultiAddress, Perbill, Permill};
 <span class="kw">use </span>sp_std::marker::PhantomData;
 <span class="kw">use </span>sp_std::prelude::<span class="kw-2">*</span>;
-<span class="attr">#[cfg(feature = <span class="string">&quot;std&quot;</span>)]
-</span><span class="kw">use </span>sp_version::NativeVersion;
 <span class="kw">use </span>sp_version::RuntimeVersion;
 <span class="kw">use </span>subspace_runtime_primitives::{Moment, SlowAdjustingFeeUpdate};
 
@@ -1408,7 +1420,19 @@
         len: usize,
     ) -&gt; <span class="prelude-ty">Option</span>&lt;TransactionValidity&gt; {
         <span class="kw">match </span><span class="self">self </span>{
-            RuntimeCall::Ethereum(call) =&gt; call.validate_self_contained(info, dispatch_info, len),
+            RuntimeCall::Ethereum(call) =&gt; {
+                <span class="comment">// Ensure the caller can pay for the consensus chain storage fee
+                </span><span class="kw">let </span>consensus_storage_fee =
+                    BlockFees::consensus_chain_byte_fee() * Balance::from(len <span class="kw">as </span>u32);
+                <span class="kw">let </span>withdraw_res = &lt;InnerEVMCurrencyAdapter <span class="kw">as </span>pallet_evm::OnChargeEVMTransaction&lt;
+                    Runtime,
+                &gt;&gt;::withdraw_fee(info, consensus_storage_fee.into());
+                <span class="kw">if </span>withdraw_res.is_err() {
+                    <span class="kw">return </span><span class="prelude-val">Some</span>(<span class="prelude-val">Err</span>(InvalidTransaction::Payment.into()));
+                }
+
+                call.validate_self_contained(info, dispatch_info, len)
+            }
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
         }
     }
@@ -1421,6 +1445,21 @@
     ) -&gt; <span class="prelude-ty">Option</span>&lt;<span class="prelude-ty">Result</span>&lt;(), TransactionValidityError&gt;&gt; {
         <span class="kw">match </span><span class="self">self </span>{
             RuntimeCall::Ethereum(call) =&gt; {
+                <span class="comment">// Withdraw the consensus chain storage fee from the caller and record
+                // it in the `BlockFees`
+                </span><span class="kw">let </span>consensus_storage_fee =
+                    BlockFees::consensus_chain_byte_fee() * Balance::from(len <span class="kw">as </span>u32);
+                <span class="kw">match </span>&lt;InnerEVMCurrencyAdapter <span class="kw">as </span>pallet_evm::OnChargeEVMTransaction&lt;Runtime&gt;&gt;::withdraw_fee(
+                    info,
+                    consensus_storage_fee.into(),
+                ) {
+                    <span class="prelude-val">Ok</span>(<span class="prelude-val">None</span>) =&gt; {}
+                    <span class="prelude-val">Ok</span>(<span class="prelude-val">Some</span>(paid_consensus_storage_fee)) =&gt; {
+                        BlockFees::note_consensus_storage_fee(paid_consensus_storage_fee.peek())
+                    }
+                    <span class="prelude-val">Err</span>(<span class="kw">_</span>) =&gt; <span class="kw">return </span><span class="prelude-val">Some</span>(<span class="prelude-val">Err</span>(InvalidTransaction::Payment.into())),
+                }
+
                 call.pre_dispatch_self_contained(info, dispatch_info, len)
             }
             <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
@@ -1451,56 +1490,27 @@
 
 <span class="attr">#[sp_version::runtime_version]
 </span><span class="kw">pub const </span>VERSION: RuntimeVersion = RuntimeVersion {
-    spec_name: <span class="macro">create_runtime_str!</span>(<span class="string">&quot;subspace-evm-domain&quot;</span>),
-    impl_name: <span class="macro">create_runtime_str!</span>(<span class="string">&quot;subspace-evm-domain&quot;</span>),
+    spec_name: <span class="macro">create_runtime_str!</span>(<span class="string">"subspace-evm-domain"</span>),
+    impl_name: <span class="macro">create_runtime_str!</span>(<span class="string">"subspace-evm-domain"</span>),
     authoring_version: <span class="number">0</span>,
     spec_version: <span class="number">0</span>,
     impl_version: <span class="number">0</span>,
     apis: RUNTIME_API_VERSIONS,
     transaction_version: <span class="number">0</span>,
     state_version: <span class="number">0</span>,
+    extrinsic_state_version: <span class="number">1</span>,
 };
-
-<span class="doccomment">/// The version information used to identify this runtime when compiled natively.
-</span><span class="attr">#[cfg(feature = <span class="string">&quot;std&quot;</span>)]
-</span><span class="kw">pub fn </span>native_version() -&gt; NativeVersion {
-    NativeVersion {
-        runtime_version: VERSION,
-        can_author_with: Default::default(),
-    }
-}
-
-<span class="doccomment">/// EVM domain executor instance.
-</span><span class="attr">#[cfg(feature = <span class="string">&quot;std&quot;</span>)]
-</span><span class="kw">pub struct </span>ExecutorDispatch;
-
-<span class="attr">#[cfg(feature = <span class="string">&quot;std&quot;</span>)]
-</span><span class="kw">impl </span>sc_executor::NativeExecutionDispatch <span class="kw">for </span>ExecutorDispatch {
-    <span class="attr">#[cfg(feature = <span class="string">&quot;runtime-benchmarks&quot;</span>)]
-    </span><span class="kw">type </span>ExtendHostFunctions = frame_benchmarking::benchmarking::HostFunctions;
-    <span class="attr">#[cfg(not(feature = <span class="string">&quot;runtime-benchmarks&quot;</span>))]
-    </span><span class="kw">type </span>ExtendHostFunctions = ();
-
-    <span class="kw">fn </span>dispatch(method: <span class="kw-2">&amp;</span>str, data: <span class="kw-2">&amp;</span>[u8]) -&gt; <span class="prelude-ty">Option</span>&lt;Vec&lt;u8&gt;&gt; {
-        api::dispatch(method, data)
-    }
-
-    <span class="kw">fn </span>native_version() -&gt; sc_executor::NativeVersion {
-        native_version()
-    }
-}
 
 <span class="macro">parameter_types! </span>{
     <span class="kw">pub const </span>Version: RuntimeVersion = VERSION;
     <span class="kw">pub const </span>BlockHashCount: BlockNumber = <span class="number">2400</span>;
 
-    <span class="comment">// This part is copied from Substrate&#39;s `bin/node/runtime/src/lib.rs`.
+    <span class="comment">// This part is copied from Substrate's `bin/node/runtime/src/lib.rs`.
     //  The `RuntimeBlockLength` and `RuntimeBlockWeights` exist here because the
     // `DeletionWeightLimit` and `DeletionQueueDepth` depend on those to parameterize
     // the lazy contract deletion.
     </span><span class="kw">pub </span>RuntimeBlockLength: BlockLength = maximum_block_length();
     <span class="kw">pub </span>RuntimeBlockWeights: BlockWeights = block_weights();
-    <span class="kw">pub const </span>ExtrinsicsRootStateVersion: StateVersion = StateVersion::V1;
 }
 
 <span class="kw">impl </span>frame_system::Config <span class="kw">for </span>Runtime {
@@ -1508,6 +1518,8 @@
     </span><span class="kw">type </span>AccountId = AccountId;
     <span class="doccomment">/// The aggregated dispatch type that is available for extrinsics.
     </span><span class="kw">type </span>RuntimeCall = RuntimeCall;
+    <span class="doccomment">/// The aggregated `RuntimeTask` type.
+    </span><span class="kw">type </span>RuntimeTask = RuntimeTask;
     <span class="doccomment">/// The lookup mechanism to get account ID from whatever is passed in dispatchers.
     </span><span class="kw">type </span>Lookup = IdentityLookup&lt;AccountId&gt;;
     <span class="doccomment">/// The type for storing how many extrinsics an account has signed.
@@ -1548,7 +1560,6 @@
     <span class="doccomment">/// The action to take on a Runtime Upgrade
     </span><span class="kw">type </span>OnSetCode = ();
     <span class="kw">type </span>MaxConsumers = ConstU32&lt;<span class="number">16</span>&gt;;
-    <span class="kw">type </span>ExtrinsicsRootStateVersion = ExtrinsicsRootStateVersion;
 }
 
 <span class="kw">impl </span>pallet_timestamp::Config <span class="kw">for </span>Runtime {
@@ -1565,13 +1576,23 @@
     <span class="kw">pub const </span>MaxReserves: u32 = <span class="number">50</span>;
 }
 
+<span class="doccomment">/// `DustRemovalHandler` used to collect all the SSC dust left when the account is reaped.
+</span><span class="kw">pub struct </span>DustRemovalHandler;
+
+<span class="kw">impl </span>OnUnbalanced&lt;Credit&lt;AccountId, Balances&gt;&gt; <span class="kw">for </span>DustRemovalHandler {
+    <span class="kw">fn </span>on_nonzero_unbalanced(dusted_amount: Credit&lt;AccountId, Balances&gt;) {
+        BlockFees::note_burned_balance(dusted_amount.peek());
+    }
+}
+
 <span class="kw">impl </span>pallet_balances::Config <span class="kw">for </span>Runtime {
+    <span class="kw">type </span>RuntimeFreezeReason = RuntimeFreezeReason;
     <span class="kw">type </span>MaxLocks = MaxLocks;
-    <span class="doccomment">/// The type for recording an account&#39;s balance.
+    <span class="doccomment">/// The type for recording an account's balance.
     </span><span class="kw">type </span>Balance = Balance;
     <span class="doccomment">/// The ubiquitous event type.
     </span><span class="kw">type </span>RuntimeEvent = RuntimeEvent;
-    <span class="kw">type </span>DustRemoval = ();
+    <span class="kw">type </span>DustRemoval = DustRemovalHandler;
     <span class="kw">type </span>ExistentialDeposit = ExistentialDeposit;
     <span class="kw">type </span>AccountStore = System;
     <span class="kw">type </span>WeightInfo = pallet_balances::weights::SubstrateWeight&lt;Runtime&gt;;
@@ -1583,40 +1604,37 @@
     <span class="kw">type </span>MaxHolds = ();
 }
 
-<span class="kw">impl </span>pallet_operator_rewards::Config <span class="kw">for </span>Runtime {
+<span class="macro">parameter_types! </span>{
+    <span class="kw">pub const </span>OperationalFeeMultiplier: u8 = <span class="number">5</span>;
+    <span class="kw">pub const </span>DomainChainByteFee: Balance = <span class="number">1</span>;
+}
+
+<span class="kw">impl </span>pallet_block_fees::Config <span class="kw">for </span>Runtime {
     <span class="kw">type </span>Balance = Balance;
+    <span class="kw">type </span>DomainChainByteFee = DomainChainByteFee;
 }
 
 <span class="kw">type </span>NegativeImbalance = &lt;Balances <span class="kw">as </span>Currency&lt;AccountId&gt;&gt;::NegativeImbalance;
 
-<span class="doccomment">/// `ActualPaidFeesHandler` used to collect all the fee in `pallet_operator_rewards`
-</span><span class="kw">pub struct </span>ActualPaidFeesHandler;
+<span class="kw">pub struct </span>FinalDomainTransactionByteFee;
 
-<span class="kw">impl </span>OnUnbalanced&lt;NegativeImbalance&gt; <span class="kw">for </span>ActualPaidFeesHandler {
-    <span class="kw">fn </span>on_unbalanceds&lt;B&gt;(fees_then_tips: <span class="kw">impl </span>Iterator&lt;Item = NegativeImbalance&gt;) {
-        <span class="comment">// Record both actual paid transaction fee and tip in `pallet_operator_rewards`
-        </span><span class="kw">for </span>fee <span class="kw">in </span>fees_then_tips {
-            OperatorRewards::note_operator_rewards(fee.peek());
-        }
+<span class="kw">impl </span>Get&lt;Balance&gt; <span class="kw">for </span>FinalDomainTransactionByteFee {
+    <span class="kw">fn </span>get() -&gt; Balance {
+        BlockFees::final_domain_transaction_byte_fee()
     }
-}
-
-<span class="macro">parameter_types! </span>{
-    <span class="kw">pub const </span>TransactionByteFee: Balance = <span class="number">1</span>;
-    <span class="kw">pub const </span>OperationalFeeMultiplier: u8 = <span class="number">5</span>;
 }
 
 <span class="kw">impl </span>pallet_transaction_payment::Config <span class="kw">for </span>Runtime {
     <span class="kw">type </span>RuntimeEvent = RuntimeEvent;
-    <span class="kw">type </span>OnChargeTransaction =
-        pallet_transaction_payment::CurrencyAdapter&lt;Balances, ActualPaidFeesHandler&gt;;
+    <span class="kw">type </span>OnChargeTransaction = OnChargeDomainTransaction&lt;Balances&gt;;
     <span class="kw">type </span>WeightToFee = IdentityFee&lt;Balance&gt;;
-    <span class="kw">type </span>LengthToFee = ConstantMultiplier&lt;Balance, TransactionByteFee&gt;;
+    <span class="kw">type </span>LengthToFee = ConstantMultiplier&lt;Balance, FinalDomainTransactionByteFee&gt;;
     <span class="kw">type </span>FeeMultiplierUpdate = SlowAdjustingFeeUpdate&lt;Runtime&gt;;
     <span class="kw">type </span>OperationalFeeMultiplier = OperationalFeeMultiplier;
 }
 
 <span class="kw">pub struct </span>ExtrinsicStorageFees;
+
 <span class="kw">impl </span>domain_pallet_executive::ExtrinsicStorageFees&lt;Runtime&gt; <span class="kw">for </span>ExtrinsicStorageFees {
     <span class="kw">fn </span>extract_signer(xt: UncheckedExtrinsic) -&gt; (<span class="prelude-ty">Option</span>&lt;AccountId&gt;, DispatchInfo) {
         <span class="kw">let </span>dispatch_info = xt.get_dispatch_info();
@@ -1625,8 +1643,18 @@
         (maybe_signer, dispatch_info)
     }
 
-    <span class="kw">fn </span>on_storage_fees_charged(charged_fees: Balance) {
-        OperatorRewards::note_operator_rewards(charged_fees)
+    <span class="kw">fn </span>on_storage_fees_charged(charged_fees: Balance, tx_size: u32) {
+        <span class="kw">let </span>consensus_storage_fee = BlockFees::consensus_chain_byte_fee() * Balance::from(tx_size);
+
+        <span class="kw">let </span>(paid_consensus_storage_fee, paid_domain_fee) = <span class="kw">if </span>charged_fees &lt;= consensus_storage_fee
+        {
+            (charged_fees, Zero::zero())
+        } <span class="kw">else </span>{
+            (consensus_storage_fee, charged_fees - consensus_storage_fee)
+        };
+
+        BlockFees::note_consensus_storage_fee(paid_consensus_storage_fee);
+        BlockFees::note_domain_execution_fee(paid_domain_fee);
     }
 }
 
@@ -1653,7 +1681,7 @@
 
 <span class="kw">impl </span>sp_messenger::OnXDMRewards&lt;Balance&gt; <span class="kw">for </span>OnXDMRewards {
     <span class="kw">fn </span>on_xdm_rewards(rewards: Balance) {
-        OperatorRewards::note_operator_rewards(rewards)
+        BlockFees::note_domain_execution_fee(rewards)
     }
 }
 
@@ -1689,30 +1717,13 @@
     <span class="kw">pub const </span>TransporterEndpointId: EndpointId = <span class="number">1</span>;
 }
 
-<span class="kw">pub struct </span>AccountId20Converter;
-
-<span class="kw">impl </span>Convert&lt;AccountId, MultiAccountId&gt; <span class="kw">for </span>AccountId20Converter {
-    <span class="kw">fn </span>convert(account_id: AccountId) -&gt; MultiAccountId {
-        MultiAccountId::AccountId20(account_id.into())
-    }
-}
-
-<span class="kw">impl </span>TryConvertBack&lt;AccountId, MultiAccountId&gt; <span class="kw">for </span>AccountId20Converter {
-    <span class="kw">fn </span>try_convert_back(multi_account_id: MultiAccountId) -&gt; <span class="prelude-ty">Option</span>&lt;AccountId&gt; {
-        <span class="kw">match </span>multi_account_id {
-            MultiAccountId::AccountId20(acc) =&gt; <span class="prelude-val">Some</span>(AccountId::from(acc)),
-            <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-        }
-    }
-}
-
 <span class="kw">impl </span>pallet_transporter::Config <span class="kw">for </span>Runtime {
     <span class="kw">type </span>RuntimeEvent = RuntimeEvent;
     <span class="kw">type </span>SelfChainId = SelfChainId;
     <span class="kw">type </span>SelfEndpointId = TransporterEndpointId;
     <span class="kw">type </span>Currency = Balances;
     <span class="kw">type </span>Sender = Messenger;
-    <span class="kw">type </span>AccountIdConverter = AccountId20Converter;
+    <span class="kw">type </span>AccountIdConverter = domain_runtime_primitives::AccountId20Converter;
     <span class="kw">type </span>WeightInfo = pallet_transporter::weights::SubstrateWeight&lt;Runtime&gt;;
 }
 
@@ -1721,9 +1732,9 @@
 <span class="kw">pub struct </span>FindAuthorTruncated;
 
 <span class="kw">impl </span>FindAuthor&lt;H160&gt; <span class="kw">for </span>FindAuthorTruncated {
-    <span class="kw">fn </span>find_author&lt;<span class="lifetime">&#39;a</span>, I&gt;(_digests: I) -&gt; <span class="prelude-ty">Option</span>&lt;H160&gt;
+    <span class="kw">fn </span>find_author&lt;<span class="lifetime">'a</span>, I&gt;(_digests: I) -&gt; <span class="prelude-ty">Option</span>&lt;H160&gt;
     <span class="kw">where
-        </span>I: <span class="lifetime">&#39;a </span>+ IntoIterator&lt;Item = (ConsensusEngineId, <span class="kw-2">&amp;</span><span class="lifetime">&#39;a </span>[u8])&gt;,
+        </span>I: <span class="lifetime">'a </span>+ IntoIterator&lt;Item = (ConsensusEngineId, <span class="kw-2">&amp;</span><span class="lifetime">'a </span>[u8])&gt;,
     {
         <span class="comment">// TODO: returns the executor reward address once we start collecting them
         </span><span class="prelude-val">None
@@ -1751,7 +1762,7 @@
 
 <span class="comment">// Implementation of [`pallet_transaction_payment::OnChargeTransaction`] that charges evm transaction
 // fees from the transaction sender and collect all the fees (including both the base fee and tip) in
-// `pallet_operator_rewards`
+// `pallet_block_fees`
 </span><span class="kw">pub struct </span>EVMCurrencyAdapter;
 
 <span class="kw">impl </span>pallet_evm::OnChargeEVMTransaction&lt;Runtime&gt; <span class="kw">for </span>EVMCurrencyAdapter {
@@ -1772,7 +1783,7 @@
     ) -&gt; <span class="self">Self</span>::LiquidityInfo {
         <span class="kw">if </span>already_withdrawn.is_some() {
             <span class="comment">// Record the evm actual transaction fee
-            </span>OperatorRewards::note_operator_rewards(corrected_fee.as_u128());
+            </span>BlockFees::note_domain_execution_fee(corrected_fee.as_u128());
         }
 
         &lt;InnerEVMCurrencyAdapter <span class="kw">as </span>pallet_evm::OnChargeEVMTransaction&lt;
@@ -1789,6 +1800,7 @@
 
 <span class="macro">parameter_types! </span>{
     <span class="kw">pub const </span>GasLimitPovSizeRatio: u64 = <span class="number">4</span>;
+    <span class="kw">pub const </span>SuicideQuickClearLimit: u32 = <span class="number">0</span>;
 }
 
 <span class="kw">impl </span>pallet_evm::Config <span class="kw">for </span>Runtime {
@@ -1810,6 +1822,7 @@
     <span class="kw">type </span>OnCreate = ();
     <span class="kw">type </span>FindAuthor = FindAuthorTruncated;
     <span class="kw">type </span>GasLimitPovSizeRatio = GasLimitPovSizeRatio;
+    <span class="kw">type </span>SuicideQuickClearLimit = SuicideQuickClearLimit;
     <span class="kw">type </span>Timestamp = Timestamp;
     <span class="kw">type </span>WeightInfo = pallet_evm::weights::SubstrateWeight&lt;<span class="self">Self</span>&gt;;
 }
@@ -1888,7 +1901,7 @@
 
         <span class="comment">// domain instance stuff
         </span>SelfDomainId: pallet_domain_id = <span class="number">90</span>,
-        OperatorRewards: pallet_operator_rewards = <span class="number">91</span>,
+        BlockFees: pallet_block_fees = <span class="number">91</span>,
 
         <span class="comment">// Sudo account
         </span>Sudo: pallet_sudo = <span class="number">100</span>,
@@ -1916,7 +1929,7 @@
         );
         <span class="kw">let </span>encoded = extrinsic.encode();
         opaque::UncheckedExtrinsic::decode(<span class="kw-2">&amp;mut &amp;</span>encoded[..])
-            .expect(<span class="string">&quot;Encoded extrinsic is always valid&quot;</span>)
+            .expect(<span class="string">"Encoded extrinsic is always valid"</span>)
     }
 }
 
@@ -1983,7 +1996,7 @@
         .map(|(<span class="kw">_</span>, <span class="kw">_</span>, extra)| extra.<span class="number">4 </span>.<span class="number">0</span>)
 }
 
-<span class="attr">#[cfg(feature = <span class="string">&quot;runtime-benchmarks&quot;</span>)]
+<span class="attr">#[cfg(feature = <span class="string">"runtime-benchmarks"</span>)]
 </span><span class="kw">mod </span>benches {
     <span class="macro">frame_benchmarking::define_benchmarks!</span>(
         [frame_benchmarking, BaselineBench::&lt;Runtime&gt;]
@@ -2133,8 +2146,7 @@
         }
     }
 
-    <span class="attr">#[api_version(<span class="number">2</span>)]
-    </span><span class="kw">impl </span>domain_runtime_primitives::DomainCoreApi&lt;Block&gt; <span class="kw">for </span>Runtime {
+    <span class="kw">impl </span>sp_domains::core_api::DomainCoreApi&lt;Block&gt; <span class="kw">for </span>Runtime {
         <span class="kw">fn </span>extract_signer(
             extrinsics: Vec&lt;&lt;Block <span class="kw">as </span>BlockT&gt;::Extrinsic&gt;,
         ) -&gt; Vec&lt;(<span class="prelude-ty">Option</span>&lt;opaque::AccountId&gt;, &lt;Block <span class="kw">as </span>BlockT&gt;::Extrinsic)&gt; {
@@ -2224,7 +2236,7 @@
         ) -&gt; <span class="prelude-ty">Result</span>&lt;&lt;Block <span class="kw">as </span>BlockT&gt;::Extrinsic, DecodeExtrinsicError&gt; {
             <span class="kw">let </span>encoded = opaque_extrinsic.encode();
             UncheckedExtrinsic::decode(<span class="kw-2">&amp;mut </span>encoded.as_slice())
-                .map_err(|err| DecodeExtrinsicError(<span class="macro">alloc::format!</span>(<span class="string">&quot;{}&quot;</span>, err)))
+                .map_err(|err| DecodeExtrinsicError(<span class="macro">alloc::format!</span>(<span class="string">"{}"</span>, err)))
         }
 
         <span class="kw">fn </span>extrinsic_era(
@@ -2237,8 +2249,8 @@
             ext.get_dispatch_info().weight
         }
 
-        <span class="kw">fn </span>block_rewards() -&gt; Balance {
-            OperatorRewards::block_rewards()
+        <span class="kw">fn </span>block_fees() -&gt; sp_domains::BlockFees&lt;Balance&gt; {
+            BlockFees::collected_block_fees()
         }
 
         <span class="kw">fn </span>block_digest() -&gt; Digest {
@@ -2247,6 +2259,20 @@
 
         <span class="kw">fn </span>block_weight() -&gt; Weight {
             System::block_weight().total()
+        }
+
+        <span class="kw">fn </span>construct_consensus_chain_byte_fee_extrinsic(transaction_byte_fee: Balance) -&gt; &lt;Block <span class="kw">as </span>BlockT&gt;::Extrinsic {
+            UncheckedExtrinsic::new_unsigned(
+                pallet_block_fees::Call::set_next_consensus_chain_byte_fee{ transaction_byte_fee }.into()
+            )
+        }
+
+        <span class="kw">fn </span>transfers() -&gt; Transfers&lt;Balance&gt; {
+            Transporter::chain_transfers()
+        }
+
+        <span class="kw">fn </span>transfers_storage_key() -&gt; Vec&lt;u8&gt; {
+            Transporter::transfers_storage_key()
         }
     }
 
@@ -2473,7 +2499,7 @@
         }
     }
 
-    <span class="attr">#[cfg(feature = <span class="string">&quot;runtime-benchmarks&quot;</span>)]
+    <span class="attr">#[cfg(feature = <span class="string">"runtime-benchmarks"</span>)]
     </span><span class="kw">impl </span>frame_benchmarking::Benchmark&lt;Block&gt; <span class="kw">for </span>Runtime {
         <span class="kw">fn </span>benchmark_metadata(extra: bool) -&gt; (
             Vec&lt;frame_benchmarking::BenchmarkList&gt;,
@@ -2512,7 +2538,7 @@
 
             <span class="macro">add_benchmarks!</span>(params, batches);
 
-            <span class="kw">if </span>batches.is_empty() { <span class="kw">return </span><span class="prelude-val">Err</span>(<span class="string">&quot;Benchmark not found for this pallet.&quot;</span>.into()) }
+            <span class="kw">if </span>batches.is_empty() { <span class="kw">return </span><span class="prelude-val">Err</span>(<span class="string">"Benchmark not found for this pallet."</span>.into()) }
             <span class="prelude-val">Ok</span>(batches)
         }
     }

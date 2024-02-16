@@ -1,4 +1,6 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `crates/sp-domains-fraud-proof/src/fraud_proof.rs`."><title>fraud_proof.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-deb46770fd761b69.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="sp_domains_fraud_proof" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0-nightly (42b1224e9 2023-10-15)" data-channel="nightly" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-5f34af1a0ee6bacd.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `crates/sp-domains-fraud-proof/src/fraud_proof.rs`."><title>fraud_proof.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-4e54bb2b497cc83f.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="sp_domains_fraud_proof" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (25f8d01fd 2024-01-18)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-0b2e2def73e61cbe.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="src-sidebar-title">
+            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../sp_domains_fraud_proof/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -686,6 +688,31 @@
 <a href="#686" id="686">686</a>
 <a href="#687" id="687">687</a>
 <a href="#688" id="688">688</a>
+<a href="#689" id="689">689</a>
+<a href="#690" id="690">690</a>
+<a href="#691" id="691">691</a>
+<a href="#692" id="692">692</a>
+<a href="#693" id="693">693</a>
+<a href="#694" id="694">694</a>
+<a href="#695" id="695">695</a>
+<a href="#696" id="696">696</a>
+<a href="#697" id="697">697</a>
+<a href="#698" id="698">698</a>
+<a href="#699" id="699">699</a>
+<a href="#700" id="700">700</a>
+<a href="#701" id="701">701</a>
+<a href="#702" id="702">702</a>
+<a href="#703" id="703">703</a>
+<a href="#704" id="704">704</a>
+<a href="#705" id="705">705</a>
+<a href="#706" id="706">706</a>
+<a href="#707" id="707">707</a>
+<a href="#708" id="708">708</a>
+<a href="#709" id="709">709</a>
+<a href="#710" id="710">710</a>
+<a href="#711" id="711">711</a>
+<a href="#712" id="712">712</a>
+<a href="#713" id="713">713</a>
 </pre></div><pre class="rust"><code><span class="kw">use </span><span class="kw">crate</span>::verification::InvalidBundleEquivocationError;
 <span class="kw">use </span>codec::{Decode, Encode};
 <span class="kw">use </span>scale_info::TypeInfo;
@@ -717,7 +744,7 @@
     Longer(u32),
 }
 
-<span class="doccomment">/// A phase of a block&#39;s execution, carrying necessary information needed for verifying the
+<span class="doccomment">/// A phase of a block's execution, carrying necessary information needed for verifying the
 /// invalid state transition proof.
 </span><span class="attr">#[derive(Debug, Decode, Encode, TypeInfo, PartialEq, Eq, Clone)]
 </span><span class="kw">pub enum </span>ExecutionPhase {
@@ -734,13 +761,13 @@
 
 <span class="kw">impl </span>ExecutionPhase {
     <span class="doccomment">/// Returns the method for generating the proof.
-    </span><span class="kw">pub fn </span>execution_method(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">&#39;static </span>str {
+    </span><span class="kw">pub fn </span>execution_method(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; <span class="kw-2">&amp;</span><span class="lifetime">'static </span>str {
         <span class="kw">match </span><span class="self">self </span>{
             <span class="comment">// TODO: Replace `DomainCoreApi_initialize_block_with_post_state_root` with `Core_initalize_block`
             // Should be a same issue with https://github.com/paritytech/substrate/pull/10922#issuecomment-1068997467
-            </span><span class="self">Self</span>::InitializeBlock =&gt; <span class="string">&quot;DomainCoreApi_initialize_block_with_post_state_root&quot;</span>,
-            <span class="self">Self</span>::ApplyExtrinsic { .. } =&gt; <span class="string">&quot;DomainCoreApi_apply_extrinsic_with_post_state_root&quot;</span>,
-            <span class="self">Self</span>::FinalizeBlock { .. } =&gt; <span class="string">&quot;BlockBuilder_finalize_block&quot;</span>,
+            </span><span class="self">Self</span>::InitializeBlock =&gt; <span class="string">"DomainCoreApi_initialize_block_with_post_state_root"</span>,
+            <span class="self">Self</span>::ApplyExtrinsic { .. } =&gt; <span class="string">"DomainCoreApi_apply_extrinsic_with_post_state_root"</span>,
+            <span class="self">Self</span>::FinalizeBlock { .. } =&gt; <span class="string">"BlockBuilder_finalize_block"</span>,
         }
     }
 
@@ -906,129 +933,140 @@
 
 <span class="doccomment">/// Error type of fraud proof verification on consensus node.
 </span><span class="attr">#[derive(Debug)]
-#[cfg_attr(feature = <span class="string">&quot;thiserror&quot;</span>, derive(thiserror::Error))]
+#[cfg_attr(feature = <span class="string">"thiserror"</span>, derive(thiserror::Error))]
 </span><span class="kw">pub enum </span>VerificationError&lt;DomainHash&gt; {
     <span class="doccomment">/// Hash of the consensus block being challenged not found.
-    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;thiserror&quot;</span>, error(<span class="string">&quot;consensus block hash not found&quot;</span>))]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">"thiserror"</span>, error(<span class="string">"consensus block hash not found"</span>))]
     </span>ConsensusBlockHashNotFound,
     <span class="doccomment">/// Failed to pass the execution proof check.
     </span><span class="attr">#[cfg_attr(
-        feature = <span class="string">&quot;thiserror&quot;</span>,
-        error(<span class="string">&quot;Failed to pass the execution proof check&quot;</span>)
+        feature = <span class="string">"thiserror"</span>,
+        error(<span class="string">"Failed to pass the execution proof check"</span>)
     )]
     </span>BadExecutionProof,
     <span class="doccomment">/// The fraud proof prove nothing invalid
-    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;thiserror&quot;</span>, error(<span class="string">&quot;The fraud proof prove nothing invalid&quot;</span>))]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">"thiserror"</span>, error(<span class="string">"The fraud proof prove nothing invalid"</span>))]
     </span>InvalidProof,
     <span class="doccomment">/// Failed to decode the return value of `initialize_block` and `apply_extrinsic`.
     </span><span class="attr">#[cfg_attr(
-        feature = <span class="string">&quot;thiserror&quot;</span>,
+        feature = <span class="string">"thiserror"</span>,
         error(
-            <span class="string">&quot;Failed to decode the return value of `initialize_block` and `apply_extrinsic`: {0}&quot;
+            <span class="string">"Failed to decode the return value of `initialize_block` and `apply_extrinsic`: {0}"
         </span>)
     )]
     </span>InitializeBlockOrApplyExtrinsicDecode(codec::Error),
     <span class="doccomment">/// Failed to decode the storage root produced by verifying `initialize_block` or `apply_extrinsic`.
     </span><span class="attr">#[cfg_attr(
-        feature = <span class="string">&quot;thiserror&quot;</span>,
+        feature = <span class="string">"thiserror"</span>,
         error(
-            <span class="string">&quot;Failed to decode the storage root from verifying `initialize_block` and `apply_extrinsic`: {0}&quot;
+            <span class="string">"Failed to decode the storage root from verifying `initialize_block` and `apply_extrinsic`: {0}"
         </span>)
     )]
     </span>StorageRootDecode(codec::Error),
     <span class="doccomment">/// Failed to decode the header produced by `finalize_block`.
     </span><span class="attr">#[cfg_attr(
-        feature = <span class="string">&quot;thiserror&quot;</span>,
-        error(<span class="string">&quot;Failed to decode the header from verifying `finalize_block`: {0}&quot;</span>)
+        feature = <span class="string">"thiserror"</span>,
+        error(<span class="string">"Failed to decode the header from verifying `finalize_block`: {0}"</span>)
     )]
     </span>HeaderDecode(codec::Error),
     <span class="doccomment">/// Transaction validity check passes.
-    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;thiserror&quot;</span>, error(<span class="string">&quot;Valid transaction&quot;</span>))]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">"thiserror"</span>, error(<span class="string">"Valid transaction"</span>))]
     </span>ValidTransaction,
     <span class="doccomment">/// State not found in the storage proof.
     </span><span class="attr">#[cfg_attr(
-        feature = <span class="string">&quot;thiserror&quot;</span>,
-        error(<span class="string">&quot;State under storage key ({0:?}) not found in the storage proof&quot;</span>)
+        feature = <span class="string">"thiserror"</span>,
+        error(<span class="string">"State under storage key ({0:?}) not found in the storage proof"</span>)
     )]
     </span>StateNotFound(Vec&lt;u8&gt;),
     <span class="doccomment">/// Decode error.
-    </span><span class="attr">#[cfg(feature = <span class="string">&quot;std&quot;</span>)]
-    #[cfg_attr(feature = <span class="string">&quot;thiserror&quot;</span>, error(<span class="string">&quot;Decode error: {0}&quot;</span>))]
+    </span><span class="attr">#[cfg(feature = <span class="string">"std"</span>)]
+    #[cfg_attr(feature = <span class="string">"thiserror"</span>, error(<span class="string">"Decode error: {0}"</span>))]
     </span>Decode(<span class="attr">#[from] </span>codec::Error),
     <span class="doccomment">/// Runtime api error.
-    </span><span class="attr">#[cfg(feature = <span class="string">&quot;std&quot;</span>)]
-    #[cfg_attr(feature = <span class="string">&quot;thiserror&quot;</span>, error(<span class="string">&quot;Runtime api error: {0}&quot;</span>))]
+    </span><span class="attr">#[cfg(feature = <span class="string">"std"</span>)]
+    #[cfg_attr(feature = <span class="string">"thiserror"</span>, error(<span class="string">"Runtime api error: {0}"</span>))]
     </span>RuntimeApi(<span class="attr">#[from] </span>sp_api::ApiError),
     <span class="doccomment">/// Runtime api error.
-    </span><span class="attr">#[cfg(feature = <span class="string">&quot;std&quot;</span>)]
-    #[cfg_attr(feature = <span class="string">&quot;thiserror&quot;</span>, error(<span class="string">&quot;Client error: {0}&quot;</span>))]
+    </span><span class="attr">#[cfg(feature = <span class="string">"std"</span>)]
+    #[cfg_attr(feature = <span class="string">"thiserror"</span>, error(<span class="string">"Client error: {0}"</span>))]
     </span>Client(<span class="attr">#[from] </span>sp_blockchain::Error),
     <span class="doccomment">/// Invalid storage proof.
-    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;thiserror&quot;</span>, error(<span class="string">&quot;Invalid stroage proof&quot;</span>))]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">"thiserror"</span>, error(<span class="string">"Invalid stroage proof"</span>))]
     </span>InvalidStorageProof,
     <span class="doccomment">/// Can not find signer from the domain extrinsic.
     </span><span class="attr">#[cfg_attr(
-        feature = <span class="string">&quot;thiserror&quot;</span>,
-        error(<span class="string">&quot;Can not find signer from the domain extrinsic&quot;</span>)
+        feature = <span class="string">"thiserror"</span>,
+        error(<span class="string">"Can not find signer from the domain extrinsic"</span>)
     )]
     </span>SignerNotFound,
     <span class="doccomment">/// Domain state root not found.
-    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;thiserror&quot;</span>, error(<span class="string">&quot;Domain state root not found&quot;</span>))]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">"thiserror"</span>, error(<span class="string">"Domain state root not found"</span>))]
     </span>DomainStateRootNotFound,
     <span class="doccomment">/// Fail to get runtime code.
     </span><span class="comment">// The `String` here actually repersenting the `sc_executor_common::error::WasmError`
     // error, but it will be improper to use `WasmError` directly here since it will make
     // `sp-domain` (a runtime crate) depend on `sc_executor_common` (a client crate).
-    </span><span class="attr">#[cfg(feature = <span class="string">&quot;std&quot;</span>)]
-    #[cfg_attr(feature = <span class="string">&quot;thiserror&quot;</span>, error(<span class="string">&quot;Failed to get runtime code: {0}&quot;</span>))]
+    </span><span class="attr">#[cfg(feature = <span class="string">"std"</span>)]
+    #[cfg_attr(feature = <span class="string">"thiserror"</span>, error(<span class="string">"Failed to get runtime code: {0}"</span>))]
     </span>RuntimeCode(String),
-    <span class="attr">#[cfg_attr(feature = <span class="string">&quot;thiserror&quot;</span>, error(<span class="string">&quot;Failed to get domain runtime code&quot;</span>))]
+    <span class="attr">#[cfg_attr(feature = <span class="string">"thiserror"</span>, error(<span class="string">"Failed to get domain runtime code"</span>))]
     </span>FailedToGetDomainRuntimeCode,
-    <span class="attr">#[cfg(feature = <span class="string">&quot;std&quot;</span>)]
+    <span class="attr">#[cfg_attr(
+        feature = <span class="string">"thiserror"</span>,
+        error(<span class="string">"Failed to get domain transfers storage key"</span>)
+    )]
+    </span>FailedToGetDomainTransfersStorageKey,
+    <span class="attr">#[cfg(feature = <span class="string">"std"</span>)]
     #[cfg_attr(
-        feature = <span class="string">&quot;thiserror&quot;</span>,
-        error(<span class="string">&quot;Oneshot error when verifying fraud proof in tx pool: {0}&quot;</span>)
+        feature = <span class="string">"thiserror"</span>,
+        error(<span class="string">"Oneshot error when verifying fraud proof in tx pool: {0}"</span>)
     )]
     </span>Oneshot(String),
     <span class="attr">#[cfg_attr(
-        feature = <span class="string">&quot;thiserror&quot;</span>,
-        error(<span class="string">&quot;The receipt&#39;s execution_trace have less than 2 traces&quot;</span>)
+        feature = <span class="string">"thiserror"</span>,
+        error(<span class="string">"The receipt's execution_trace have less than 2 traces"</span>)
     )]
     </span>InvalidExecutionTrace,
-    <span class="attr">#[cfg_attr(feature = <span class="string">&quot;thiserror&quot;</span>, error(<span class="string">&quot;Invalid ApplyExtrinsic trace index&quot;</span>))]
+    <span class="attr">#[cfg_attr(feature = <span class="string">"thiserror"</span>, error(<span class="string">"Invalid ApplyExtrinsic trace index"</span>))]
     </span>InvalidApplyExtrinsicTraceIndex,
-    <span class="attr">#[cfg_attr(feature = <span class="string">&quot;thiserror&quot;</span>, error(<span class="string">&quot;Invalid longer mismatch trace index&quot;</span>))]
+    <span class="attr">#[cfg_attr(feature = <span class="string">"thiserror"</span>, error(<span class="string">"Invalid longer mismatch trace index"</span>))]
     </span>InvalidLongerMismatchTraceIndex,
-    <span class="attr">#[cfg_attr(feature = <span class="string">&quot;thiserror&quot;</span>, error(<span class="string">&quot;Invalid ApplyExtrinsic call data&quot;</span>))]
+    <span class="attr">#[cfg_attr(feature = <span class="string">"thiserror"</span>, error(<span class="string">"Invalid ApplyExtrinsic call data"</span>))]
     </span>InvalidApplyExtrinsicCallData,
     <span class="doccomment">/// Invalid bundle digest
-    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;thiserror&quot;</span>, error(<span class="string">&quot;Invalid Bundle Digest&quot;</span>))]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">"thiserror"</span>, error(<span class="string">"Invalid Bundle Digest"</span>))]
     </span>InvalidBundleDigest,
     <span class="doccomment">/// Failed to get block randomness
-    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;thiserror&quot;</span>, error(<span class="string">&quot;Failed to get block randomness&quot;</span>))]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">"thiserror"</span>, error(<span class="string">"Failed to get block randomness"</span>))]
     </span>FailedToGetBlockRandomness,
     <span class="doccomment">/// Failed to derive domain timestamp extrinsic
     </span><span class="attr">#[cfg_attr(
-        feature = <span class="string">&quot;thiserror&quot;</span>,
-        error(<span class="string">&quot;Failed to derive domain timestamp extrinsic&quot;</span>)
+        feature = <span class="string">"thiserror"</span>,
+        error(<span class="string">"Failed to derive domain timestamp extrinsic"</span>)
     )]
     </span>FailedToDeriveDomainTimestampExtrinsic,
+    <span class="doccomment">/// Failed to derive consensus chain byte fee extrinsic
+    </span><span class="attr">#[cfg_attr(
+        feature = <span class="string">"thiserror"</span>,
+        error(<span class="string">"Failed to derive consensus chain byte fee extrinsic"</span>)
+    )]
+    </span>FailedToDeriveConsensusChainByteFeeExtrinsic,
     <span class="doccomment">/// Failed to derive domain set code extrinsic
     </span><span class="attr">#[cfg_attr(
-        feature = <span class="string">&quot;thiserror&quot;</span>,
-        error(<span class="string">&quot;Failed to derive domain set code extrinsic&quot;</span>)
+        feature = <span class="string">"thiserror"</span>,
+        error(<span class="string">"Failed to derive domain set code extrinsic"</span>)
     )]
     </span>FailedToDeriveDomainSetCodeExtrinsic,
     <span class="doccomment">/// Bundle with requested index not found in execution receipt
     </span><span class="attr">#[cfg_attr(
-        feature = <span class="string">&quot;thiserror&quot;</span>,
-        error(<span class="string">&quot;Bundle with requested index not found in execution receipt&quot;</span>)
+        feature = <span class="string">"thiserror"</span>,
+        error(<span class="string">"Bundle with requested index not found in execution receipt"</span>)
     )]
     </span>BundleNotFound,
     <span class="doccomment">/// Invalid bundle entry in bad receipt was expected to be valid but instead found invalid entry
     </span><span class="attr">#[cfg_attr(
-        feature = <span class="string">&quot;thiserror&quot;</span>,
-        error(<span class="string">&quot;Unexpected bundle entry at {bundle_index} in bad receipt found: {targeted_entry_bundle:?} with fraud proof&#39;s type of proof: {fraud_proof_invalid_type_of_proof:?}&quot;</span>)
+        feature = <span class="string">"thiserror"</span>,
+        error(<span class="string">"Unexpected bundle entry at {bundle_index} in bad receipt found: {targeted_entry_bundle:?} with fraud proof's type of proof: {fraud_proof_invalid_type_of_proof:?}"</span>)
     )]
     </span>UnexpectedTargetedBundleEntry {
         bundle_index: u32,
@@ -1037,44 +1075,44 @@
     },
     <span class="doccomment">/// Tx range host function did not return response (returned None)
     </span><span class="attr">#[cfg_attr(
-        feature = <span class="string">&quot;thiserror&quot;</span>,
-        error(<span class="string">&quot;Tx range host function did not return a response (returned None)&quot;</span>)
+        feature = <span class="string">"thiserror"</span>,
+        error(<span class="string">"Tx range host function did not return a response (returned None)"</span>)
     )]
     </span>FailedToGetResponseFromTxRangeHostFn,
     <span class="doccomment">/// Failed to get the bundle body
-    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;thiserror&quot;</span>, error(<span class="string">&quot;Failed to get the bundle body&quot;</span>))]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">"thiserror"</span>, error(<span class="string">"Failed to get the bundle body"</span>))]
     </span>FailedToGetDomainBundleBody,
     <span class="doccomment">/// Failed to derive bundle digest
-    </span><span class="attr">#[cfg_attr(feature = <span class="string">&quot;thiserror&quot;</span>, error(<span class="string">&quot;Failed to derive bundle digest&quot;</span>))]
+    </span><span class="attr">#[cfg_attr(feature = <span class="string">"thiserror"</span>, error(<span class="string">"Failed to derive bundle digest"</span>))]
     </span>FailedToDeriveBundleDigest,
     <span class="doccomment">/// The target valid bundle not found from the target bad receipt
     </span><span class="attr">#[cfg_attr(
-        feature = <span class="string">&quot;thiserror&quot;</span>,
-        error(<span class="string">&quot;The target valid bundle not found from the target bad receipt&quot;</span>)
+        feature = <span class="string">"thiserror"</span>,
+        error(<span class="string">"The target valid bundle not found from the target bad receipt"</span>)
     )]
     </span>TargetValidBundleNotFound,
     <span class="doccomment">/// Failed to check if a given extrinsic is inherent or not.
     </span><span class="attr">#[cfg_attr(
-        feature = <span class="string">&quot;thiserror&quot;</span>,
-        error(<span class="string">&quot;Failed to check if a given extrinsic is inherent or not&quot;</span>)
+        feature = <span class="string">"thiserror"</span>,
+        error(<span class="string">"Failed to check if a given extrinsic is inherent or not"</span>)
     )]
     </span>FailedToCheckInherentExtrinsic,
     <span class="doccomment">/// Failed to check if a given extrinsic is decodable or not.
     </span><span class="attr">#[cfg_attr(
-        feature = <span class="string">&quot;thiserror&quot;</span>,
-        error(<span class="string">&quot;Failed to check if a given extrinsic is decodable or not&quot;</span>)
+        feature = <span class="string">"thiserror"</span>,
+        error(<span class="string">"Failed to check if a given extrinsic is decodable or not"</span>)
     )]
     </span>FailedToCheckExtrinsicDecodable,
     <span class="doccomment">/// Invalid bundle equivocation fraud proof.
     </span><span class="attr">#[cfg_attr(
-        feature = <span class="string">&quot;thiserror&quot;</span>,
-        error(<span class="string">&quot;Invalid bundle equivocation fraud proof: {0}&quot;</span>)
+        feature = <span class="string">"thiserror"</span>,
+        error(<span class="string">"Invalid bundle equivocation fraud proof: {0}"</span>)
     )]
     </span>InvalidBundleEquivocationFraudProof(InvalidBundleEquivocationError),
     <span class="doccomment">/// Failed to check extrinsics in single context
     </span><span class="attr">#[cfg_attr(
-        feature = <span class="string">&quot;thiserror&quot;</span>,
-        error(<span class="string">&quot;Failed to check extrinsics in single context&quot;</span>)
+        feature = <span class="string">"thiserror"</span>,
+        error(<span class="string">"Failed to check extrinsics in single context"</span>)
     )]
     </span>FailedToCheckExtrinsicsInSingleContext,
 }
@@ -1124,16 +1162,17 @@
     InvalidTransaction(InvalidTransactionProof&lt;HeaderHashFor&lt;DomainHeader&gt;&gt;),
     BundleEquivocation(BundleEquivocationProof&lt;Number, Hash, DomainHeader&gt;),
     ImproperTransactionSortition(ImproperTransactionSortitionProof&lt;HeaderHashFor&lt;DomainHeader&gt;&gt;),
-    InvalidTotalRewards(InvalidTotalRewardsProof&lt;HeaderHashFor&lt;DomainHeader&gt;&gt;),
+    InvalidBlockFees(InvalidBlockFeesProof&lt;HeaderHashFor&lt;DomainHeader&gt;&gt;),
     InvalidExtrinsicsRoot(InvalidExtrinsicsRootProof&lt;HeaderHashFor&lt;DomainHeader&gt;&gt;),
     ValidBundle(ValidBundleProof&lt;HeaderHashFor&lt;DomainHeader&gt;&gt;),
     InvalidDomainBlockHash(InvalidDomainBlockHashProof&lt;HeaderHashFor&lt;DomainHeader&gt;&gt;),
     InvalidBundles(InvalidBundlesFraudProof&lt;HeaderHashFor&lt;DomainHeader&gt;&gt;),
+    InvalidTransfers(InvalidTransfersProof&lt;HeaderHashFor&lt;DomainHeader&gt;&gt;),
     <span class="comment">// Dummy fraud proof only used in test and benchmark
     //
     // NOTE: the `Dummy` must be the last variant, because the `#[cfg(..)]` will apply to
     // all the variants after it.
-    </span><span class="attr">#[cfg(any(feature = <span class="string">&quot;std&quot;</span>, feature = <span class="string">&quot;runtime-benchmarks&quot;</span>))]
+    </span><span class="attr">#[cfg(any(feature = <span class="string">"std"</span>, feature = <span class="string">"runtime-benchmarks"</span>))]
     </span>Dummy {
         <span class="doccomment">/// Id of the domain this fraud proof targeted
         </span>domain_id: DomainId,
@@ -1149,13 +1188,14 @@
             <span class="self">Self</span>::InvalidTransaction(proof) =&gt; proof.domain_id,
             <span class="self">Self</span>::BundleEquivocation(proof) =&gt; proof.domain_id,
             <span class="self">Self</span>::ImproperTransactionSortition(proof) =&gt; proof.domain_id,
-            <span class="attr">#[cfg(any(feature = <span class="string">&quot;std&quot;</span>, feature = <span class="string">&quot;runtime-benchmarks&quot;</span>))]
+            <span class="attr">#[cfg(any(feature = <span class="string">"std"</span>, feature = <span class="string">"runtime-benchmarks"</span>))]
             </span><span class="self">Self</span>::Dummy { domain_id, .. } =&gt; <span class="kw-2">*</span>domain_id,
-            <span class="self">Self</span>::InvalidTotalRewards(proof) =&gt; proof.domain_id(),
+            <span class="self">Self</span>::InvalidBlockFees(proof) =&gt; proof.domain_id(),
             <span class="self">Self</span>::InvalidExtrinsicsRoot(proof) =&gt; proof.domain_id,
             <span class="self">Self</span>::InvalidBundles(proof) =&gt; proof.domain_id,
             <span class="self">Self</span>::ValidBundle(proof) =&gt; proof.domain_id,
             <span class="self">Self</span>::InvalidDomainBlockHash(proof) =&gt; proof.domain_id,
+            <span class="self">Self</span>::InvalidTransfers(proof) =&gt; proof.domain_id,
         }
     }
 
@@ -1165,15 +1205,16 @@
             <span class="self">Self</span>::InvalidTransaction(proof) =&gt; <span class="prelude-val">Some</span>(proof.bad_receipt_hash),
             <span class="self">Self</span>::ImproperTransactionSortition(proof) =&gt; <span class="prelude-val">Some</span>(proof.bad_receipt_hash),
             <span class="self">Self</span>::BundleEquivocation(<span class="kw">_</span>) =&gt; <span class="prelude-val">None</span>,
-            <span class="attr">#[cfg(any(feature = <span class="string">&quot;std&quot;</span>, feature = <span class="string">&quot;runtime-benchmarks&quot;</span>))]
+            <span class="attr">#[cfg(any(feature = <span class="string">"std"</span>, feature = <span class="string">"runtime-benchmarks"</span>))]
             </span><span class="self">Self</span>::Dummy {
                 bad_receipt_hash, ..
             } =&gt; <span class="prelude-val">Some</span>(<span class="kw-2">*</span>bad_receipt_hash),
             <span class="self">Self</span>::InvalidExtrinsicsRoot(proof) =&gt; <span class="prelude-val">Some</span>(proof.bad_receipt_hash),
-            <span class="self">Self</span>::InvalidTotalRewards(proof) =&gt; <span class="prelude-val">Some</span>(proof.bad_receipt_hash()),
+            <span class="self">Self</span>::InvalidBlockFees(proof) =&gt; <span class="prelude-val">Some</span>(proof.bad_receipt_hash()),
             <span class="self">Self</span>::ValidBundle(proof) =&gt; <span class="prelude-val">Some</span>(proof.bad_receipt_hash),
             <span class="self">Self</span>::InvalidBundles(proof) =&gt; <span class="prelude-val">Some</span>(proof.bad_receipt_hash),
             <span class="self">Self</span>::InvalidDomainBlockHash(proof) =&gt; <span class="prelude-val">Some</span>(proof.bad_receipt_hash),
+            <span class="self">Self</span>::InvalidTransfers(proof) =&gt; <span class="prelude-val">Some</span>(proof.bad_receipt_hash),
         }
     }
 
@@ -1189,7 +1230,7 @@
         }
     }
 
-    <span class="attr">#[cfg(any(feature = <span class="string">&quot;std&quot;</span>, feature = <span class="string">&quot;runtime-benchmarks&quot;</span>))]
+    <span class="attr">#[cfg(any(feature = <span class="string">"std"</span>, feature = <span class="string">"runtime-benchmarks"</span>))]
     </span><span class="kw">pub fn </span>dummy_fraud_proof(
         domain_id: DomainId,
         bad_receipt_hash: HeaderHashFor&lt;DomainHeader&gt;,
@@ -1294,9 +1335,20 @@
     </span><span class="kw">pub </span>bad_receipt_hash: ReceiptHash,
 }
 
-<span class="doccomment">/// Represents an invalid total rewards proof.
+<span class="doccomment">/// Represents an invalid block fees proof.
 </span><span class="attr">#[derive(Clone, Debug, Decode, Encode, Eq, PartialEq, TypeInfo)]
-</span><span class="kw">pub struct </span>InvalidTotalRewardsProof&lt;ReceiptHash&gt; {
+</span><span class="kw">pub struct </span>InvalidBlockFeesProof&lt;ReceiptHash&gt; {
+    <span class="doccomment">/// The id of the domain this fraud proof targeted
+    </span><span class="kw">pub </span>domain_id: DomainId,
+    <span class="doccomment">/// Hash of the bad receipt this fraud proof targeted
+    </span><span class="kw">pub </span>bad_receipt_hash: ReceiptHash,
+    <span class="doccomment">/// Storage witness needed for verifying this proof.
+    </span><span class="kw">pub </span>storage_proof: StorageProof,
+}
+
+<span class="doccomment">/// Represents an invalid transfers proof.
+</span><span class="attr">#[derive(Clone, Debug, Decode, Encode, Eq, PartialEq, TypeInfo)]
+</span><span class="kw">pub struct </span>InvalidTransfersProof&lt;ReceiptHash&gt; {
     <span class="doccomment">/// The id of the domain this fraud proof targeted
     </span><span class="kw">pub </span>domain_id: DomainId,
     <span class="doccomment">/// Hash of the bad receipt this fraud proof targeted
@@ -1339,7 +1391,7 @@
     </span><span class="kw">pub </span>valid_bundle_digests: Vec&lt;ValidBundleDigest&gt;,
 }
 
-<span class="kw">impl</span>&lt;ReceiptHash: Copy&gt; InvalidTotalRewardsProof&lt;ReceiptHash&gt; {
+<span class="kw">impl</span>&lt;ReceiptHash: Copy&gt; InvalidBlockFeesProof&lt;ReceiptHash&gt; {
     <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">fn </span>domain_id(<span class="kw-2">&amp;</span><span class="self">self</span>) -&gt; DomainId {
         <span class="self">self</span>.domain_id
     }
@@ -1351,10 +1403,10 @@
 
 <span class="comment">//TODO: remove there key generations from here and instead use the fraud proof host function to fetch them
 
-</span><span class="doccomment">/// This is a representation of actual Block Rewards storage in pallet-operator-rewards.
+</span><span class="doccomment">/// This is a representation of actual Block Fees storage in pallet-block-fees.
 /// Any change in key or value there should be changed here accordingly.
-</span><span class="kw">pub fn </span>operator_block_rewards_final_key() -&gt; Vec&lt;u8&gt; {
-    frame_support::storage::storage_prefix(<span class="string">&quot;OperatorRewards&quot;</span>.as_ref(), <span class="string">&quot;BlockRewards&quot;</span>.as_ref())
+</span><span class="kw">pub fn </span>operator_block_fees_final_key() -&gt; Vec&lt;u8&gt; {
+    frame_support::storage::storage_prefix(<span class="string">"BlockFees"</span>.as_ref(), <span class="string">"CollectedBlockFees"</span>.as_ref())
         .to_vec()
 }
 
@@ -1372,6 +1424,6 @@
 <span class="doccomment">/// Digest storage key in frame_system.
 /// Unfortunately, the digest storage is private and not possible to derive the key from it directly.
 </span><span class="kw">pub fn </span>system_digest_final_key() -&gt; Vec&lt;u8&gt; {
-    frame_support::storage::storage_prefix(<span class="string">&quot;System&quot;</span>.as_ref(), <span class="string">&quot;Digest&quot;</span>.as_ref()).to_vec()
+    frame_support::storage::storage_prefix(<span class="string">"System"</span>.as_ref(), <span class="string">"Digest"</span>.as_ref()).to_vec()
 }
 </code></pre></div></section></main></body></html>

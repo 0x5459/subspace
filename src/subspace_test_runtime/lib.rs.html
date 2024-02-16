@@ -1,4 +1,6 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `test/subspace-test-runtime/src/lib.rs`."><title>lib.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-deb46770fd761b69.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="subspace_test_runtime" data-themes="" data-resource-suffix="" data-rustdoc-version="1.75.0-nightly (42b1224e9 2023-10-15)" data-channel="nightly" data-search-js="search-8fbf244ebcf71464.js" data-settings-js="settings-74424d7eec62a23e.js" ><script src="../../static.files/storage-fec3eaa3851e447d.js"></script><script defer src="../../static.files/src-script-3280b574d94e47b4.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-5f34af1a0ee6bacd.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-5d8b3c7633ad77ba.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"></nav><main><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `test/subspace-test-runtime/src/lib.rs`."><title>lib.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-4e54bb2b497cc83f.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="subspace_test_runtime" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (25f8d01fd 2024-01-18)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-0b2e2def73e61cbe.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="src-sidebar-title">
+            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
+    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../subspace_test_runtime/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -1385,6 +1387,61 @@
 <a href="#1385" id="1385">1385</a>
 <a href="#1386" id="1386">1386</a>
 <a href="#1387" id="1387">1387</a>
+<a href="#1388" id="1388">1388</a>
+<a href="#1389" id="1389">1389</a>
+<a href="#1390" id="1390">1390</a>
+<a href="#1391" id="1391">1391</a>
+<a href="#1392" id="1392">1392</a>
+<a href="#1393" id="1393">1393</a>
+<a href="#1394" id="1394">1394</a>
+<a href="#1395" id="1395">1395</a>
+<a href="#1396" id="1396">1396</a>
+<a href="#1397" id="1397">1397</a>
+<a href="#1398" id="1398">1398</a>
+<a href="#1399" id="1399">1399</a>
+<a href="#1400" id="1400">1400</a>
+<a href="#1401" id="1401">1401</a>
+<a href="#1402" id="1402">1402</a>
+<a href="#1403" id="1403">1403</a>
+<a href="#1404" id="1404">1404</a>
+<a href="#1405" id="1405">1405</a>
+<a href="#1406" id="1406">1406</a>
+<a href="#1407" id="1407">1407</a>
+<a href="#1408" id="1408">1408</a>
+<a href="#1409" id="1409">1409</a>
+<a href="#1410" id="1410">1410</a>
+<a href="#1411" id="1411">1411</a>
+<a href="#1412" id="1412">1412</a>
+<a href="#1413" id="1413">1413</a>
+<a href="#1414" id="1414">1414</a>
+<a href="#1415" id="1415">1415</a>
+<a href="#1416" id="1416">1416</a>
+<a href="#1417" id="1417">1417</a>
+<a href="#1418" id="1418">1418</a>
+<a href="#1419" id="1419">1419</a>
+<a href="#1420" id="1420">1420</a>
+<a href="#1421" id="1421">1421</a>
+<a href="#1422" id="1422">1422</a>
+<a href="#1423" id="1423">1423</a>
+<a href="#1424" id="1424">1424</a>
+<a href="#1425" id="1425">1425</a>
+<a href="#1426" id="1426">1426</a>
+<a href="#1427" id="1427">1427</a>
+<a href="#1428" id="1428">1428</a>
+<a href="#1429" id="1429">1429</a>
+<a href="#1430" id="1430">1430</a>
+<a href="#1431" id="1431">1431</a>
+<a href="#1432" id="1432">1432</a>
+<a href="#1433" id="1433">1433</a>
+<a href="#1434" id="1434">1434</a>
+<a href="#1435" id="1435">1435</a>
+<a href="#1436" id="1436">1436</a>
+<a href="#1437" id="1437">1437</a>
+<a href="#1438" id="1438">1438</a>
+<a href="#1439" id="1439">1439</a>
+<a href="#1440" id="1440">1440</a>
+<a href="#1441" id="1441">1441</a>
+<a href="#1442" id="1442">1442</a>
 </pre></div><pre class="rust"><code><span class="comment">// Copyright (C) 2021 Subspace Labs, Inc.
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -1401,25 +1458,26 @@
 // You should have received a copy of the GNU General Public License
 // along with this program. If not, see &lt;https://www.gnu.org/licenses/&gt;.
 
-</span><span class="attr">#![cfg_attr(not(feature = <span class="string">&quot;std&quot;</span>), no_std)]
-#![feature(const_option)]
+</span><span class="attr">#![cfg_attr(not(feature = <span class="string">"std"</span>), no_std)]
+#![feature(const_option, variant_count)]
 </span><span class="comment">// `construct_runtime!` does a lot of recursion and requires us to increase the limit to 256.
-</span><span class="attr">#![recursion_limit = <span class="string">&quot;256&quot;</span>]
+</span><span class="attr">#![recursion_limit = <span class="string">"256"</span>]
 
 </span><span class="comment">// Make the WASM binary available.
-</span><span class="attr">#[cfg(feature = <span class="string">&quot;std&quot;</span>)]
-</span><span class="macro">include!</span>(<span class="macro">concat!</span>(<span class="macro">env!</span>(<span class="string">&quot;OUT_DIR&quot;</span>), <span class="string">&quot;/wasm_binary.rs&quot;</span>));
+</span><span class="attr">#[cfg(feature = <span class="string">"std"</span>)]
+</span><span class="macro">include!</span>(<span class="macro">concat!</span>(<span class="macro">env!</span>(<span class="string">"OUT_DIR"</span>), <span class="string">"/wasm_binary.rs"</span>));
 
 <span class="kw">use </span>codec::{Compact, CompactLen, Decode, Encode, MaxEncodedLen};
+<span class="kw">use </span>core::mem;
 <span class="kw">use </span>core::num::NonZeroU64;
 <span class="kw">use </span>domain_runtime_primitives::opaque::Header <span class="kw">as </span>DomainHeader;
 <span class="kw">use </span>domain_runtime_primitives::{
-    BlockNumber <span class="kw">as </span>DomainNumber, Hash <span class="kw">as </span>DomainHash, MultiAccountId, TryConvertBack,
+    AccountIdConverter, BlockNumber <span class="kw">as </span>DomainNumber, Hash <span class="kw">as </span>DomainHash,
 };
 <span class="kw">use </span>frame_support::inherent::ProvideInherent;
 <span class="kw">use </span>frame_support::traits::{
     ConstU128, ConstU16, ConstU32, ConstU64, ConstU8, Currency, ExistenceRequirement, Get,
-    Imbalance, WithdrawReasons,
+    Imbalance, VariantCount, WithdrawReasons,
 };
 <span class="kw">use </span>frame_support::weights::constants::{RocksDbWeight, WEIGHT_REF_TIME_PER_SECOND};
 <span class="kw">use </span>frame_support::weights::{ConstantMultiplier, IdentityFee, Weight};
@@ -1430,14 +1488,13 @@
 <span class="kw">pub use </span>pallet_subspace::{AllowAuthoringBy, EnableRewardsAt};
 <span class="kw">use </span>pallet_transporter::EndpointHandler;
 <span class="kw">use </span>scale_info::TypeInfo;
-<span class="kw">use </span>sp_api::{impl_runtime_apis, BlockT};
+<span class="kw">use </span>sp_api::impl_runtime_apis;
 <span class="kw">use </span>sp_consensus_slots::{Slot, SlotDuration};
 <span class="kw">use </span>sp_consensus_subspace::{
     ChainConstants, EquivocationProof, FarmerPublicKey, PotParameters, SignedVote, SolutionRanges,
     Vote,
 };
 <span class="kw">use </span>sp_core::crypto::{ByteArray, KeyTypeId};
-<span class="kw">use </span>sp_core::storage::StateVersion;
 <span class="kw">use </span>sp_core::{OpaqueMetadata, H256};
 <span class="kw">use </span>sp_domains::bundle_producer_election::BundleProducerElectionParams;
 <span class="kw">use </span>sp_domains::{
@@ -1451,8 +1508,8 @@
     ExtractedStateRootsFromProof, MessageId,
 };
 <span class="kw">use </span>sp_runtime::traits::{
-    AccountIdConversion, AccountIdLookup, BlakeTwo256, Convert, DispatchInfoOf, NumberFor,
-    PostDispatchInfoOf, Zero,
+    AccountIdConversion, AccountIdLookup, BlakeTwo256, Block <span class="kw">as </span>BlockT, ConstBool, DispatchInfoOf,
+    Keccak256, NumberFor, PostDispatchInfoOf, Zero,
 };
 <span class="kw">use </span>sp_runtime::transaction_validity::{
     InvalidTransaction, TransactionSource, TransactionValidity, TransactionValidityError,
@@ -1462,8 +1519,6 @@
 <span class="kw">use </span>sp_std::iter::Peekable;
 <span class="kw">use </span>sp_std::marker::PhantomData;
 <span class="kw">use </span>sp_std::prelude::<span class="kw-2">*</span>;
-<span class="attr">#[cfg(feature = <span class="string">&quot;std&quot;</span>)]
-</span><span class="kw">use </span>sp_version::NativeVersion;
 <span class="kw">use </span>sp_version::RuntimeVersion;
 <span class="kw">use </span>static_assertions::const_assert;
 <span class="kw">use </span>subspace_core_primitives::objects::{BlockObject, BlockObjectMapping};
@@ -1473,13 +1528,17 @@
 };
 <span class="kw">use </span>subspace_runtime_primitives::{
     AccountId, Balance, BlockNumber, Hash, Moment, Nonce, Signature, MIN_REPLICATION_FACTOR,
-    STORAGE_FEES_ESCROW_BLOCK_REWARD, STORAGE_FEES_ESCROW_BLOCK_TAX,
 };
 
 <span class="macro">sp_runtime::impl_opaque_keys! </span>{
     <span class="kw">pub struct </span>SessionKeys {
     }
 }
+
+<span class="comment">// The domain storage fee multiplier used to charge a higher storage fee to the domain
+// transaction to even out the duplicated/illegal domain transaction storage cost, which
+// can not be eliminated currently.
+</span><span class="kw">const </span>DOMAIN_STORAGE_FEE_MULTIPLIER: Balance = <span class="number">3</span>;
 
 <span class="comment">// Smaller value for testing purposes
 </span><span class="kw">const </span>MAX_PIECES_IN_SECTOR: u16 = <span class="number">32</span>;
@@ -1488,8 +1547,8 @@
 //   https://substrate.dev/docs/en/knowledgebase/runtime/upgrades#runtime-versioning
 </span><span class="attr">#[sp_version::runtime_version]
 </span><span class="kw">pub const </span>VERSION: RuntimeVersion = RuntimeVersion {
-    spec_name: <span class="macro">create_runtime_str!</span>(<span class="string">&quot;subspace&quot;</span>),
-    impl_name: <span class="macro">create_runtime_str!</span>(<span class="string">&quot;subspace&quot;</span>),
+    spec_name: <span class="macro">create_runtime_str!</span>(<span class="string">"subspace"</span>),
+    impl_name: <span class="macro">create_runtime_str!</span>(<span class="string">"subspace"</span>),
     authoring_version: <span class="number">1</span>,
     <span class="comment">// The version of the runtime specification. A full node will not attempt to use its native
     //   runtime in substitute for the on-chain Wasm runtime unless all of `spec_name`,
@@ -1501,16 +1560,8 @@
     apis: RUNTIME_API_VERSIONS,
     transaction_version: <span class="number">1</span>,
     state_version: <span class="number">1</span>,
+    extrinsic_state_version: <span class="number">0</span>,
 };
-
-<span class="doccomment">/// The version information used to identify this runtime when compiled natively.
-</span><span class="attr">#[cfg(feature = <span class="string">&quot;std&quot;</span>)]
-</span><span class="kw">pub fn </span>native_version() -&gt; NativeVersion {
-    NativeVersion {
-        runtime_version: VERSION,
-        can_author_with: Default::default(),
-    }
-}
 
 <span class="doccomment">/// The smallest unit of the token is called Shannon.
 </span><span class="kw">pub const </span>SHANNON: Balance = <span class="number">1</span>;
@@ -1557,7 +1608,7 @@
 </span><span class="kw">const </span>POT_ENTROPY_INJECTION_DELAY: SlotNumber = <span class="number">4</span>;
 
 <span class="comment">// Entropy injection interval must be bigger than injection delay or else we may end up in a
-// situation where we&#39;ll need to do more than one injection at the same slot
+// situation where we'll need to do more than one injection at the same slot
 </span><span class="macro">const_assert!</span>(POT_ENTROPY_INJECTION_INTERVAL <span class="kw">as </span>u64 &gt; POT_ENTROPY_INJECTION_DELAY);
 <span class="comment">// Entropy injection delay must be bigger than block authoring delay or else we may include
 // invalid future proofs in parent block, +1 ensures we do not have unnecessary reorgs that will
@@ -1591,7 +1642,6 @@
     </span><span class="kw">pub </span>SubspaceBlockWeights: BlockWeights = BlockWeights::with_sensible_defaults(BLOCK_WEIGHT_FOR_2_SEC, NORMAL_DISPATCH_RATIO);
     <span class="doccomment">/// We allow for 3.75 MiB for `Normal` extrinsic with 5 MiB maximum block length.
     </span><span class="kw">pub </span>SubspaceBlockLength: BlockLength = BlockLength::max_with_normal_ratio(MAX_BLOCK_LENGTH, NORMAL_DISPATCH_RATIO);
-    <span class="kw">pub const </span>ExtrinsicsRootStateVersion: StateVersion = StateVersion::V0;
 }
 
 <span class="kw">pub type </span>SS58Prefix = ConstU16&lt;<span class="number">2254</span>&gt;;
@@ -1609,6 +1659,8 @@
     </span><span class="kw">type </span>AccountId = AccountId;
     <span class="doccomment">/// The aggregated dispatch type that is available for extrinsics.
     </span><span class="kw">type </span>RuntimeCall = RuntimeCall;
+    <span class="doccomment">/// The aggregated `RuntimeTask` type.
+    </span><span class="kw">type </span>RuntimeTask = RuntimeTask;
     <span class="doccomment">/// The lookup mechanism to get account ID from whatever is passed in dispatchers.
     </span><span class="kw">type </span>Lookup = AccountIdLookup&lt;AccountId, ()&gt;;
     <span class="doccomment">/// The type for storing how many extrinsics an account has signed.
@@ -1643,10 +1695,9 @@
     </span><span class="kw">type </span>SystemWeightInfo = ();
     <span class="doccomment">/// This is used as an identifier of the chain.
     </span><span class="kw">type </span>SS58Prefix = SS58Prefix;
-    <span class="doccomment">/// The set code logic, just the default since we&#39;re not a parachain.
+    <span class="doccomment">/// The set code logic, just the default since we're not a parachain.
     </span><span class="kw">type </span>OnSetCode = ();
     <span class="kw">type </span>MaxConsumers = ConstU32&lt;<span class="number">16</span>&gt;;
-    <span class="kw">type </span>ExtrinsicsRootStateVersion = ExtrinsicsRootStateVersion;
 }
 
 <span class="macro">parameter_types! </span>{
@@ -1709,27 +1760,23 @@
 }
 
 <span class="kw">impl </span>pallet_domains::HoldIdentifier&lt;Runtime&gt; <span class="kw">for </span>HoldIdentifier {
-    <span class="kw">fn </span>staking_pending_deposit(operator_id: OperatorId) -&gt; <span class="self">Self </span>{
-        <span class="self">Self</span>::Domains(DomainsHoldIdentifier::Staking(
-            StakingHoldIdentifier::PendingDeposit(operator_id),
-        ))
-    }
-
     <span class="kw">fn </span>staking_staked(operator_id: OperatorId) -&gt; <span class="self">Self </span>{
         <span class="self">Self</span>::Domains(DomainsHoldIdentifier::Staking(
             StakingHoldIdentifier::Staked(operator_id),
         ))
     }
 
-    <span class="kw">fn </span>staking_pending_unlock(operator_id: OperatorId) -&gt; <span class="self">Self </span>{
-        <span class="self">Self</span>::Domains(DomainsHoldIdentifier::Staking(
-            StakingHoldIdentifier::PendingUnlock(operator_id),
-        ))
-    }
-
     <span class="kw">fn </span>domain_instantiation_id(domain_id: DomainId) -&gt; <span class="self">Self </span>{
         <span class="self">Self</span>::Domains(DomainsHoldIdentifier::DomainInstantiation(domain_id))
     }
+
+    <span class="kw">fn </span>storage_fund_withdrawal(operator_id: OperatorId) -&gt; <span class="self">Self </span>{
+        <span class="self">Self</span>::Domains(DomainsHoldIdentifier::StorageFund(operator_id))
+    }
+}
+
+<span class="kw">impl </span>VariantCount <span class="kw">for </span>HoldIdentifier {
+    <span class="kw">const </span>VARIANT_COUNT: u32 = mem::variant_count::&lt;<span class="self">Self</span>&gt;() <span class="kw">as </span>u32;
 }
 
 <span class="macro">parameter_types! </span>{
@@ -1737,10 +1784,11 @@
 }
 
 <span class="kw">impl </span>pallet_balances::Config <span class="kw">for </span>Runtime {
+    <span class="kw">type </span>RuntimeFreezeReason = RuntimeFreezeReason;
     <span class="kw">type </span>MaxLocks = ConstU32&lt;<span class="number">50</span>&gt;;
     <span class="kw">type </span>MaxReserves = ();
     <span class="kw">type </span>ReserveIdentifier = [u8; <span class="number">8</span>];
-    <span class="doccomment">/// The type for recording an account&#39;s balance.
+    <span class="doccomment">/// The type for recording an account's balance.
     </span><span class="kw">type </span>Balance = Balance;
     <span class="doccomment">/// The ubiquitous event type.
     </span><span class="kw">type </span>RuntimeEvent = RuntimeEvent;
@@ -1753,11 +1801,6 @@
     <span class="kw">type </span>MaxFreezes = ();
     <span class="kw">type </span>RuntimeHoldReason = HoldIdentifier;
     <span class="kw">type </span>MaxHolds = MaxHolds;
-}
-
-<span class="macro">parameter_types! </span>{
-    <span class="kw">pub const </span>StorageFeesEscrowBlockReward: (u64, u64) = STORAGE_FEES_ESCROW_BLOCK_REWARD;
-    <span class="kw">pub const </span>StorageFeesEscrowBlockTax: (u64, u64) = STORAGE_FEES_ESCROW_BLOCK_TAX;
 }
 
 <span class="kw">pub struct </span>CreditSupply;
@@ -1793,13 +1836,12 @@
 <span class="kw">impl </span>pallet_transaction_fees::Config <span class="kw">for </span>Runtime {
     <span class="kw">type </span>RuntimeEvent = RuntimeEvent;
     <span class="kw">type </span>MinReplicationFactor = ConstU16&lt;MIN_REPLICATION_FACTOR&gt;;
-    <span class="kw">type </span>StorageFeesEscrowBlockReward = StorageFeesEscrowBlockReward;
-    <span class="kw">type </span>StorageFeesEscrowBlockTax = StorageFeesEscrowBlockTax;
     <span class="kw">type </span>CreditSupply = CreditSupply;
     <span class="kw">type </span>TotalSpacePledged = TotalSpacePledged;
     <span class="kw">type </span>BlockchainHistorySize = BlockchainHistorySize;
     <span class="kw">type </span>Currency = Balances;
     <span class="kw">type </span>FindBlockRewardAddress = Subspace;
+    <span class="kw">type </span>DynamicCostOfStorage = ConstBool&lt;<span class="bool-val">false</span>&gt;;
     <span class="kw">type </span>WeightInfo = ();
 }
 
@@ -1807,11 +1849,7 @@
 
 <span class="kw">impl </span>Get&lt;Balance&gt; <span class="kw">for </span>TransactionByteFee {
     <span class="kw">fn </span>get() -&gt; Balance {
-        <span class="kw">if </span><span class="macro">cfg!</span>(feature = <span class="string">&quot;do-not-enforce-cost-of-storage&quot;</span>) {
-            <span class="number">1
-        </span>} <span class="kw">else </span>{
-            TransactionFees::transaction_byte_fee()
-        }
+        TransactionFees::transaction_byte_fee()
     }
 }
 
@@ -1856,7 +1894,7 @@
         <span class="comment">// Separate storage fee while we have access to the call data structure to calculate it.
         </span><span class="kw">let </span>storage_fee = TransactionByteFee::get()
             * Balance::try_from(call.encoded_size())
-                .expect(<span class="string">&quot;Size of the call never exceeds balance units; qed&quot;</span>);
+                .expect(<span class="string">"Size of the call never exceeds balance units; qed"</span>);
 
         <span class="prelude-val">Ok</span>(<span class="prelude-val">Some</span>(LiquidityInfo {
             storage_fee,
@@ -1880,7 +1918,7 @@
             <span class="comment">// Calculate how much refund we should return
             </span><span class="kw">let </span>refund_amount = imbalance.peek().saturating_sub(corrected_fee);
             <span class="comment">// Refund to the the account that paid the fees. If this fails, the account might have
-            // dropped below the existential balance. In that case we don&#39;t refund anything.
+            // dropped below the existential balance. In that case we don't refund anything.
             </span><span class="kw">let </span>refund_imbalance = Balances::deposit_into_existing(who, refund_amount)
                 .unwrap_or_else(|<span class="kw">_</span>| &lt;Balances <span class="kw">as </span>Currency&lt;AccountId&gt;&gt;::PositiveImbalance::zero());
             <span class="comment">// Merge the imbalance caused by paying the fees and refunding parts of it again.
@@ -1938,9 +1976,9 @@
         Domains::domain_best_number(domain_id)
     }
 
-    <span class="kw">fn </span>domain_state_root(domain_id: DomainId, number: BlockNumber, hash: Hash) -&gt; <span class="prelude-ty">Option</span>&lt;Hash&gt; {
-        Domains::domain_state_root(domain_id, number, hash)
-    }
+    <span class="kw">fn </span>domain_state_root(_domain_id: DomainId, _number: BlockNumber, _hash: Hash) -&gt; <span class="prelude-ty">Option</span>&lt;Hash&gt; {
+        <span class="prelude-val">None
+    </span>}
 }
 
 <span class="kw">impl </span>pallet_messenger::Config <span class="kw">for </span>Runtime {
@@ -1975,23 +2013,6 @@
     <span class="kw">pub const </span>TransporterEndpointId: EndpointId = <span class="number">1</span>;
 }
 
-<span class="kw">pub struct </span>AccountIdConverter;
-
-<span class="kw">impl </span>Convert&lt;AccountId, MultiAccountId&gt; <span class="kw">for </span>AccountIdConverter {
-    <span class="kw">fn </span>convert(account_id: AccountId) -&gt; MultiAccountId {
-        MultiAccountId::AccountId32(account_id.into())
-    }
-}
-
-<span class="kw">impl </span>TryConvertBack&lt;AccountId, MultiAccountId&gt; <span class="kw">for </span>AccountIdConverter {
-    <span class="kw">fn </span>try_convert_back(multi_account_id: MultiAccountId) -&gt; <span class="prelude-ty">Option</span>&lt;AccountId&gt; {
-        <span class="kw">match </span>multi_account_id {
-            MultiAccountId::AccountId32(acc) =&gt; <span class="prelude-val">Some</span>(AccountId::from(acc)),
-            <span class="kw">_ </span>=&gt; <span class="prelude-val">None</span>,
-        }
-    }
-}
-
 <span class="kw">impl </span>pallet_transporter::Config <span class="kw">for </span>Runtime {
     <span class="kw">type </span>RuntimeEvent = RuntimeEvent;
     <span class="kw">type </span>SelfChainId = SelfChainId;
@@ -2014,9 +2035,9 @@
     <span class="kw">pub const </span>DomainRuntimeUpgradeDelay: BlockNumber = <span class="number">10</span>;
     <span class="kw">pub const </span>MinOperatorStake: Balance = <span class="number">100 </span>* SSC;
     <span class="kw">pub const </span>MinNominatorStake: Balance = SSC;
-    <span class="doccomment">/// Use the consensus chain&#39;s `Normal` extrinsics block size limit as the domain block size limit
+    <span class="doccomment">/// Use the consensus chain's `Normal` extrinsics block size limit as the domain block size limit
     </span><span class="kw">pub </span>MaxDomainBlockSize: u32 = NORMAL_DISPATCH_RATIO * MAX_BLOCK_LENGTH;
-    <span class="doccomment">/// Use the consensus chain&#39;s `Normal` extrinsics block weight limit as the domain block weight limit
+    <span class="doccomment">/// Use the consensus chain's `Normal` extrinsics block weight limit as the domain block weight limit
     </span><span class="kw">pub </span>MaxDomainBlockWeight: Weight = NORMAL_DISPATCH_RATIO * BLOCK_WEIGHT_FOR_2_SEC;
     <span class="kw">pub const </span>MaxBundlesPerBlock: u32 = <span class="number">10</span>;
     <span class="kw">pub const </span>DomainInstantiationDeposit: Balance = <span class="number">100 </span>* SSC;
@@ -2024,14 +2045,29 @@
     <span class="kw">pub const </span>BlockTreePruningDepth: u32 = <span class="number">16</span>;
     <span class="kw">pub const </span>StakeWithdrawalLockingPeriod: BlockNumber = <span class="number">20</span>;
     <span class="kw">pub const </span>StakeEpochDuration: DomainNumber = <span class="number">5</span>;
-    <span class="kw">pub </span>TreasuryAccount: AccountId = PalletId(<span class="kw-2">*</span><span class="string">b&quot;treasury&quot;</span>).into_account_truncating();
+    <span class="kw">pub </span>TreasuryAccount: AccountId = PalletId(<span class="kw-2">*</span><span class="string">b"treasury"</span>).into_account_truncating();
     <span class="kw">pub const </span>MaxPendingStakingOperation: u32 = <span class="number">100</span>;
     <span class="kw">pub const </span>MaxNominators: u32 = <span class="number">100</span>;
-    <span class="kw">pub </span>SudoId: AccountId = Sudo::key().expect(<span class="string">&quot;Sudo account must exist&quot;</span>);
+    <span class="kw">pub </span>SudoId: AccountId = Sudo::key().expect(<span class="string">"Sudo account must exist"</span>);
+    <span class="kw">pub const </span>DomainsPalletId: PalletId = PalletId(<span class="kw-2">*</span><span class="string">b"domains_"</span>);
+    <span class="kw">pub const </span>MaxInitialDomainAccounts: u32 = <span class="number">20</span>;
+    <span class="kw">pub const </span>MinInitialDomainAccountBalance: Balance = SSC;
 }
 
 <span class="comment">// Minimum operator stake must be &gt;= minimum nominator stake since operator is also a nominator.
 </span><span class="macro">const_assert!</span>(MinOperatorStake::get() &gt;= MinNominatorStake::get());
+
+<span class="kw">pub struct </span>BlockSlot;
+
+<span class="kw">impl </span>pallet_domains::BlockSlot <span class="kw">for </span>BlockSlot {
+    <span class="kw">fn </span>current_slot() -&gt; sp_consensus_slots::Slot {
+        Subspace::current_slot()
+    }
+
+    <span class="kw">fn </span>future_slot() -&gt; sp_consensus_slots::Slot {
+        Subspace::current_slot() + Slot::from(BlockAuthoringDelay::get())
+    }
+}
 
 <span class="kw">impl </span>pallet_domains::Config <span class="kw">for </span>Runtime {
     <span class="kw">type </span>RuntimeEvent = RuntimeEvent;
@@ -2060,6 +2096,12 @@
     <span class="kw">type </span>Randomness = Subspace;
     <span class="kw">type </span>SudoId = SudoId;
     <span class="kw">type </span>MinNominatorStake = MinNominatorStake;
+    <span class="kw">type </span>PalletId = DomainsPalletId;
+    <span class="kw">type </span>StorageFee = TransactionFees;
+    <span class="kw">type </span>BlockSlot = BlockSlot;
+    <span class="kw">type </span>DomainsTransfersTracker = Transporter;
+    <span class="kw">type </span>MaxInitialDomainAccounts = MaxInitialDomainAccounts;
+    <span class="kw">type </span>MinInitialDomainAccountBalance = MinInitialDomainAccountBalance;
 }
 
 <span class="macro">parameter_types! </span>{
@@ -2079,7 +2121,7 @@
 }
 
 <span class="macro">parameter_types! </span>{
-    <span class="comment">// This value doesn&#39;t matter, we don&#39;t use it (`VestedTransferOrigin = EnsureNever` below).
+    <span class="comment">// This value doesn't matter, we don't use it (`VestedTransferOrigin = EnsureNever` below).
     </span><span class="kw">pub const </span>MinVestedTransfer: Balance = <span class="number">0</span>;
 }
 
@@ -2091,6 +2133,27 @@
     <span class="kw">type </span>WeightInfo = ();
     <span class="kw">type </span>MaxVestingSchedules = ConstU32&lt;<span class="number">2</span>&gt;;
     <span class="kw">type </span>BlockNumberProvider = System;
+}
+
+<span class="kw">mod </span>mmr {
+    <span class="kw">use </span><span class="kw">super</span>::Runtime;
+    <span class="kw">pub use </span>pallet_mmr::primitives::<span class="kw-2">*</span>;
+
+    <span class="kw">pub type </span>Leaf = &lt;&lt;Runtime <span class="kw">as </span>pallet_mmr::Config&gt;::LeafData <span class="kw">as </span>LeafDataProvider&gt;::LeafData;
+    <span class="kw">pub type </span>Hashing = &lt;Runtime <span class="kw">as </span>pallet_mmr::Config&gt;::Hashing;
+    <span class="kw">pub type </span>Hash = &lt;Hashing <span class="kw">as </span>sp_runtime::traits::Hash&gt;::Output;
+}
+
+<span class="kw">impl </span>pallet_mmr::Config <span class="kw">for </span>Runtime {
+    <span class="kw">const </span>INDEXING_PREFIX: <span class="kw-2">&amp;</span><span class="lifetime">'static </span>[u8] = mmr::INDEXING_PREFIX;
+    <span class="kw">type </span>Hashing = Keccak256;
+    <span class="kw">type </span>LeafData = SubspaceMmr;
+    <span class="kw">type </span>OnNewRoot = SubspaceMmr;
+    <span class="kw">type </span>WeightInfo = ();
+}
+
+<span class="kw">impl </span>pallet_subspace_mmr::Config <span class="kw">for </span>Runtime {
+    <span class="kw">type </span>MmrRootHash = mmr::Hash;
 }
 
 <span class="macro">construct_runtime!</span>(
@@ -2111,12 +2174,15 @@
 
         Vesting: orml_vesting = <span class="number">7</span>,
 
+        Mmr: pallet_mmr = <span class="number">30</span>,
+        SubspaceMmr: pallet_subspace_mmr = <span class="number">31</span>,
+
         <span class="comment">// messenger stuff
         // Note: Indexes should match with indexes on other chains and domains
         </span>Messenger: pallet_messenger = <span class="number">60</span>,
         Transporter: pallet_transporter = <span class="number">61</span>,
 
-        <span class="comment">// Reserve some room for other pallets as we&#39;ll remove sudo pallet eventually.
+        <span class="comment">// Reserve some room for other pallets as we'll remove sudo pallet eventually.
         </span>Sudo: pallet_sudo = <span class="number">100</span>,
     }
 );
@@ -2371,7 +2437,7 @@
             farmer_public_key
                 .as_slice()
                 .try_into()
-                .expect(<span class="string">&quot;Public key is always of correct size; qed&quot;</span>),
+                .expect(<span class="string">"Public key is always of correct size; qed"</span>),
         )
     }
 }
@@ -2616,12 +2682,8 @@
             Domains::head_receipt_number(domain_id)
         }
 
-        <span class="kw">fn </span>oldest_receipt_number(domain_id: DomainId) -&gt; DomainNumber {
-            Domains::oldest_receipt_number(domain_id)
-        }
-
-        <span class="kw">fn </span>block_tree_pruning_depth() -&gt; DomainNumber {
-            Domains::block_tree_pruning_depth()
+        <span class="kw">fn </span>oldest_unconfirmed_receipt_number(domain_id: DomainId) -&gt; <span class="prelude-ty">Option</span>&lt;DomainNumber&gt; {
+            Domains::oldest_unconfirmed_receipt_number(domain_id)
         }
 
         <span class="kw">fn </span>domain_block_limit(domain_id: DomainId) -&gt; <span class="prelude-ty">Option</span>&lt;sp_domains::DomainBlockLimit&gt; {
@@ -2636,9 +2698,9 @@
             Domains::domain_best_number(domain_id)
         }
 
-        <span class="kw">fn </span>domain_state_root(domain_id: DomainId, number: DomainNumber, hash: DomainHash) -&gt; <span class="prelude-ty">Option</span>&lt;DomainHash&gt;{
-            Domains::domain_state_root(domain_id, number, hash)
-        }
+        <span class="kw">fn </span>domain_state_root(_domain_id: DomainId, _number: DomainNumber, _hash: DomainHash) -&gt; <span class="prelude-ty">Option</span>&lt;DomainHash&gt;{
+            <span class="prelude-val">None
+        </span>}
 
         <span class="kw">fn </span>execution_receipt(receipt_hash: DomainHash) -&gt; <span class="prelude-ty">Option</span>&lt;ExecutionReceiptFor&lt;DomainHeader, Block, Balance&gt;&gt; {
             Domains::execution_receipt(receipt_hash)
@@ -2661,6 +2723,10 @@
 
         <span class="kw">fn </span>receipt_hash(domain_id: DomainId, domain_number: DomainNumber) -&gt; <span class="prelude-ty">Option</span>&lt;DomainHash&gt; {
             Domains::receipt_hash(domain_id, domain_number)
+        }
+
+        <span class="kw">fn </span>consensus_chain_byte_fee() -&gt; Balance {
+            DOMAIN_STORAGE_FEE_MULTIPLIER * TransactionFees::transaction_byte_fee()
         }
     }
 
@@ -2769,6 +2835,52 @@
             extrinsics: Vec&lt;&lt;Block <span class="kw">as </span>BlockT&gt;::Extrinsic&gt;,
         ) -&gt; Vec&lt;FraudProof&lt;NumberFor&lt;Block&gt;, &lt;Block <span class="kw">as </span>BlockT&gt;::Hash, DomainHeader&gt;&gt; {
             extract_fraud_proofs(domain_id, extrinsics)
+        }
+    }
+
+    <span class="kw">impl </span>mmr::MmrApi&lt;Block, mmr::Hash, BlockNumber&gt; <span class="kw">for </span>Runtime {
+        <span class="kw">fn </span>mmr_root() -&gt; <span class="prelude-ty">Result</span>&lt;mmr::Hash, mmr::Error&gt; {
+            <span class="prelude-val">Ok</span>(Mmr::mmr_root())
+        }
+
+        <span class="kw">fn </span>mmr_leaf_count() -&gt; <span class="prelude-ty">Result</span>&lt;mmr::LeafIndex, mmr::Error&gt; {
+            <span class="prelude-val">Ok</span>(Mmr::mmr_leaves())
+        }
+
+        <span class="kw">fn </span>generate_proof(
+            block_numbers: Vec&lt;BlockNumber&gt;,
+            best_known_block_number: <span class="prelude-ty">Option</span>&lt;BlockNumber&gt;,
+        ) -&gt; <span class="prelude-ty">Result</span>&lt;(Vec&lt;mmr::EncodableOpaqueLeaf&gt;, mmr::Proof&lt;mmr::Hash&gt;), mmr::Error&gt; {
+            Mmr::generate_proof(block_numbers, best_known_block_number).map(
+                |(leaves, proof)| {
+                    (
+                        leaves
+                            .into_iter()
+                            .map(|leaf| mmr::EncodableOpaqueLeaf::from_leaf(<span class="kw-2">&amp;</span>leaf))
+                            .collect(),
+                        proof,
+                    )
+                },
+            )
+        }
+
+        <span class="kw">fn </span>verify_proof(leaves: Vec&lt;mmr::EncodableOpaqueLeaf&gt;, proof: mmr::Proof&lt;mmr::Hash&gt;)
+            -&gt; <span class="prelude-ty">Result</span>&lt;(), mmr::Error&gt;
+        {
+            <span class="kw">let </span>leaves = leaves.into_iter().map(|leaf|
+                leaf.into_opaque_leaf()
+                .try_decode()
+                .ok_or(mmr::Error::Verify)).collect::&lt;<span class="prelude-ty">Result</span>&lt;Vec&lt;mmr::Leaf&gt;, mmr::Error&gt;&gt;()<span class="question-mark">?</span>;
+            Mmr::verify_leaves(leaves, proof)
+        }
+
+        <span class="kw">fn </span>verify_proof_stateless(
+            root: mmr::Hash,
+            leaves: Vec&lt;mmr::EncodableOpaqueLeaf&gt;,
+            proof: mmr::Proof&lt;mmr::Hash&gt;
+        ) -&gt; <span class="prelude-ty">Result</span>&lt;(), mmr::Error&gt; {
+            <span class="kw">let </span>nodes = leaves.into_iter().map(|leaf|mmr::DataOrHash::Data(leaf.into_opaque_leaf())).collect();
+            pallet_mmr::verify_leaves_proof::&lt;mmr::Hashing, <span class="kw">_</span>&gt;(root, nodes, proof)
         }
     }
 }
