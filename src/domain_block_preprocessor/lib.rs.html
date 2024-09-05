@@ -1,6 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `domains/client/block-preprocessor/src/lib.rs`."><title>lib.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-4e54bb2b497cc83f.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="domain_block_preprocessor" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (25f8d01fd 2024-01-18)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-0b2e2def73e61cbe.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="src-sidebar-title">
-            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
-    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../domain_block_preprocessor/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `domains/client/block-preprocessor/src/lib.rs`."><title>lib.rs - source</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-46f98efaafac5295.ttf.woff2,FiraSans-Regular-018c141bf0843ffd.woff2,FiraSans-Medium-8f9a781e4970d388.woff2,SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2,SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-970bf1bf55bd1c15.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="domain_block_preprocessor" data-themes="" data-resource-suffix="" data-rustdoc-version="1.82.0-nightly (28a58f2fa 2024-07-31)" data-channel="nightly" data-search-js="search-ef54e092fea9c776.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-118b08c4c78b968e.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-f9142fe437216fc3.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-df360f571f6edeae.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="src-sidebar-title"><h2>Files</h2></div></nav><div class="sidebar-resizer"></div><main><rustdoc-search></rustdoc-search><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -376,6 +374,106 @@
 <a href="#374" id="374">374</a>
 <a href="#375" id="375">375</a>
 <a href="#376" id="376">376</a>
+<a href="#377" id="377">377</a>
+<a href="#378" id="378">378</a>
+<a href="#379" id="379">379</a>
+<a href="#380" id="380">380</a>
+<a href="#381" id="381">381</a>
+<a href="#382" id="382">382</a>
+<a href="#383" id="383">383</a>
+<a href="#384" id="384">384</a>
+<a href="#385" id="385">385</a>
+<a href="#386" id="386">386</a>
+<a href="#387" id="387">387</a>
+<a href="#388" id="388">388</a>
+<a href="#389" id="389">389</a>
+<a href="#390" id="390">390</a>
+<a href="#391" id="391">391</a>
+<a href="#392" id="392">392</a>
+<a href="#393" id="393">393</a>
+<a href="#394" id="394">394</a>
+<a href="#395" id="395">395</a>
+<a href="#396" id="396">396</a>
+<a href="#397" id="397">397</a>
+<a href="#398" id="398">398</a>
+<a href="#399" id="399">399</a>
+<a href="#400" id="400">400</a>
+<a href="#401" id="401">401</a>
+<a href="#402" id="402">402</a>
+<a href="#403" id="403">403</a>
+<a href="#404" id="404">404</a>
+<a href="#405" id="405">405</a>
+<a href="#406" id="406">406</a>
+<a href="#407" id="407">407</a>
+<a href="#408" id="408">408</a>
+<a href="#409" id="409">409</a>
+<a href="#410" id="410">410</a>
+<a href="#411" id="411">411</a>
+<a href="#412" id="412">412</a>
+<a href="#413" id="413">413</a>
+<a href="#414" id="414">414</a>
+<a href="#415" id="415">415</a>
+<a href="#416" id="416">416</a>
+<a href="#417" id="417">417</a>
+<a href="#418" id="418">418</a>
+<a href="#419" id="419">419</a>
+<a href="#420" id="420">420</a>
+<a href="#421" id="421">421</a>
+<a href="#422" id="422">422</a>
+<a href="#423" id="423">423</a>
+<a href="#424" id="424">424</a>
+<a href="#425" id="425">425</a>
+<a href="#426" id="426">426</a>
+<a href="#427" id="427">427</a>
+<a href="#428" id="428">428</a>
+<a href="#429" id="429">429</a>
+<a href="#430" id="430">430</a>
+<a href="#431" id="431">431</a>
+<a href="#432" id="432">432</a>
+<a href="#433" id="433">433</a>
+<a href="#434" id="434">434</a>
+<a href="#435" id="435">435</a>
+<a href="#436" id="436">436</a>
+<a href="#437" id="437">437</a>
+<a href="#438" id="438">438</a>
+<a href="#439" id="439">439</a>
+<a href="#440" id="440">440</a>
+<a href="#441" id="441">441</a>
+<a href="#442" id="442">442</a>
+<a href="#443" id="443">443</a>
+<a href="#444" id="444">444</a>
+<a href="#445" id="445">445</a>
+<a href="#446" id="446">446</a>
+<a href="#447" id="447">447</a>
+<a href="#448" id="448">448</a>
+<a href="#449" id="449">449</a>
+<a href="#450" id="450">450</a>
+<a href="#451" id="451">451</a>
+<a href="#452" id="452">452</a>
+<a href="#453" id="453">453</a>
+<a href="#454" id="454">454</a>
+<a href="#455" id="455">455</a>
+<a href="#456" id="456">456</a>
+<a href="#457" id="457">457</a>
+<a href="#458" id="458">458</a>
+<a href="#459" id="459">459</a>
+<a href="#460" id="460">460</a>
+<a href="#461" id="461">461</a>
+<a href="#462" id="462">462</a>
+<a href="#463" id="463">463</a>
+<a href="#464" id="464">464</a>
+<a href="#465" id="465">465</a>
+<a href="#466" id="466">466</a>
+<a href="#467" id="467">467</a>
+<a href="#468" id="468">468</a>
+<a href="#469" id="469">469</a>
+<a href="#470" id="470">470</a>
+<a href="#471" id="471">471</a>
+<a href="#472" id="472">472</a>
+<a href="#473" id="473">473</a>
+<a href="#474" id="474">474</a>
+<a href="#475" id="475">475</a>
+<a href="#476" id="476">476</a>
 </pre></div><pre class="rust"><code><span class="doccomment">//! This crate provides a preprocessor for the domain block, which is used to construct
 //! domain extrinsics from the consensus block.
 //!
@@ -387,17 +485,16 @@
 //! 5. Push back the potential new domain runtime extrisnic.
 
 </span><span class="attr">#![warn(rust_2018_idioms)]
+#![feature(let_chains)]
 
 </span><span class="kw">pub mod </span>inherents;
 <span class="kw">pub mod </span>stateless_runtime;
-<span class="kw">pub mod </span>xdm_verifier;
 
 <span class="kw">use </span><span class="kw">crate</span>::inherents::is_runtime_upgraded;
-<span class="kw">use </span><span class="kw">crate</span>::xdm_verifier::is_valid_xdm;
 <span class="kw">use </span>codec::Encode;
 <span class="kw">use </span>domain_runtime_primitives::opaque::AccountId;
 <span class="kw">use </span>sc_client_api::BlockBackend;
-<span class="kw">use </span>sp_api::ProvideRuntimeApi;
+<span class="kw">use </span>sp_api::{ApiError, ApiExt, Core, ProvideRuntimeApi};
 <span class="kw">use </span>sp_blockchain::HeaderBackend;
 <span class="kw">use </span>sp_core::H256;
 <span class="kw">use </span>sp_domains::core_api::DomainCoreApi;
@@ -407,8 +504,12 @@
     InvalidBundleType, OpaqueBundle, OpaqueBundles, ReceiptValidity,
 };
 <span class="kw">use </span>sp_messenger::MessengerApi;
-<span class="kw">use </span>sp_runtime::traits::{Block <span class="kw">as </span>BlockT, Hash <span class="kw">as </span>HashT, NumberFor};
+<span class="kw">use </span>sp_mmr_primitives::MmrApi;
+<span class="kw">use </span>sp_runtime::traits::{Block <span class="kw">as </span>BlockT, Hash <span class="kw">as </span>HashT, Header, NumberFor};
+<span class="kw">use </span>sp_runtime::DigestItem;
 <span class="kw">use </span>sp_state_machine::LayoutV1;
+<span class="kw">use </span>sp_subspace_mmr::ConsensusChainMmrLeafProof;
+<span class="kw">use </span>sp_weights::Weight;
 <span class="kw">use </span>std::collections::VecDeque;
 <span class="kw">use </span>std::marker::PhantomData;
 <span class="kw">use </span>std::sync::Arc;
@@ -497,14 +598,16 @@
     CBlock::Hash: From&lt;Block::Hash&gt;,
     NumberFor&lt;CBlock&gt;: From&lt;NumberFor&lt;Block&gt;&gt;,
     Client: HeaderBackend&lt;Block&gt; + ProvideRuntimeApi&lt;Block&gt; + <span class="lifetime">'static</span>,
-    Client::Api: DomainCoreApi&lt;Block&gt; + MessengerApi&lt;Block, NumberFor&lt;Block&gt;&gt;,
+    Client::Api: DomainCoreApi&lt;Block&gt; + MessengerApi&lt;Block, NumberFor&lt;CBlock&gt;, CBlock::Hash&gt;,
     CClient: HeaderBackend&lt;CBlock&gt;
         + BlockBackend&lt;CBlock&gt;
         + ProvideRuntimeApi&lt;CBlock&gt;
         + Send
         + Sync
         + <span class="lifetime">'static</span>,
-    CClient::Api: DomainsApi&lt;CBlock, Block::Header&gt; + MessengerApi&lt;CBlock, NumberFor&lt;CBlock&gt;&gt;,
+    CClient::Api: DomainsApi&lt;CBlock, Block::Header&gt;
+        + MessengerApi&lt;CBlock, NumberFor&lt;CBlock&gt;, CBlock::Hash&gt;
+        + MmrApi&lt;CBlock, H256, NumberFor&lt;CBlock&gt;&gt;,
     ReceiptValidator: ValidateReceipt&lt;Block, CBlock&gt;,
 {
     <span class="kw">pub fn </span>new(
@@ -525,7 +628,7 @@
     <span class="kw">pub fn </span>preprocess_consensus_block(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         consensus_block_hash: CBlock::Hash,
-        domain_hash: Block::Hash,
+        parent_domain_block: (Block::Hash, NumberFor&lt;Block&gt;),
     ) -&gt; sp_blockchain::Result&lt;<span class="prelude-ty">Option</span>&lt;PreprocessResult&lt;Block&gt;&gt;&gt; {
         <span class="kw">let </span>(primary_extrinsics, shuffling_seed) = prepare_domain_block_elements::&lt;Block, CBlock, <span class="kw">_</span>&gt;(
             <span class="kw-2">&amp;*</span><span class="self">self</span>.consensus_client,
@@ -552,8 +655,12 @@
             .runtime_api()
             .domain_tx_range(consensus_block_hash, <span class="self">self</span>.domain_id)<span class="question-mark">?</span>;
 
-        <span class="kw">let </span>(inboxed_bundles, extrinsics) =
-            <span class="self">self</span>.compile_bundles_to_extrinsics(bundles, tx_range, domain_hash)<span class="question-mark">?</span>;
+        <span class="kw">let </span>(inboxed_bundles, extrinsics) = <span class="self">self</span>.compile_bundles_to_extrinsics(
+            bundles,
+            tx_range,
+            parent_domain_block,
+            consensus_block_hash,
+        )<span class="question-mark">?</span>;
 
         <span class="kw">let </span>extrinsics = deduplicate_and_shuffle_extrinsics::&lt;&lt;Block <span class="kw">as </span>BlockT&gt;::Extrinsic&gt;(
             extrinsics,
@@ -573,20 +680,83 @@
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         bundles: OpaqueBundles&lt;CBlock, Block::Header, Balance&gt;,
         tx_range: U256,
-        at: Block::Hash,
+        (parent_domain_hash, parent_domain_number): (Block::Hash, NumberFor&lt;Block&gt;),
+        at_consensus_hash: CBlock::Hash,
     ) -&gt; sp_blockchain::Result&lt;(
         Vec&lt;InboxedBundle&lt;Block::Hash&gt;&gt;,
         Vec&lt;(<span class="prelude-ty">Option</span>&lt;AccountId&gt;, Block::Extrinsic)&gt;,
     )&gt; {
+        <span class="kw">let </span>consensus_spec_version = <span class="self">self
+            </span>.consensus_client
+            .runtime_api()
+            .version(at_consensus_hash)
+            .map_err(sp_blockchain::Error::RuntimeApiError)<span class="question-mark">?
+            </span>.spec_version;
+
         <span class="kw">let </span><span class="kw-2">mut </span>inboxed_bundles = Vec::with_capacity(bundles.len());
         <span class="kw">let </span><span class="kw-2">mut </span>valid_extrinsics = Vec::new();
 
         <span class="kw">let </span>runtime_api = <span class="self">self</span>.client.runtime_api();
         <span class="kw">for </span>bundle <span class="kw">in </span>bundles {
+            <span class="comment">// For the honest operator the validity of the extrinsic of the bundle is committed
+            // to (or say verified against) the receipt that is submitted with the bundle, the
+            // consensus runtime should only accept the bundle if the receipt is derived from
+            // the parent domain block. If it is not then either there is a bug in the consensus
+            // runtime (for validating the bundle) or in the domain client (for finding the parent
+            // domain block).
+            //
+            // NOTE: The receipt's `domain_block_number` is verified by the consensus runtime while
+            // the `domain_block_hash` is not (which is take care of by the fraud proof) so we can't
+            // check the parent domain block hash here.
+            // TODO: remove consensus runtime version check before next network
+            </span><span class="kw">if </span>consensus_spec_version &gt;= <span class="number">6
+                </span>&amp;&amp; bundle.receipt().domain_block_number != parent_domain_number
+            {
+                <span class="comment">// If there consensus runtime just upgraded to spec version 6, which bring the receipt
+                // gap check, the bundle that included in the same block is doesn't perform the check
+                // because the new runtime take effect in the next block so skip the check here too.
+                </span><span class="kw">let </span>is_consensus_runtime_upgraded_to_6 = {
+                    <span class="kw">let </span>consensus_header = <span class="self">self
+                        </span>.consensus_client
+                        .header(at_consensus_hash)<span class="question-mark">?
+                        </span>.ok_or_else(|| {
+                            sp_blockchain::Error::Backend(<span class="macro">format!</span>(
+                                <span class="string">"Consensus block header of {at_consensus_hash:?} unavailable"
+                            </span>))
+                        })<span class="question-mark">?</span>;
+
+                    <span class="kw">let </span>runtime_upgraded = consensus_header
+                        .digest()
+                        .logs()
+                        .iter()
+                        .any(|di| di == <span class="kw-2">&amp;</span>DigestItem::RuntimeEnvironmentUpdated);
+
+                    runtime_upgraded &amp;&amp; consensus_spec_version == <span class="number">6
+                </span>};
+                <span class="kw">if </span>!is_consensus_runtime_upgraded_to_6 {
+                    <span class="kw">return </span><span class="prelude-val">Err</span>(sp_blockchain::Error::RuntimeApiError(
+                        ApiError::Application(
+                            <span class="macro">format!</span>(
+                                <span class="string">"Unexpected bundle in consensus block: {:?}, something must be wrong"</span>,
+                                at_consensus_hash
+                            )
+                            .into(),
+                        ),
+                    ));
+                }
+            }
+
             <span class="kw">let </span>extrinsic_root = bundle.extrinsics_root();
-            <span class="kw">match </span><span class="self">self</span>.check_bundle_validity(<span class="kw-2">&amp;</span>bundle, <span class="kw-2">&amp;</span>tx_range, at)<span class="question-mark">? </span>{
+            <span class="kw">match </span><span class="self">self</span>.check_bundle_validity(
+                <span class="kw-2">&amp;</span>bundle,
+                <span class="kw-2">&amp;</span>tx_range,
+                (parent_domain_hash, parent_domain_number),
+                at_consensus_hash,
+            )<span class="question-mark">? </span>{
                 BundleValidity::Valid(extrinsics) =&gt; {
-                    <span class="kw">let </span>extrinsics: Vec&lt;<span class="kw">_</span>&gt; = <span class="kw">match </span>runtime_api.extract_signer(at, extrinsics) {
+                    <span class="kw">let </span>extrinsics: Vec&lt;<span class="kw">_</span>&gt; = <span class="kw">match </span>runtime_api
+                        .extract_signer(parent_domain_hash, extrinsics)
+                    {
                         <span class="prelude-val">Ok</span>(res) =&gt; res,
                         <span class="prelude-val">Err</span>(e) =&gt; {
                             <span class="macro">tracing::error!</span>(error = <span class="question-mark">?</span>e, <span class="string">"Error at calling runtime api: extract_signer"</span>);
@@ -624,24 +794,34 @@
         <span class="kw-2">&amp;</span><span class="self">self</span>,
         bundle: <span class="kw-2">&amp;</span>OpaqueBundle&lt;NumberFor&lt;CBlock&gt;, CBlock::Hash, Block::Header, Balance&gt;,
         tx_range: <span class="kw-2">&amp;</span>U256,
-        at: Block::Hash,
+        (parent_domain_hash, parent_domain_number): (Block::Hash, NumberFor&lt;Block&gt;),
+        at_consensus_hash: CBlock::Hash,
     ) -&gt; sp_blockchain::Result&lt;BundleValidity&lt;Block::Extrinsic&gt;&gt; {
         <span class="kw">let </span>bundle_vrf_hash =
             U256::from_be_bytes(bundle.sealed_header.header.proof_of_election.vrf_hash());
 
         <span class="kw">let </span><span class="kw-2">mut </span>extrinsics = Vec::with_capacity(bundle.extrinsics.len());
+        <span class="kw">let </span><span class="kw-2">mut </span>estimated_bundle_weight = Weight::default();
 
-        <span class="kw">let </span>domain_block_number = <span class="self">self
-            </span>.client
-            .number(at)<span class="question-mark">?
-            </span>.ok_or(sp_blockchain::Error::MissingHeader(at.to_string()))<span class="question-mark">?</span>;
+        <span class="kw">let </span>runtime_api = <span class="self">self</span>.client.runtime_api();
+        <span class="kw">let </span>consensus_runtime_api = <span class="self">self</span>.consensus_client.runtime_api();
+        <span class="kw">let </span>api_version = runtime_api
+            .api_version::&lt;<span class="kw">dyn </span>MessengerApi&lt;Block, NumberFor&lt;CBlock&gt;, CBlock::Hash&gt;&gt;(
+                parent_domain_hash,
+            )
+            .map_err(sp_blockchain::Error::RuntimeApiError)<span class="question-mark">?
+            </span>.ok_or_else(|| {
+                sp_blockchain::Error::RuntimeApiError(ApiError::Application(
+                    <span class="macro">format!</span>(<span class="string">"MessengerApi not found at: {:?}"</span>, parent_domain_hash).into(),
+                ))
+            })<span class="question-mark">?</span>;
 
         <span class="comment">// Check the validity of each extrinsic
         //
         // NOTE: for each extrinsic the checking order must follow `InvalidBundleType::checking_order`
-        </span><span class="kw">let </span>runtime_api = <span class="self">self</span>.client.runtime_api();
-        <span class="kw">for </span>(index, opaque_extrinsic) <span class="kw">in </span>bundle.extrinsics.iter().enumerate() {
-            <span class="kw">let </span>decode_result = runtime_api.decode_extrinsic(at, opaque_extrinsic.clone())<span class="question-mark">?</span>;
+        </span><span class="kw">for </span>(index, opaque_extrinsic) <span class="kw">in </span>bundle.extrinsics.iter().enumerate() {
+            <span class="kw">let </span>decode_result =
+                runtime_api.decode_extrinsic(parent_domain_hash, opaque_extrinsic.clone())<span class="question-mark">?</span>;
             <span class="kw">let </span>extrinsic = <span class="kw">match </span>decode_result {
                 <span class="prelude-val">Ok</span>(extrinsic) =&gt; extrinsic,
                 <span class="prelude-val">Err</span>(err) =&gt; {
@@ -657,12 +837,15 @@
                 }
             };
 
-            <span class="kw">let </span>is_within_tx_range =
-                runtime_api.is_within_tx_range(at, <span class="kw-2">&amp;</span>extrinsic, <span class="kw-2">&amp;</span>bundle_vrf_hash, tx_range)<span class="question-mark">?</span>;
+            <span class="kw">let </span>is_within_tx_range = runtime_api.is_within_tx_range(
+                parent_domain_hash,
+                <span class="kw-2">&amp;</span>extrinsic,
+                <span class="kw-2">&amp;</span>bundle_vrf_hash,
+                tx_range,
+            )<span class="question-mark">?</span>;
 
             <span class="kw">if </span>!is_within_tx_range {
-                <span class="comment">// TODO: Generate a fraud proof for this invalid bundle
-                </span><span class="kw">return </span><span class="prelude-val">Ok</span>(BundleValidity::Invalid(InvalidBundleType::OutOfRangeTx(
+                <span class="kw">return </span><span class="prelude-val">Ok</span>(BundleValidity::Invalid(InvalidBundleType::OutOfRangeTx(
                     index <span class="kw">as </span>u32,
                 )));
             }
@@ -670,10 +853,31 @@
             <span class="comment">// Check if this extrinsic is an inherent extrinsic.
             // If so, this is an invalid bundle since these extrinsics should not be included in the
             // bundle. Extrinsic is always decodable due to the check above.
-            </span><span class="kw">if </span>runtime_api.is_inherent_extrinsic(at, <span class="kw-2">&amp;</span>extrinsic)<span class="question-mark">? </span>{
+            </span><span class="kw">if </span>runtime_api.is_inherent_extrinsic(parent_domain_hash, <span class="kw-2">&amp;</span>extrinsic)<span class="question-mark">? </span>{
                 <span class="kw">return </span><span class="prelude-val">Ok</span>(BundleValidity::Invalid(
                     InvalidBundleType::InherentExtrinsic(index <span class="kw">as </span>u32),
                 ));
+            }
+
+            <span class="kw">if </span>api_version &gt;= <span class="number">4 </span>{
+                <span class="kw">if let </span><span class="prelude-val">Some</span>(xdm_mmr_proof) =
+                    runtime_api.extract_xdm_mmr_proof(parent_domain_hash, <span class="kw-2">&amp;</span>extrinsic)<span class="question-mark">?
+                </span>{
+                    <span class="kw">let </span>ConsensusChainMmrLeafProof {
+                        opaque_mmr_leaf,
+                        proof,
+                        ..
+                    } = xdm_mmr_proof;
+
+                    <span class="kw">if </span>consensus_runtime_api
+                        .verify_proof(at_consensus_hash, <span class="macro">vec!</span>[opaque_mmr_leaf], proof)<span class="question-mark">?
+                        </span>.is_err()
+                    {
+                        <span class="kw">return </span><span class="prelude-val">Ok</span>(BundleValidity::Invalid(InvalidBundleType::InvalidXDM(
+                            index <span class="kw">as </span>u32,
+                        )));
+                    }
+                }
             }
 
             <span class="comment">// Using one instance of runtime_api throughout the loop in order to maintain context
@@ -682,10 +886,10 @@
             // to maintain side-effect in the storage buffer.
             </span><span class="kw">let </span>is_legal_tx = runtime_api
                 .check_extrinsics_and_do_pre_dispatch(
-                    at,
+                    parent_domain_hash,
                     <span class="macro">vec!</span>[extrinsic.clone()],
-                    domain_block_number,
-                    at,
+                    parent_domain_number,
+                    parent_domain_hash,
                 )<span class="question-mark">?
                 </span>.is_ok();
 
@@ -695,22 +899,16 @@
                 )));
             }
 
-            <span class="comment">// TODO: the behavior is changed, as before invalid XDM will be dropped silently,
-            // and the other extrinsic of the bundle will be continue processed, now the whole
-            // bundle is considered as invalid and excluded from further processing.
-            </span><span class="kw">if </span>!is_valid_xdm::&lt;CClient, CBlock, Block, <span class="kw">_</span>&gt;(
-                <span class="kw-2">&amp;</span><span class="self">self</span>.consensus_client,
-                at,
-                <span class="kw-2">&amp;</span><span class="self">self</span>.client,
-                <span class="kw-2">&amp;</span>extrinsic,
-            )<span class="question-mark">? </span>{
-                <span class="comment">// TODO: Generate a fraud proof for this invalid bundle
-                </span><span class="kw">return </span><span class="prelude-val">Ok</span>(BundleValidity::Invalid(InvalidBundleType::InvalidXDM(
-                    index <span class="kw">as </span>u32,
-                )));
-            }
+            <span class="kw">let </span>tx_weight = runtime_api.extrinsic_weight(parent_domain_hash, <span class="kw-2">&amp;</span>extrinsic)<span class="question-mark">?</span>;
+            estimated_bundle_weight = estimated_bundle_weight.saturating_add(tx_weight);
 
             extrinsics.push(extrinsic);
+        }
+
+        <span class="kw">if </span>estimated_bundle_weight != bundle.estimated_weight() {
+            <span class="kw">return </span><span class="prelude-val">Ok</span>(BundleValidity::Invalid(
+                InvalidBundleType::InvalidBundleWeight,
+            ));
         }
 
         <span class="prelude-val">Ok</span>(BundleValidity::Valid(extrinsics))

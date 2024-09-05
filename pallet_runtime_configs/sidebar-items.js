@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"enum":["Call"],"mod":["dispatchables","storage_types","weights"],"struct":["GenesisConfig","Pallet"],"trait":["Config"],"type":["ConfirmationDepthK","EnableBalanceTransfers","EnableDomains","EnableDynamicCostOfStorage","EnableNonRootCalls","Module"]};
+window.SIDEBAR_ITEMS = {"enum":["Call"],"mod":["dispatchables","storage_types","weights"],"struct":["GenesisConfig","Pallet"],"trait":["Config"],"type":["ConfirmationDepthK","CouncilDemocracyConfig","EnableBalanceTransfers","EnableDomains","EnableDynamicCostOfStorage","EnableNonRootCalls","Module"]};

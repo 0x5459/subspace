@@ -1,6 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `crates/subspace-networking/src/protocols/request_response/request_response_factory.rs`."><title>request_response_factory.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../static.files/rustdoc-4e54bb2b497cc83f.css"><meta name="rustdoc-vars" data-root-path="../../../../" data-static-root-path="../../../../static.files/" data-current-crate="subspace_networking" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (25f8d01fd 2024-01-18)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../../src-files.js"></script><script defer src="../../../../static.files/main-0b2e2def73e61cbe.js"></script><noscript><link rel="stylesheet" href="../../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="src-sidebar-title">
-            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
-    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../../../subspace_networking/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `crates/subspace-networking/src/protocols/request_response/request_response_factory.rs`."><title>request_response_factory.rs - source</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-46f98efaafac5295.ttf.woff2,FiraSans-Regular-018c141bf0843ffd.woff2,FiraSans-Medium-8f9a781e4970d388.woff2,SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2,SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../../static.files/rustdoc-970bf1bf55bd1c15.css"><meta name="rustdoc-vars" data-root-path="../../../../" data-static-root-path="../../../../static.files/" data-current-crate="subspace_networking" data-themes="" data-resource-suffix="" data-rustdoc-version="1.82.0-nightly (28a58f2fa 2024-07-31)" data-channel="nightly" data-search-js="search-ef54e092fea9c776.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../../static.files/storage-118b08c4c78b968e.js"></script><script defer src="../../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../../src-files.js"></script><script defer src="../../../../static.files/main-f9142fe437216fc3.js"></script><noscript><link rel="stylesheet" href="../../../../static.files/noscript-df360f571f6edeae.css"></noscript><link rel="alternate icon" type="image/png" href="../../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="src-sidebar-title"><h2>Files</h2></div></nav><div class="sidebar-resizer"></div><main><rustdoc-search></rustdoc-search><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -1043,6 +1041,24 @@
 <a href="#1041" id="1041">1041</a>
 <a href="#1042" id="1042">1042</a>
 <a href="#1043" id="1043">1043</a>
+<a href="#1044" id="1044">1044</a>
+<a href="#1045" id="1045">1045</a>
+<a href="#1046" id="1046">1046</a>
+<a href="#1047" id="1047">1047</a>
+<a href="#1048" id="1048">1048</a>
+<a href="#1049" id="1049">1049</a>
+<a href="#1050" id="1050">1050</a>
+<a href="#1051" id="1051">1051</a>
+<a href="#1052" id="1052">1052</a>
+<a href="#1053" id="1053">1053</a>
+<a href="#1054" id="1054">1054</a>
+<a href="#1055" id="1055">1055</a>
+<a href="#1056" id="1056">1056</a>
+<a href="#1057" id="1057">1057</a>
+<a href="#1058" id="1058">1058</a>
+<a href="#1059" id="1059">1059</a>
+<a href="#1060" id="1060">1060</a>
+<a href="#1061" id="1061">1061</a>
 </pre></div><pre class="rust"><code><span class="comment">// Copyright (C) 2019-2022 Parity Technologies (UK) Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later WITH Classpath-exception-2.0
 
@@ -1067,16 +1083,16 @@
 //! A request-response protocol works in the following way:
 //!
 //! - For every emitted request, a new substream is open and the protocol is negotiated. If the
-//! remote supports the protocol, the size of the request is sent as a LEB128 number, followed
-//! with the request itself. The remote then sends the size of the response as a LEB128 number,
-//! followed with the response.
+//!   remote supports the protocol, the size of the request is sent as a LEB128 number, followed
+//!   with the request itself. The remote then sends the size of the response as a LEB128 number,
+//!   followed with the response.
 //!
 //! - Requests have a certain time limit before they time out. This time includes the time it
-//! takes to send/receive the request and response.
+//!   takes to send/receive the request and response.
 //!
 //! - If provided, a ["requests processing"](ProtocolConfig::inbound_queue) channel
-//! is used to handle incoming requests.
-
+//!   is used to handle incoming requests.
+//!
 //! Original file commit: &lt;https://github.com/paritytech/substrate/commit/c2fc4b3ca0d7a15cc3f9cb1e5f441d99ec8d6e0b&gt;
 
 </span><span class="attr">#[cfg(test)]
@@ -1085,6 +1101,7 @@
 <span class="kw">use </span>async_trait::async_trait;
 <span class="kw">use </span>futures::channel::{mpsc, oneshot};
 <span class="kw">use </span>futures::prelude::<span class="kw-2">*</span>;
+<span class="kw">use </span>libp2p::core::transport::PortUse;
 <span class="kw">use </span>libp2p::core::{Endpoint, Multiaddr};
 <span class="kw">use </span>libp2p::identity::PeerId;
 <span class="kw">use </span>libp2p::request_response::{
@@ -1208,7 +1225,7 @@
     /// 1. Drop `pending_response` and thus not changing the reputation of the peer.
     ///
     /// 2. Sending an `Err(())` via `pending_response`, optionally including reputation changes for
-    /// the given peer.
+    ///    the given peer.
     </span><span class="kw">pub </span>pending_response: oneshot::Sender&lt;OutgoingResponse&gt;,
 }
 
@@ -1233,6 +1250,9 @@
 
 <span class="doccomment">/// Event generated by the [`RequestResponseFactoryBehaviour`].
 </span><span class="attr">#[derive(Debug)]
+</span><span class="comment">// We are not reading these events in a meaningful way right now, but the fields in there are still
+// potentially useful
+</span><span class="attr">#[allow(dead_code)]
 </span><span class="kw">pub enum </span>Event {
     <span class="doccomment">/// A remote sent a request and either we have successfully answered it or an error happened.
     ///
@@ -1499,22 +1519,29 @@
         peer: PeerId,
         addr: <span class="kw-2">&amp;</span>Multiaddr,
         role_override: Endpoint,
+        port_use: PortUse,
     ) -&gt; <span class="prelude-ty">Result</span>&lt;<span class="self">Self</span>::ConnectionHandler, ConnectionDenied&gt; {
         <span class="kw">let </span>iter = <span class="self">self</span>.protocols.iter_mut().map(|(p, (r, <span class="kw">_</span>))| {
             (
                 p.to_string(),
-                r.handle_established_outbound_connection(connection_id, peer, addr, role_override)
-                    .expect(
-                        <span class="string">"Behaviours return handlers in these methods with the exception of \
-                        'connection management' behaviours like connection-limits or allow-black list. \
-                         So, inner request-response behaviour always returns Ok(handler)."</span>,
-                    ),
+                r.handle_established_outbound_connection(
+                    connection_id,
+                    peer,
+                    addr,
+                    role_override,
+                    port_use,
+                )
+                .expect(
+                    <span class="string">"Behaviours return handlers in these methods with the exception of \
+                        'connection management' behaviours like connection-limits or allow-black \
+                        list. So, inner request-response behaviour always returns Ok(handler)."</span>,
+                ),
             )
         });
 
         <span class="kw">let </span>handler = MultiHandler::try_from_iter(iter).expect(
             <span class="string">"Protocols are in a HashMap and there can be at most one handler per protocol name, \
-			 which is the only possible error; qed"</span>,
+            which is the only possible error; qed"</span>,
         );
 
         <span class="prelude-val">Ok</span>(handler)
@@ -1534,6 +1561,7 @@
                         peer_id: inner.peer_id,
                         connection_id: inner.connection_id,
                         endpoint: inner.endpoint,
+                        cause: inner.cause,
                         remaining_established: inner.remaining_established,
                     }));
                 }
@@ -1559,6 +1587,7 @@
                         send_back_addr: inner.send_back_addr,
                         error: inner.error,
                         connection_id: inner.connection_id,
+                        peer_id: inner.peer_id,
                     }));
                 }
             }
@@ -1600,6 +1629,11 @@
             FromSwarm::ExternalAddrExpired(inner) =&gt; {
                 <span class="kw">for </span>(protocol, <span class="kw">_</span>) <span class="kw">in </span><span class="self">self</span>.protocols.values_mut() {
                     protocol.on_swarm_event(FromSwarm::ExternalAddrExpired(inner));
+                }
+            }
+            FromSwarm::NewExternalAddrOfPeer(inner) =&gt; {
+                <span class="kw">for </span>(protocol, <span class="kw">_</span>) <span class="kw">in </span><span class="self">self</span>.protocols.values_mut() {
+                    protocol.on_swarm_event(FromSwarm::NewExternalAddrOfPeer(inner));
                 }
             }
             event =&gt; {

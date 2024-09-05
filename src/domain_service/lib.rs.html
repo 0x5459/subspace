@@ -1,6 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `domains/service/src/lib.rs`."><title>lib.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-4e54bb2b497cc83f.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="domain_service" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (25f8d01fd 2024-01-18)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-0b2e2def73e61cbe.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="src-sidebar-title">
-            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
-    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../domain_service/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `domains/service/src/lib.rs`."><title>lib.rs - source</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-46f98efaafac5295.ttf.woff2,FiraSans-Regular-018c141bf0843ffd.woff2,FiraSans-Medium-8f9a781e4970d388.woff2,SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2,SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-970bf1bf55bd1c15.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="domain_service" data-themes="" data-resource-suffix="" data-rustdoc-version="1.82.0-nightly (28a58f2fa 2024-07-31)" data-channel="nightly" data-search-js="search-ef54e092fea9c776.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-118b08c4c78b968e.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-f9142fe437216fc3.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-df360f571f6edeae.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="src-sidebar-title"><h2>Files</h2></div></nav><div class="sidebar-resizer"></div><main><rustdoc-search></rustdoc-search><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -347,39 +345,21 @@
 <a href="#345" id="345">345</a>
 <a href="#346" id="346">346</a>
 <a href="#347" id="347">347</a>
-<a href="#348" id="348">348</a>
-<a href="#349" id="349">349</a>
-<a href="#350" id="350">350</a>
-<a href="#351" id="351">351</a>
-<a href="#352" id="352">352</a>
-<a href="#353" id="353">353</a>
-<a href="#354" id="354">354</a>
-<a href="#355" id="355">355</a>
-<a href="#356" id="356">356</a>
-<a href="#357" id="357">357</a>
-<a href="#358" id="358">358</a>
-<a href="#359" id="359">359</a>
-<a href="#360" id="360">360</a>
-<a href="#361" id="361">361</a>
-<a href="#362" id="362">362</a>
-<a href="#363" id="363">363</a>
-<a href="#364" id="364">364</a>
 </pre></div><pre class="rust"><code><span class="doccomment">//! Service and ServiceFactory implementation. Specialized wrapper over substrate service.
 
 </span><span class="kw">pub mod </span>config;
 <span class="kw">mod </span>domain;
 <span class="kw">pub mod </span>providers;
 <span class="kw">pub mod </span>rpc;
-<span class="kw">mod </span>transaction_pool;
 
 <span class="kw">pub use </span><span class="self">self</span>::domain::{new_full, DomainOperator, DomainParams, FullPool, NewFull};
 <span class="kw">use </span>futures::channel::oneshot;
 <span class="kw">use </span>futures::{FutureExt, StreamExt};
 <span class="kw">use </span>sc_client_api::{BlockBackend, BlockchainEvents, HeaderBackend, ProofProvider};
 <span class="kw">use </span>sc_consensus::ImportQueue;
+<span class="kw">use </span>sc_domains::RuntimeExecutor;
 <span class="kw">use </span>sc_network::config::Roles;
-<span class="kw">use </span>sc_network::peer_store::PeerStore;
-<span class="kw">use </span>sc_network::NetworkService;
+<span class="kw">use </span>sc_network::{NetworkService, NetworkWorker};
 <span class="kw">use </span>sc_network_sync::block_request_handler::BlockRequestHandler;
 <span class="kw">use </span>sc_network_sync::engine::SyncingEngine;
 <span class="kw">use </span>sc_network_sync::service::network::NetworkServiceProvider;
@@ -398,20 +378,6 @@
 <span class="kw">use </span>sp_runtime::traits::{Block <span class="kw">as </span>BlockT, BlockIdTo, Zero};
 <span class="kw">use </span>std::sync::Arc;
 
-<span class="doccomment">/// Host functions required for Subspace domain
-</span><span class="attr">#[cfg(not(feature = <span class="string">"runtime-benchmarks"</span>))]
-</span><span class="kw">pub type </span>HostFunctions = (sp_io::SubstrateHostFunctions,);
-
-<span class="doccomment">/// Host functions required for Subspace domain
-</span><span class="attr">#[cfg(feature = <span class="string">"runtime-benchmarks"</span>)]
-</span><span class="kw">pub type </span>HostFunctions = (
-    sp_io::SubstrateHostFunctions,
-    frame_benchmarking::benchmarking::HostFunctions,
-);
-
-<span class="doccomment">/// Runtime executor for Subspace domain
-</span><span class="kw">pub type </span>RuntimeExecutor = sc_executor::WasmExecutor&lt;HostFunctions&gt;;
-
 <span class="doccomment">/// Domain full client.
 </span><span class="kw">pub type </span>FullClient&lt;Block, RuntimeApi&gt; = TFullClient&lt;Block, RuntimeApi, RuntimeExecutor&gt;;
 
@@ -423,7 +389,13 @@
 </span><span class="comment">// TODO: Struct for returned value
 </span><span class="attr">#[allow(clippy::type_complexity)]
 </span><span class="kw">pub fn </span>build_network&lt;TBl, TExPool, TImpQu, TCl&gt;(
-    params: BuildNetworkParams&lt;TBl, TExPool, TImpQu, TCl&gt;,
+    params: BuildNetworkParams&lt;
+        TBl,
+        NetworkWorker&lt;TBl, &lt;TBl <span class="kw">as </span>BlockT&gt;::Hash&gt;,
+        TExPool,
+        TImpQu,
+        TCl,
+    &gt;,
 ) -&gt; <span class="prelude-ty">Result</span>&lt;
     (
         Arc&lt;NetworkService&lt;TBl, &lt;TBl <span class="kw">as </span>BlockT&gt;::Hash&gt;&gt;,
@@ -458,6 +430,7 @@
         block_announce_validator_builder: <span class="kw">_</span>,
         warp_sync_params: <span class="kw">_</span>,
         block_relay,
+        metrics,
     } = params;
 
     <span class="kw">if </span>client.requires_full_sync() {
@@ -471,13 +444,18 @@
     }
 
     <span class="kw">let </span>protocol_id = config.protocol_id();
+    <span class="kw">let </span>genesis_hash = client
+        .hash(Zero::zero())
+        .ok()
+        .flatten()
+        .expect(<span class="string">"Genesis block exists; qed"</span>);
 
     <span class="kw">let </span>(chain_sync_network_provider, chain_sync_network_handle) = NetworkServiceProvider::new();
     <span class="kw">let </span>(<span class="kw-2">mut </span>block_server, block_downloader) = <span class="kw">match </span>block_relay {
         <span class="prelude-val">Some</span>(params) =&gt; (params.server, params.downloader),
         <span class="prelude-val">None </span>=&gt; {
             <span class="comment">// Custom protocol was not specified, use the default block handler.
-            </span><span class="kw">let </span>params = BlockRequestHandler::new(
+            </span><span class="kw">let </span>params = BlockRequestHandler::new::&lt;NetworkWorker&lt;TBl, &lt;TBl <span class="kw">as </span>BlockT&gt;::Hash&gt;&gt;(
                 chain_sync_network_handle.clone(),
                 <span class="kw-2">&amp;</span>protocol_id,
                 config.chain_spec.fork_id(),
@@ -492,26 +470,35 @@
         block_server.run().<span class="kw">await</span>;
     });
 
-    <span class="comment">// Create `PeerStore` and initialize it with bootnode peer ids.
-    </span><span class="kw">let </span>peer_store = PeerStore::new(
-        net_config
-            .network_config
-            .boot_nodes
-            .iter()
-            .map(|bootnode| bootnode.peer_id)
-            .collect(),
-    );
-    <span class="kw">let </span>peer_store_handle = peer_store.handle();
+    <span class="comment">// crate transactions protocol and add it to the list of supported protocols of `network_params`
+    </span><span class="kw">let </span>peer_store_handle = net_config.peer_store_handle();
+    <span class="kw">let </span>(transactions_handler_proto, transactions_config) =
+        sc_network_transactions::TransactionsHandlerPrototype::new::&lt;
+            <span class="kw">_</span>,
+            <span class="kw">_</span>,
+            NetworkWorker&lt;TBl, &lt;TBl <span class="kw">as </span>BlockT&gt;::Hash&gt;,
+        &gt;(
+            protocol_id.clone(),
+            genesis_hash,
+            config.chain_spec.fork_id(),
+            metrics.clone(),
+            Arc::clone(<span class="kw-2">&amp;</span>peer_store_handle),
+        );
+    net_config.add_notification_protocol(transactions_config);
+
+    <span class="comment">// Start task for `PeerStore`
+    </span><span class="kw">let </span>peer_store = net_config.take_peer_store();
     spawn_handle.spawn(<span class="string">"peer-store"</span>, <span class="prelude-val">Some</span>(<span class="string">"networking"</span>), peer_store.run());
 
     <span class="kw">let </span>state_request_protocol_config = {
         <span class="comment">// Allow both outgoing and incoming requests.
-        </span><span class="kw">let </span>(handler, protocol_config) = StateRequestHandler::new(
-            <span class="kw-2">&amp;</span>protocol_id,
-            config.chain_spec.fork_id(),
-            client.clone(),
-            config.network.default_peers_set_num_full <span class="kw">as </span>usize,
-        );
+        </span><span class="kw">let </span>(handler, protocol_config) =
+            StateRequestHandler::new::&lt;NetworkWorker&lt;TBl, &lt;TBl <span class="kw">as </span>BlockT&gt;::Hash&gt;&gt;(
+                <span class="kw-2">&amp;</span>protocol_id,
+                config.chain_spec.fork_id(),
+                client.clone(),
+                config.network.default_peers_set_num_full <span class="kw">as </span>usize,
+            );
         spawn_handle.spawn(<span class="string">"state-request-handler"</span>, <span class="prelude-val">Some</span>(<span class="string">"networking"</span>), handler.run());
         protocol_config
     };
@@ -519,13 +506,12 @@
     <span class="kw">let </span>(engine, sync_service, block_announce_config) = SyncingEngine::new(
         Roles::from(<span class="kw-2">&amp;</span>config.role),
         client.clone(),
-        <span class="comment">// TODO: False-positive in clippy: https://github.com/rust-lang/rust-clippy/issues/12148
-        </span><span class="attr">#[allow(clippy::useless_asref)]
-        </span>config
+        config
             .prometheus_config
             .as_ref()
             .map(|config| config.registry.clone())
             .as_ref(),
+        metrics.clone(),
         <span class="kw-2">&amp;</span>net_config,
         protocol_id.clone(),
         <span class="kw-2">&amp;</span>config.chain_spec.fork_id().map(ToOwned::to_owned),
@@ -536,7 +522,7 @@
         block_downloader,
         state_request_protocol_config.name.clone(),
         <span class="prelude-val">None</span>,
-        peer_store_handle.clone(),
+        peer_store_handle,
         <span class="comment">// set to be force_synced always for domains since they relay on Consensus chain to derive and import domain blocks.
         // If not set, each domain node will wait to be fully synced and as a result will not propagate the transactions over network.
         // It would have been ideal to use `Consensus` chain sync service to respond to `is_major_sync` requests but this
@@ -548,26 +534,7 @@
     <span class="kw">let </span>sync_service_import_queue = sync_service.clone();
     <span class="kw">let </span>sync_service = Arc::new(sync_service);
 
-    <span class="kw">let </span>genesis_hash = client
-        .hash(Zero::zero())
-        .ok()
-        .flatten()
-        .expect(<span class="string">"Genesis block exists; qed"</span>);
-
-    <span class="comment">// crate transactions protocol and add it to the list of supported protocols of `network_params`
-    </span><span class="kw">let </span>(transactions_handler_proto, transactions_config) =
-        sc_network_transactions::TransactionsHandlerPrototype::new(
-            protocol_id.clone(),
-            client
-                .block_hash(<span class="number">0u32</span>.into())
-                .ok()
-                .flatten()
-                .expect(<span class="string">"Genesis block exists; qed"</span>),
-            config.chain_spec.fork_id(),
-        );
-    net_config.add_notification_protocol(transactions_config);
-
-    <span class="kw">let </span>network_params = sc_network::config::Params::&lt;TBl&gt; {
+    <span class="kw">let </span>network_params = sc_network::config::Params::&lt;TBl, <span class="kw">_</span>, <span class="kw">_</span>&gt; {
         role: config.role.clone(),
         executor: {
             <span class="kw">let </span>spawn_handle = Clone::clone(<span class="kw-2">&amp;</span>spawn_handle);
@@ -576,17 +543,16 @@
             })
         },
         network_config: net_config,
-        peer_store: peer_store_handle,
         genesis_hash,
         protocol_id,
         fork_id: config.chain_spec.fork_id().map(ToOwned::to_owned),
-        <span class="comment">// TODO: False-positive in clippy: https://github.com/rust-lang/rust-clippy/issues/12148
-        </span><span class="attr">#[allow(clippy::useless_asref)]
-        </span>metrics_registry: config
+        metrics_registry: config
             .prometheus_config
             .as_ref()
             .map(|config| config.registry.clone()),
         block_announce_config,
+        bitswap_config: <span class="prelude-val">None</span>,
+        notification_metrics: metrics,
     };
 
     <span class="kw">let </span>has_bootnodes = !network_params
@@ -604,9 +570,7 @@
             transaction_pool,
             client.clone(),
         )),
-        <span class="comment">// TODO: False-positive in clippy: https://github.com/rust-lang/rust-clippy/issues/12148
-        </span><span class="attr">#[allow(clippy::useless_asref)]
-        </span>config
+        config
             .prometheus_config
             .as_ref()
             .map(|config| <span class="kw-2">&amp;</span>config.registry),
@@ -633,7 +597,7 @@
     spawn_handle.spawn(
         <span class="string">"system-rpc-handler"</span>,
         <span class="prelude-val">Some</span>(<span class="string">"networking"</span>),
-        build_system_rpc_future(
+        build_system_rpc_future::&lt;<span class="kw">_</span>, <span class="kw">_</span>, &lt;TBl <span class="kw">as </span>BlockT&gt;::Hash&gt;(
             config.role.clone(),
             network_mut.service().clone(),
             sync_service.clone(),
@@ -703,7 +667,7 @@
         + <span class="lifetime">'static</span>,
     H: sc_network_common::ExHashT,
 &gt;(
-    network: sc_network::NetworkWorker&lt;B, H&gt;,
+    network: NetworkWorker&lt;B, H&gt;,
     client: Arc&lt;C&gt;,
     sync_service: Arc&lt;SyncingService&lt;B&gt;&gt;,
 ) {
@@ -714,7 +678,7 @@
     <span class="macro">futures::pin_mut!</span>(network_run);
 
     <span class="kw">loop </span>{
-        <span class="macro">futures::select! </span>{
+        <span class="macro">futures::select!</span> {
             <span class="comment">// List of blocks that the client has finalized.
             </span>notification = finality_notification_stream.select_next_some() =&gt; {
                 sync_service.on_block_finalized(notification.hash, notification.header);

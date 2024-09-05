@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"enum":["BlockObject","GlobalObject","PieceObject"],"struct":["BlockObjectMapping","PieceObjectMapping"]};
+window.SIDEBAR_ITEMS = {"enum":["BlockObject","GlobalObjectMapping","PieceObject"],"struct":["BlockObjectMapping","CompactGlobalObject","GlobalObject","PieceObjectMapping"]};

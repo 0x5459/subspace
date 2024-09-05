@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"enum":["PlottingError"],"fn":["download_sector","encode_sector","plot_sector"],"struct":["DownloadSectorOptions","DownloadedSector","EncodeSectorOptions","PlotSectorOptions","PlottedSector"]};
+window.SIDEBAR_ITEMS = {"enum":["PlottingError"],"fn":["download_sector","encode_sector","plot_sector"],"struct":["CpuRecordsEncoder","DownloadSectorOptions","DownloadedSector","EncodeSectorOptions","PlotSectorOptions","PlottedSector"],"trait":["RecordsEncoder"]};

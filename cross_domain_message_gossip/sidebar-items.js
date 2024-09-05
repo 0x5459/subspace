@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"fn":["start_cross_chain_message_listener","xdm_gossip_peers_set_config"],"struct":["ChainTxPoolMsg","GossipWorker","GossipWorkerBuilder","Message"],"type":["ChainTxPoolSink"]};
+window.SIDEBAR_ITEMS = {"enum":["MessageData"],"fn":["get_channel_state","set_channel_state","start_cross_chain_message_listener","xdm_gossip_peers_set_config"],"struct":["ChainMsg","ChannelDetail","ChannelUpdate","GossipWorker","GossipWorkerBuilder","Message"],"type":["ChainSink"]};

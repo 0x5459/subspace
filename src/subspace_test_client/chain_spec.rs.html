@@ -1,6 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `test/subspace-test-client/src/chain_spec.rs`."><title>chain_spec.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-4e54bb2b497cc83f.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="subspace_test_client" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (25f8d01fd 2024-01-18)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-0b2e2def73e61cbe.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="src-sidebar-title">
-            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
-    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../subspace_test_client/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `test/subspace-test-client/src/chain_spec.rs`."><title>chain_spec.rs - source</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-46f98efaafac5295.ttf.woff2,FiraSans-Regular-018c141bf0843ffd.woff2,FiraSans-Medium-8f9a781e4970d388.woff2,SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2,SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-970bf1bf55bd1c15.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="subspace_test_client" data-themes="" data-resource-suffix="" data-rustdoc-version="1.82.0-nightly (28a58f2fa 2024-07-31)" data-channel="nightly" data-search-js="search-ef54e092fea9c776.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-118b08c4c78b968e.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-f9142fe437216fc3.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-df360f571f6edeae.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="src-sidebar-title"><h2>Files</h2></div></nav><div class="sidebar-resizer"></div><main><rustdoc-search></rustdoc-search><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -143,47 +141,19 @@
 <a href="#141" id="141">141</a>
 <a href="#142" id="142">142</a>
 <a href="#143" id="143">143</a>
-<a href="#144" id="144">144</a>
-<a href="#145" id="145">145</a>
-<a href="#146" id="146">146</a>
-<a href="#147" id="147">147</a>
-<a href="#148" id="148">148</a>
-<a href="#149" id="149">149</a>
-<a href="#150" id="150">150</a>
-<a href="#151" id="151">151</a>
-<a href="#152" id="152">152</a>
-<a href="#153" id="153">153</a>
-<a href="#154" id="154">154</a>
-<a href="#155" id="155">155</a>
-<a href="#156" id="156">156</a>
-<a href="#157" id="157">157</a>
-<a href="#158" id="158">158</a>
-<a href="#159" id="159">159</a>
-<a href="#160" id="160">160</a>
-<a href="#161" id="161">161</a>
-<a href="#162" id="162">162</a>
 </pre></div><pre class="rust"><code><span class="doccomment">//! Chain specification for the test runtime.
 
-</span><span class="kw">use </span><span class="kw">crate</span>::domain_chain_spec::testnet_evm_genesis;
-<span class="kw">use </span>codec::Encode;
-<span class="kw">use </span>domain_runtime_primitives::AccountId20Converter;
-<span class="kw">use </span>sc_chain_spec::{ChainType, GenericChainSpec};
+</span><span class="kw">use </span>sc_chain_spec::{ChainType, GenericChainSpec};
 <span class="kw">use </span>sp_core::{sr25519, Pair, Public};
-<span class="kw">use </span>sp_domains::storage::RawGenesis;
-<span class="kw">use </span>sp_domains::{GenesisDomain, OperatorAllowList, OperatorPublicKey, RuntimeType};
-<span class="kw">use </span>sp_runtime::traits::{Convert, IdentifyAccount, Verify};
-<span class="kw">use </span>sp_runtime::{BuildStorage, Percent};
+<span class="kw">use </span>sp_runtime::traits::{IdentifyAccount, Verify};
 <span class="kw">use </span>std::marker::PhantomData;
 <span class="kw">use </span>std::num::NonZeroU32;
 <span class="kw">use </span>subspace_runtime_primitives::{AccountId, Balance, BlockNumber, Signature};
 <span class="kw">use </span>subspace_test_runtime::{
-    AllowAuthoringBy, BalancesConfig, DomainsConfig, EnableRewardsAt, MaxDomainBlockSize,
-    MaxDomainBlockWeight, RuntimeGenesisConfig, SubspaceConfig, SudoConfig, SystemConfig,
-    VestingConfig, SSC, WASM_BINARY,
+    AllowAuthoringBy, BalancesConfig, DomainsConfig, EnableRewardsAt, RewardsConfig,
+    RuntimeGenesisConfig, SubspaceConfig, SudoConfig, SystemConfig, VestingConfig, SSC,
+    WASM_BINARY,
 };
-
-<span class="doccomment">/// The `ChainSpec` parameterized for subspace test runtime.
-</span><span class="kw">pub type </span>TestChainSpec = sc_service::GenericChainSpec&lt;RuntimeGenesisConfig&gt;;
 
 <span class="doccomment">/// Generate a crypto pair from seed.
 </span><span class="kw">pub fn </span>get_from_seed&lt;TPublic: Public&gt;(seed: <span class="kw-2">&amp;</span>str) -&gt; &lt;TPublic::Pair <span class="kw">as </span>Pair&gt;::Public {
@@ -200,51 +170,40 @@
 }
 
 <span class="doccomment">/// Local testnet config (multivalidator Alice + Bob).
-</span><span class="kw">pub fn </span>subspace_local_testnet_config() -&gt; TestChainSpec {
-    <span class="kw">let </span>wasm_binary = WASM_BINARY.expect(<span class="string">"Development wasm not available"</span>);
-    <span class="comment">// TODO: Migrate once https://github.com/paritytech/polkadot-sdk/issues/2963 is un-broken
-    </span><span class="attr">#[allow(deprecated)]
-    </span>TestChainSpec::from_genesis(
-        <span class="string">"Local Testnet"</span>,
-        <span class="string">"local_testnet"</span>,
-        ChainType::Local,
-        || {
-            create_genesis_config(
-                <span class="comment">// Sudo account
-                </span>get_account_id_from_seed(<span class="string">"Alice"</span>),
-                <span class="comment">// Pre-funded accounts
-                // Alice also get more funds that are used during the domain instantiation
-                </span><span class="macro">vec!</span>[
-                    (
-                        get_account_id_from_seed(<span class="string">"Alice"</span>),
-                        (<span class="number">5_000
-                            </span>+ <span class="kw">crate</span>::domain_chain_spec::endowed_accounts().len() <span class="kw">as </span>Balance
-                                * <span class="number">2_000_000</span>)
-                            * SSC,
-                    ),
-                    (get_account_id_from_seed(<span class="string">"Bob"</span>), <span class="number">1_000 </span>* SSC),
-                    (get_account_id_from_seed(<span class="string">"Charlie"</span>), <span class="number">1_000 </span>* SSC),
-                    (get_account_id_from_seed(<span class="string">"Dave"</span>), <span class="number">1_000 </span>* SSC),
-                    (get_account_id_from_seed(<span class="string">"Eve"</span>), <span class="number">1_000 </span>* SSC),
-                    (get_account_id_from_seed(<span class="string">"Ferdie"</span>), <span class="number">1_000 </span>* SSC),
-                    (get_account_id_from_seed(<span class="string">"Alice//stash"</span>), <span class="number">1_000 </span>* SSC),
-                    (get_account_id_from_seed(<span class="string">"Bob//stash"</span>), <span class="number">1_000 </span>* SSC),
-                    (get_account_id_from_seed(<span class="string">"Charlie//stash"</span>), <span class="number">1_000 </span>* SSC),
-                    (get_account_id_from_seed(<span class="string">"Dave//stash"</span>), <span class="number">1_000 </span>* SSC),
-                    (get_account_id_from_seed(<span class="string">"Eve//stash"</span>), <span class="number">1_000 </span>* SSC),
-                    (get_account_id_from_seed(<span class="string">"Ferdie//stash"</span>), <span class="number">1_000 </span>* SSC),
-                ],
-                <span class="macro">vec!</span>[],
-            )
-        },
-        <span class="macro">vec!</span>[],
+</span><span class="kw">pub fn </span>subspace_local_testnet_config() -&gt; <span class="prelude-ty">Result</span>&lt;GenericChainSpec, String&gt; {
+    <span class="prelude-val">Ok</span>(GenericChainSpec::builder(
+        WASM_BINARY.ok_or_else(|| <span class="string">"Development wasm not available"</span>.to_string())<span class="question-mark">?</span>,
         <span class="prelude-val">None</span>,
-        <span class="prelude-val">Some</span>(<span class="string">"subspace-test"</span>),
-        <span class="prelude-val">None</span>,
-        <span class="prelude-val">None</span>,
-        Default::default(),
-        wasm_binary,
     )
+    .with_name(<span class="string">"Local Testnet"</span>)
+    .with_id(<span class="string">"local_testnet"</span>)
+    .with_chain_type(ChainType::Local)
+    .with_genesis_config(patch_domain_runtime_version(
+        serde_json::to_value(create_genesis_config(
+            <span class="comment">// Sudo account
+            </span>get_account_id_from_seed(<span class="string">"Alice"</span>),
+            <span class="comment">// Pre-funded accounts
+            // Alice also get more funds that are used during the domain instantiation
+            </span><span class="macro">vec!</span>[
+                (get_account_id_from_seed(<span class="string">"Alice"</span>), <span class="number">1_000_000_000 </span>* SSC),
+                (get_account_id_from_seed(<span class="string">"Bob"</span>), <span class="number">1_000 </span>* SSC),
+                (get_account_id_from_seed(<span class="string">"Charlie"</span>), <span class="number">1_000 </span>* SSC),
+                (get_account_id_from_seed(<span class="string">"Dave"</span>), <span class="number">1_000 </span>* SSC),
+                (get_account_id_from_seed(<span class="string">"Eve"</span>), <span class="number">1_000 </span>* SSC),
+                (get_account_id_from_seed(<span class="string">"Ferdie"</span>), <span class="number">1_000 </span>* SSC),
+                (get_account_id_from_seed(<span class="string">"Alice//stash"</span>), <span class="number">1_000 </span>* SSC),
+                (get_account_id_from_seed(<span class="string">"Bob//stash"</span>), <span class="number">1_000 </span>* SSC),
+                (get_account_id_from_seed(<span class="string">"Charlie//stash"</span>), <span class="number">1_000 </span>* SSC),
+                (get_account_id_from_seed(<span class="string">"Dave//stash"</span>), <span class="number">1_000 </span>* SSC),
+                (get_account_id_from_seed(<span class="string">"Eve//stash"</span>), <span class="number">1_000 </span>* SSC),
+                (get_account_id_from_seed(<span class="string">"Ferdie//stash"</span>), <span class="number">1_000 </span>* SSC),
+            ],
+            <span class="macro">vec!</span>[],
+        )<span class="question-mark">?</span>)
+        .map_err(|error| <span class="macro">format!</span>(<span class="string">"Failed to serialize genesis config: {error}"</span>))<span class="question-mark">?</span>,
+    ))
+    .with_protocol_id(<span class="string">"subspace-test"</span>)
+    .build())
 }
 
 <span class="doccomment">/// Configure initial storage state for FRAME modules.
@@ -253,30 +212,8 @@
     balances: Vec&lt;(AccountId, Balance)&gt;,
     <span class="comment">// who, start, period, period_count, per_period
     </span>vesting: Vec&lt;(AccountId, BlockNumber, BlockNumber, u32, Balance)&gt;,
-) -&gt; RuntimeGenesisConfig {
-    <span class="kw">let </span>raw_genesis_storage = {
-        <span class="comment">// TODO: Migrate once https://github.com/paritytech/polkadot-sdk/issues/2963 is un-broken
-        </span><span class="attr">#[allow(deprecated)]
-        </span><span class="kw">let </span>domain_chain_spec = GenericChainSpec::&lt;<span class="kw">_</span>, <span class="kw">_</span>, ()&gt;::from_genesis(
-            <span class="string">""</span>,
-            <span class="string">""</span>,
-            ChainType::Development,
-            testnet_evm_genesis,
-            Vec::new(),
-            <span class="prelude-val">None</span>,
-            <span class="prelude-val">None</span>,
-            <span class="prelude-val">None</span>,
-            <span class="prelude-val">None</span>,
-            <span class="prelude-val">None</span>::&lt;()&gt;,
-            evm_domain_test_runtime::WASM_BINARY.expect(<span class="string">"Development wasm not available"</span>),
-        );
-        <span class="kw">let </span>storage = domain_chain_spec
-            .build_storage()
-            .expect(<span class="string">"Failed to build genesis storage from genesis runtime config"</span>);
-        <span class="kw">let </span>raw_genesis = RawGenesis::from_storage(storage);
-        raw_genesis.encode()
-    };
-    RuntimeGenesisConfig {
+) -&gt; <span class="prelude-ty">Result</span>&lt;RuntimeGenesisConfig, String&gt; {
+    <span class="prelude-val">Ok</span>(RuntimeGenesisConfig {
         system: SystemConfig::default(),
         balances: BalancesConfig { balances },
         transaction_payment: Default::default(),
@@ -290,38 +227,61 @@
             pot_slot_iterations: NonZeroU32::new(<span class="number">50_000_000</span>).expect(<span class="string">"Not zero; qed"</span>),
             phantom: PhantomData,
         },
+        rewards: RewardsConfig {
+            remaining_issuance: <span class="number">1_000_000 </span>* SSC,
+            proposer_subsidy_points: Default::default(),
+            voter_subsidy_points: Default::default(),
+        },
         vesting: VestingConfig { vesting },
         domains: DomainsConfig {
-            genesis_domain: <span class="prelude-val">Some</span>(GenesisDomain {
-                runtime_name: <span class="string">"evm"</span>.to_owned(),
-                runtime_type: RuntimeType::Evm,
-                runtime_version: evm_domain_test_runtime::VERSION,
-                raw_genesis_storage,
-
-                <span class="comment">// Domain config, mainly for placeholder the concrete value TBD
-                </span>owner_account_id: sudo_account,
-                domain_name: <span class="string">"evm-domain"</span>.to_owned(),
-                max_block_size: MaxDomainBlockSize::get(),
-                max_block_weight: MaxDomainBlockWeight::get(),
-                bundle_slot_probability: (<span class="number">1</span>, <span class="number">1</span>),
-                target_bundles_per_block: <span class="number">10</span>,
-                operator_allow_list: OperatorAllowList::Anyone,
-
-                signing_key: get_from_seed::&lt;OperatorPublicKey&gt;(<span class="string">"Alice"</span>),
-                minimum_nominator_stake: <span class="number">100 </span>* SSC,
-                nomination_tax: Percent::from_percent(<span class="number">5</span>),
-                initial_balances: <span class="kw">crate</span>::domain_chain_spec::endowed_accounts()
-                    .iter()
-                    .cloned()
-                    .map(|k| {
-                        (
-                            AccountId20Converter::convert(k),
-                            <span class="number">2_000_000 </span>* subspace_runtime_primitives::SSC,
-                        )
-                    })
-                    .collect(),
-            }),
+            permissioned_action_allowed_by: <span class="prelude-val">Some</span>(sp_domains::PermissionedActionAllowedBy::Anyone),
+            genesis_domains: <span class="macro">vec!</span>[
+                <span class="kw">crate</span>::evm_domain_chain_spec::get_genesis_domain(sudo_account.clone())
+                    .expect(<span class="string">"Must success"</span>),
+                <span class="kw">crate</span>::auto_id_domain_chain_spec::get_genesis_domain(sudo_account)
+                    .expect(<span class="string">"Must success"</span>),
+            ],
         },
+        runtime_configs: Default::default(),
+    })
+}
+
+<span class="comment">// TODO: Workaround for https://github.com/paritytech/polkadot-sdk/issues/4001
+</span><span class="kw">fn </span>patch_domain_runtime_version(<span class="kw-2">mut </span>genesis_config: serde_json::Value) -&gt; serde_json::Value {
+    <span class="kw">let </span><span class="prelude-val">Some</span>(genesis_domains) = genesis_config
+        .get_mut(<span class="string">"domains"</span>)
+        .and_then(|domains| domains.get_mut(<span class="string">"genesisDomains"</span>))
+        .and_then(|genesis_domains| genesis_domains.as_array_mut())
+    <span class="kw">else </span>{
+        <span class="kw">return </span>genesis_config;
+    };
+
+    <span class="kw">for </span>genesis_domain <span class="kw">in </span>genesis_domains {
+        <span class="kw">let </span><span class="prelude-val">Some</span>(runtime_version) = genesis_domain.get_mut(<span class="string">"runtime_version"</span>) <span class="kw">else </span>{
+            <span class="kw">continue</span>;
+        };
+
+        <span class="kw">if let </span><span class="prelude-val">Some</span>(spec_name) = runtime_version.get_mut(<span class="string">"specName"</span>) {
+            <span class="kw">if let </span><span class="prelude-val">Some</span>(spec_name_bytes) = spec_name
+                .as_str()
+                .map(|spec_name| spec_name.as_bytes().to_vec())
+            {
+                <span class="kw-2">*</span>spec_name = serde_json::to_value(spec_name_bytes)
+                    .expect(<span class="string">"Bytes serialization doesn't fail; qed"</span>);
+            }
+        }
+
+        <span class="kw">if let </span><span class="prelude-val">Some</span>(impl_name) = runtime_version.get_mut(<span class="string">"implName"</span>) {
+            <span class="kw">if let </span><span class="prelude-val">Some</span>(impl_name_bytes) = impl_name
+                .as_str()
+                .map(|impl_name| impl_name.as_bytes().to_vec())
+            {
+                <span class="kw-2">*</span>impl_name = serde_json::to_value(impl_name_bytes)
+                    .expect(<span class="string">"Bytes serialization doesn't fail; qed"</span>);
+            }
+        }
     }
+
+    genesis_config
 }
 </code></pre></div></section></main></body></html>

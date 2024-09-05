@@ -1,6 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `crates/subspace-service/src/sync_from_dsn/import_blocks.rs`."><title>import_blocks.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-4e54bb2b497cc83f.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="subspace_service" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (25f8d01fd 2024-01-18)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-0b2e2def73e61cbe.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="src-sidebar-title">
-            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
-    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../../subspace_service/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `crates/subspace-service/src/sync_from_dsn/import_blocks.rs`."><title>import_blocks.rs - source</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-46f98efaafac5295.ttf.woff2,FiraSans-Regular-018c141bf0843ffd.woff2,FiraSans-Medium-8f9a781e4970d388.woff2,SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2,SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../../static.files/rustdoc-970bf1bf55bd1c15.css"><meta name="rustdoc-vars" data-root-path="../../../" data-static-root-path="../../../static.files/" data-current-crate="subspace_service" data-themes="" data-resource-suffix="" data-rustdoc-version="1.82.0-nightly (28a58f2fa 2024-07-31)" data-channel="nightly" data-search-js="search-ef54e092fea9c776.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../../static.files/storage-118b08c4c78b968e.js"></script><script defer src="../../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../../src-files.js"></script><script defer src="../../../static.files/main-f9142fe437216fc3.js"></script><noscript><link rel="stylesheet" href="../../../static.files/noscript-df360f571f6edeae.css"></noscript><link rel="alternate icon" type="image/png" href="../../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="src-sidebar-title"><h2>Files</h2></div></nav><div class="sidebar-resizer"></div><main><rustdoc-search></rustdoc-search><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -332,55 +330,6 @@
 <a href="#330" id="330">330</a>
 <a href="#331" id="331">331</a>
 <a href="#332" id="332">332</a>
-<a href="#333" id="333">333</a>
-<a href="#334" id="334">334</a>
-<a href="#335" id="335">335</a>
-<a href="#336" id="336">336</a>
-<a href="#337" id="337">337</a>
-<a href="#338" id="338">338</a>
-<a href="#339" id="339">339</a>
-<a href="#340" id="340">340</a>
-<a href="#341" id="341">341</a>
-<a href="#342" id="342">342</a>
-<a href="#343" id="343">343</a>
-<a href="#344" id="344">344</a>
-<a href="#345" id="345">345</a>
-<a href="#346" id="346">346</a>
-<a href="#347" id="347">347</a>
-<a href="#348" id="348">348</a>
-<a href="#349" id="349">349</a>
-<a href="#350" id="350">350</a>
-<a href="#351" id="351">351</a>
-<a href="#352" id="352">352</a>
-<a href="#353" id="353">353</a>
-<a href="#354" id="354">354</a>
-<a href="#355" id="355">355</a>
-<a href="#356" id="356">356</a>
-<a href="#357" id="357">357</a>
-<a href="#358" id="358">358</a>
-<a href="#359" id="359">359</a>
-<a href="#360" id="360">360</a>
-<a href="#361" id="361">361</a>
-<a href="#362" id="362">362</a>
-<a href="#363" id="363">363</a>
-<a href="#364" id="364">364</a>
-<a href="#365" id="365">365</a>
-<a href="#366" id="366">366</a>
-<a href="#367" id="367">367</a>
-<a href="#368" id="368">368</a>
-<a href="#369" id="369">369</a>
-<a href="#370" id="370">370</a>
-<a href="#371" id="371">371</a>
-<a href="#372" id="372">372</a>
-<a href="#373" id="373">373</a>
-<a href="#374" id="374">374</a>
-<a href="#375" id="375">375</a>
-<a href="#376" id="376">376</a>
-<a href="#377" id="377">377</a>
-<a href="#378" id="378">378</a>
-<a href="#379" id="379">379</a>
-<a href="#380" id="380">380</a>
-<a href="#381" id="381">381</a>
 </pre></div><pre class="rust"><code><span class="comment">// Copyright (C) 2023 Subspace Labs, Inc.
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -398,72 +347,28 @@
 // along with this program. If not, see &lt;https://www.gnu.org/licenses/&gt;.
 
 </span><span class="kw">use </span><span class="kw">crate</span>::sync_from_dsn::segment_header_downloader::SegmentHeaderDownloader;
-<span class="kw">use </span>async_trait::async_trait;
+<span class="kw">use </span><span class="kw">crate</span>::sync_from_dsn::DsnSyncPieceGetter;
 <span class="kw">use </span>futures::stream::FuturesUnordered;
 <span class="kw">use </span>futures::StreamExt;
 <span class="kw">use </span>sc_client_api::{AuxStore, BlockBackend, HeaderBackend};
 <span class="kw">use </span>sc_consensus::import_queue::ImportQueueService;
 <span class="kw">use </span>sc_consensus::IncomingBlock;
 <span class="kw">use </span>sc_consensus_subspace::archiver::{decode_block, encode_block, SegmentHeadersStore};
+<span class="kw">use </span>sc_service::Error;
 <span class="kw">use </span>sc_tracing::tracing::{debug, trace};
 <span class="kw">use </span>sp_consensus::BlockOrigin;
 <span class="kw">use </span>sp_runtime::generic::SignedBlock;
 <span class="kw">use </span>sp_runtime::traits::{Block <span class="kw">as </span>BlockT, Header, NumberFor, One};
 <span class="kw">use </span>sp_runtime::Saturating;
-<span class="kw">use </span>std::error::Error;
-<span class="kw">use </span>std::fmt;
-<span class="kw">use </span>std::num::NonZeroU16;
-<span class="kw">use </span>std::sync::Arc;
 <span class="kw">use </span>std::time::Duration;
 <span class="kw">use </span>subspace_archiving::reconstructor::Reconstructor;
 <span class="kw">use </span>subspace_core_primitives::{
-    ArchivedHistorySegment, BlockNumber, Piece, PieceIndex, RecordedHistorySegment, SegmentIndex,
+    ArchivedHistorySegment, BlockNumber, Piece, RecordedHistorySegment, SegmentIndex,
 };
-<span class="kw">use </span>subspace_networking::utils::piece_provider::{PieceProvider, PieceValidator, RetryPolicy};
+<span class="kw">use </span>subspace_erasure_coding::ErasureCoding;
+<span class="kw">use </span>subspace_networking::utils::multihash::ToMultihash;
 <span class="kw">use </span>tokio::sync::Semaphore;
 <span class="kw">use </span>tracing::warn;
-
-<span class="doccomment">/// Trait representing a way to get pieces for DSN sync purposes
-</span><span class="attr">#[async_trait]
-</span><span class="kw">pub trait </span>DsnSyncPieceGetter: fmt::Debug {
-    <span class="kw">async fn </span>get_piece(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        piece_index: PieceIndex,
-    ) -&gt; <span class="prelude-ty">Result</span>&lt;<span class="prelude-ty">Option</span>&lt;Piece&gt;, Box&lt;<span class="kw">dyn </span>Error + Send + Sync + <span class="lifetime">'static</span>&gt;&gt;;
-}
-
-<span class="attr">#[async_trait]
-</span><span class="kw">impl</span>&lt;T&gt; DsnSyncPieceGetter <span class="kw">for </span>Arc&lt;T&gt;
-<span class="kw">where
-    </span>T: DsnSyncPieceGetter + Send + Sync + <span class="question-mark">?</span>Sized,
-{
-    <span class="kw">async fn </span>get_piece(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        piece_index: PieceIndex,
-    ) -&gt; <span class="prelude-ty">Result</span>&lt;<span class="prelude-ty">Option</span>&lt;Piece&gt;, Box&lt;<span class="kw">dyn </span>Error + Send + Sync + <span class="lifetime">'static</span>&gt;&gt; {
-        <span class="self">self</span>.as_ref().get_piece(piece_index).<span class="kw">await
-    </span>}
-}
-
-<span class="attr">#[async_trait]
-</span><span class="kw">impl</span>&lt;PV&gt; DsnSyncPieceGetter <span class="kw">for </span>PieceProvider&lt;PV&gt;
-<span class="kw">where
-    </span>PV: PieceValidator,
-{
-    <span class="kw">async fn </span>get_piece(
-        <span class="kw-2">&amp;</span><span class="self">self</span>,
-        piece_index: PieceIndex,
-    ) -&gt; <span class="prelude-ty">Result</span>&lt;<span class="prelude-ty">Option</span>&lt;Piece&gt;, Box&lt;<span class="kw">dyn </span>Error + Send + Sync + <span class="lifetime">'static</span>&gt;&gt; {
-        <span class="self">self</span>.get_piece_from_dsn_cache(
-            piece_index,
-            RetryPolicy::Limited(PIECE_GETTER_RETRY_NUMBER.get()),
-        )
-        .<span class="kw">await
-    </span>}
-}
-
-<span class="doccomment">/// Get piece retry attempts number.
-</span><span class="kw">const </span>PIECE_GETTER_RETRY_NUMBER: NonZeroU16 = NonZeroU16::new(<span class="number">7</span>).expect(<span class="string">"Not zero; qed"</span>);
 
 <span class="doccomment">/// How many blocks to queue before pausing and waiting for blocks to be imported, this is
 /// essentially used to ensure we use a bounded amount of RAM during sync process.
@@ -474,6 +379,7 @@
 <span class="doccomment">/// Starts the process of importing blocks.
 ///
 /// Returns number of downloaded blocks.
+</span><span class="attr">#[allow(clippy::too_many_arguments)]
 </span><span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">async fn </span>import_blocks_from_dsn&lt;Block, AS, Client, PG, IQS&gt;(
     segment_headers_store: <span class="kw-2">&amp;</span>SegmentHeadersStore&lt;AS&gt;,
     segment_header_downloader: <span class="kw-2">&amp;</span>SegmentHeaderDownloader&lt;<span class="lifetime">'_</span>&gt;,
@@ -482,7 +388,8 @@
     import_queue_service: <span class="kw-2">&amp;mut </span>IQS,
     last_processed_segment_index: <span class="kw-2">&amp;mut </span>SegmentIndex,
     last_processed_block_number: <span class="kw-2">&amp;mut </span>&lt;Block::Header <span class="kw">as </span>Header&gt;::Number,
-) -&gt; <span class="prelude-ty">Result</span>&lt;u64, sc_service::Error&gt;
+    erasure_coding: <span class="kw-2">&amp;</span>ErasureCoding,
+) -&gt; <span class="prelude-ty">Result</span>&lt;u64, Error&gt;
 <span class="kw">where
     </span>Block: BlockT,
     AS: AuxStore + Send + Sync + <span class="lifetime">'static</span>,
@@ -491,15 +398,16 @@
     IQS: ImportQueueService&lt;Block&gt; + <span class="question-mark">?</span>Sized,
 {
     {
-        <span class="kw">let </span>max_segment_index = segment_headers_store.max_segment_index().ok_or_else(|| {
-            sc_service::Error::Other(
+        <span class="kw">let </span>last_segment_header = segment_headers_store.last_segment_header().ok_or_else(|| {
+            Error::Other(
                 <span class="string">"Archiver needs to be initialized before syncing from DSN to populate the very \
-                    first segment"
+                first segment"
                     </span>.to_string(),
             )
         })<span class="question-mark">?</span>;
+
         <span class="kw">let </span>new_segment_headers = segment_header_downloader
-            .get_segment_headers(max_segment_index)
+            .get_segment_headers(<span class="kw-2">&amp;</span>last_segment_header)
             .<span class="kw">await
             </span>.map_err(|error| error.to_string())<span class="question-mark">?</span>;
 
@@ -510,8 +418,8 @@
         }
     }
 
-    <span class="kw">let </span><span class="kw-2">mut </span>downloaded_blocks = <span class="number">0</span>;
-    <span class="kw">let </span><span class="kw-2">mut </span>reconstructor = Reconstructor::new().map_err(|error| error.to_string())<span class="question-mark">?</span>;
+    <span class="kw">let </span><span class="kw-2">mut </span>imported_blocks = <span class="number">0</span>;
+    <span class="kw">let </span><span class="kw-2">mut </span>reconstructor = Reconstructor::new(erasure_coding.clone());
     <span class="comment">// Start from the first unprocessed segment and process all segments known so far
     </span><span class="kw">let </span>segment_indices_iter = (<span class="kw-2">*</span>last_processed_segment_index + SegmentIndex::ONE)
         ..=segment_headers_store
@@ -526,37 +434,38 @@
             .get_segment_header(segment_index)
             .expect(<span class="string">"Statically guaranteed to exist, see checks above; qed"</span>);
 
-        <span class="macro">trace!</span>(
-            %segment_index,
-            last_archived_block_number = %segment_header.last_archived_block().number,
-            last_archived_block_progress = <span class="question-mark">?</span>segment_header.last_archived_block().archived_progress,
-            <span class="string">"Checking segment header"
-        </span>);
-
-        <span class="kw">let </span>last_archived_block =
-            NumberFor::&lt;Block&gt;::from(segment_header.last_archived_block().number);
+        <span class="kw">let </span>last_archived_block_number = segment_header.last_archived_block().number;
         <span class="kw">let </span>last_archived_block_partial = segment_header
             .last_archived_block()
             .archived_progress
             .partial()
             .is_some();
 
+        <span class="macro">trace!</span>(
+            %segment_index,
+            last_archived_block_number,
+            last_archived_block_partial,
+            <span class="string">"Checking segment header"
+        </span>);
+
+        <span class="kw">let </span>last_archived_block_number = NumberFor::&lt;Block&gt;::from(last_archived_block_number);
+
         <span class="kw">let </span>info = client.info();
         <span class="comment">// We have already processed this block, it can't change
-        </span><span class="kw">if </span>last_archived_block &lt;= <span class="kw-2">*</span>last_processed_block_number {
+        </span><span class="kw">if </span>last_archived_block_number &lt;= <span class="kw-2">*</span>last_processed_block_number {
             <span class="kw-2">*</span>last_processed_segment_index = segment_index;
             <span class="comment">// Reset reconstructor instance
-            </span>reconstructor = Reconstructor::new().map_err(|error| error.to_string())<span class="question-mark">?</span>;
+            </span>reconstructor = Reconstructor::new(erasure_coding.clone());
             <span class="kw">continue</span>;
         }
         <span class="comment">// Just one partial unprocessed block and this was the last segment available, so nothing to
         // import
-        </span><span class="kw">if </span>last_archived_block == <span class="kw-2">*</span>last_processed_block_number + One::one()
+        </span><span class="kw">if </span>last_archived_block_number == <span class="kw-2">*</span>last_processed_block_number + One::one()
             &amp;&amp; last_archived_block_partial
             &amp;&amp; segment_indices_iter.peek().is_none()
         {
             <span class="comment">// Reset reconstructor instance
-            </span>reconstructor = Reconstructor::new().map_err(|error| error.to_string())<span class="question-mark">?</span>;
+            </span>reconstructor = Reconstructor::new(erasure_coding.clone());
             <span class="kw">continue</span>;
         }
 
@@ -579,7 +488,7 @@
                     </span>.expect(<span class="string">"Block before best block number must always be found; qed"</span>);
 
                 <span class="kw">if </span>encode_block(signed_block) != block_bytes {
-                    <span class="kw">return </span><span class="prelude-val">Err</span>(sc_service::Error::Other(
+                    <span class="kw">return </span><span class="prelude-val">Err</span>(Error::Other(
                         <span class="string">"Wrong genesis block, block import failed"</span>.to_string(),
                     ));
                 }
@@ -609,7 +518,7 @@
             <span class="kw">let </span>signed_block =
                 decode_block::&lt;Block&gt;(<span class="kw-2">&amp;</span>block_bytes).map_err(|error| error.to_string())<span class="question-mark">?</span>;
 
-            <span class="kw-2">*</span>last_processed_block_number = last_archived_block;
+            <span class="kw-2">*</span>last_processed_block_number = last_archived_block_number;
 
             <span class="comment">// No need to import blocks that are already present, if block is not present it might
             // correspond to a short fork, so we need to import it even if we already have another
@@ -638,41 +547,29 @@
                 skip_execution: <span class="bool-val">false</span>,
             });
 
-            downloaded_blocks += <span class="number">1</span>;
+            imported_blocks += <span class="number">1</span>;
 
-            <span class="kw">if </span>downloaded_blocks % <span class="number">1000 </span>== <span class="number">0 </span>{
+            <span class="kw">if </span>imported_blocks % <span class="number">1000 </span>== <span class="number">0 </span>{
                 <span class="macro">debug!</span>(<span class="string">"Adding block {} from DSN to the import queue"</span>, block_number);
             }
         }
 
         <span class="kw">if </span>!blocks_to_import.is_empty() {
             <span class="comment">// Import queue handles verification and importing it into the client
-            </span><span class="kw">let </span>last_segment = segment_indices_iter.peek().is_none();
-            <span class="kw">if </span>last_segment {
-                <span class="kw">let </span>last_block = blocks_to_import
-                    .pop()
-                    .expect(<span class="string">"Not empty, checked above; qed"</span>);
-                import_queue_service
-                    .import_blocks(BlockOrigin::NetworkInitialSync, blocks_to_import);
-                <span class="comment">// This will notify Substrate's sync mechanism and allow regular Substrate sync to continue gracefully
-                </span>import_queue_service.import_blocks(BlockOrigin::NetworkBroadcast, <span class="macro">vec!</span>[last_block]);
-            } <span class="kw">else </span>{
-                import_queue_service
-                    .import_blocks(BlockOrigin::NetworkInitialSync, blocks_to_import);
-            }
+            </span>import_queue_service.import_blocks(BlockOrigin::NetworkInitialSync, blocks_to_import);
         }
 
         <span class="kw-2">*</span>last_processed_segment_index = segment_index;
     }
 
-    <span class="prelude-val">Ok</span>(downloaded_blocks)
+    <span class="prelude-val">Ok</span>(imported_blocks)
 }
 
-<span class="kw">async fn </span>download_and_reconstruct_blocks&lt;PG&gt;(
+<span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">async fn </span>download_and_reconstruct_blocks&lt;PG&gt;(
     segment_index: SegmentIndex,
     piece_getter: <span class="kw-2">&amp;</span>PG,
     reconstructor: <span class="kw-2">&amp;mut </span>Reconstructor,
-) -&gt; <span class="prelude-ty">Result</span>&lt;Vec&lt;(BlockNumber, Vec&lt;u8&gt;)&gt;, sc_service::Error&gt;
+) -&gt; <span class="prelude-ty">Result</span>&lt;Vec&lt;(BlockNumber, Vec&lt;u8&gt;)&gt;, Error&gt;
 <span class="kw">where
     </span>PG: DsnSyncPieceGetter,
 {
@@ -717,8 +614,11 @@
                     }
                 };
 
+                <span class="kw">let </span>key =
+                    subspace_networking::libp2p::kad::RecordKey::from(piece_index.to_multihash());
                 <span class="macro">trace!</span>(
                     <span class="question-mark">?</span>piece_index,
+                    key = hex::encode(<span class="kw-2">&amp;</span>key),
                     piece_found = maybe_piece.is_some(),
                     <span class="string">"Piece request succeeded"</span>,
                 );

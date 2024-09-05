@@ -1,6 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `crates/pallet-runtime-configs/src/lib.rs`."><title>lib.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-4e54bb2b497cc83f.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="pallet_runtime_configs" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (25f8d01fd 2024-01-18)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-0b2e2def73e61cbe.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="src-sidebar-title">
-            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
-    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../pallet_runtime_configs/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `crates/pallet-runtime-configs/src/lib.rs`."><title>lib.rs - source</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-46f98efaafac5295.ttf.woff2,FiraSans-Regular-018c141bf0843ffd.woff2,FiraSans-Medium-8f9a781e4970d388.woff2,SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2,SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-970bf1bf55bd1c15.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="pallet_runtime_configs" data-themes="" data-resource-suffix="" data-rustdoc-version="1.82.0-nightly (28a58f2fa 2024-07-31)" data-channel="nightly" data-search-js="search-ef54e092fea9c776.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-118b08c4c78b968e.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-f9142fe437216fc3.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-df360f571f6edeae.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="src-sidebar-title"><h2>Files</h2></div></nav><div class="sidebar-resizer"></div><main><rustdoc-search></rustdoc-search><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -171,6 +169,19 @@
 <a href="#169" id="169">169</a>
 <a href="#170" id="170">170</a>
 <a href="#171" id="171">171</a>
+<a href="#172" id="172">172</a>
+<a href="#173" id="173">173</a>
+<a href="#174" id="174">174</a>
+<a href="#175" id="175">175</a>
+<a href="#176" id="176">176</a>
+<a href="#177" id="177">177</a>
+<a href="#178" id="178">178</a>
+<a href="#179" id="179">179</a>
+<a href="#180" id="180">180</a>
+<a href="#181" id="181">181</a>
+<a href="#182" id="182">182</a>
+<a href="#183" id="183">183</a>
+<a href="#184" id="184">184</a>
 </pre></div><pre class="rust"><code><span class="comment">// Copyright (C) 2022 Subspace Labs, Inc.
 // SPDX-License-Identifier: Apache-2.0
 
@@ -202,6 +213,7 @@
     <span class="kw">use </span>frame_support::pallet_prelude::<span class="kw-2">*</span>;
     <span class="kw">use </span>frame_system::pallet_prelude::<span class="kw-2">*</span>;
     <span class="kw">use </span>sp_runtime::traits::Zero;
+    <span class="kw">use </span>subspace_runtime_primitives::CouncilDemocracyConfigParams;
 
     <span class="attr">#[pallet::pallet]
     </span><span class="kw">pub struct </span>Pallet&lt;T&gt;(<span class="kw">_</span>);
@@ -222,12 +234,18 @@
     </span><span class="kw">pub type </span>EnableBalanceTransfers&lt;T&gt; = StorageValue&lt;<span class="kw">_</span>, bool, ValueQuery&gt;;
 
     <span class="doccomment">/// Whether to enable calls from non-root account.
+    </span><span class="comment">// TODO: Find a way to work around `Sudo::key()`
+    //  (https://github.com/paritytech/polkadot-sdk/pull/3370) or remove this feature
     </span><span class="attr">#[pallet::storage]
     #[pallet::getter(<span class="kw">fn </span>enable_non_root_calls)]
     </span><span class="kw">pub type </span>EnableNonRootCalls&lt;T&gt; = StorageValue&lt;<span class="kw">_</span>, bool, ValueQuery&gt;;
 
     <span class="attr">#[pallet::storage]
     </span><span class="kw">pub type </span>ConfirmationDepthK&lt;T: Config&gt; = StorageValue&lt;<span class="kw">_</span>, BlockNumberFor&lt;T&gt;, ValueQuery&gt;;
+
+    <span class="attr">#[pallet::storage]
+    </span><span class="kw">pub type </span>CouncilDemocracyConfig&lt;T: Config&gt; =
+        StorageValue&lt;<span class="kw">_</span>, CouncilDemocracyConfigParams&lt;BlockNumberFor&lt;T&gt;&gt;, ValueQuery&gt;;
 
     <span class="attr">#[pallet::config]
     </span><span class="kw">pub trait </span>Config: frame_system::Config {
@@ -247,6 +265,8 @@
         </span><span class="kw">pub </span>enable_non_root_calls: bool,
         <span class="doccomment">/// Confirmation depth k to use in the archiving process
         </span><span class="kw">pub </span>confirmation_depth_k: BlockNumberFor&lt;T&gt;,
+        <span class="doccomment">/// Council and democracy config params.
+        </span><span class="kw">pub </span>council_democracy_config_params: CouncilDemocracyConfigParams&lt;BlockNumberFor&lt;T&gt;&gt;,
     }
 
     <span class="kw">impl</span>&lt;T: Config&gt; Default <span class="kw">for </span>GenesisConfig&lt;T&gt; {
@@ -258,6 +278,8 @@
                 enable_balance_transfers: <span class="bool-val">false</span>,
                 enable_non_root_calls: <span class="bool-val">false</span>,
                 confirmation_depth_k: BlockNumberFor::&lt;T&gt;::from(<span class="number">100u32</span>),
+                council_democracy_config_params:
+                    CouncilDemocracyConfigParams::&lt;BlockNumberFor&lt;T&gt;&gt;::default(),
             }
         }
     }
@@ -271,6 +293,7 @@
                 enable_balance_transfers,
                 enable_non_root_calls,
                 confirmation_depth_k,
+                council_democracy_config_params,
             } = <span class="self">self</span>;
 
             <span class="macro">assert!</span>(
@@ -283,6 +306,7 @@
             &lt;EnableBalanceTransfers&lt;T&gt;&gt;::put(enable_balance_transfers);
             &lt;EnableNonRootCalls&lt;T&gt;&gt;::put(enable_non_root_calls);
             &lt;ConfirmationDepthK&lt;T&gt;&gt;::put(confirmation_depth_k);
+            CouncilDemocracyConfig::&lt;T&gt;::put(council_democracy_config_params);
         }
     }
 
@@ -290,7 +314,7 @@
     </span><span class="kw">impl</span>&lt;T: Config&gt; Pallet&lt;T&gt; {
         <span class="doccomment">/// Change enable domains state.
         </span><span class="attr">#[pallet::call_index(<span class="number">0</span>)]
-        #[pallet::weight(&lt;T <span class="kw">as </span>Config&gt;::WeightInfo::set_enable_domains())]
+        #[pallet::weight(&lt; T <span class="kw">as </span>Config &gt;::WeightInfo::set_enable_domains())]
         </span><span class="kw">pub fn </span>set_enable_domains(origin: OriginFor&lt;T&gt;, enable_domains: bool) -&gt; DispatchResult {
             ensure_root(origin)<span class="question-mark">?</span>;
 
@@ -301,21 +325,21 @@
 
         <span class="doccomment">/// Enable or disable dynamic cost of storage.
         </span><span class="attr">#[pallet::call_index(<span class="number">1</span>)]
-        #[pallet::weight(&lt;T <span class="kw">as </span>Config&gt;::WeightInfo::set_enable_dynamic_cost_of_storage())]
+        #[pallet::weight(&lt; T <span class="kw">as </span>Config &gt;::WeightInfo::set_enable_dynamic_cost_of_storage())]
         </span><span class="kw">pub fn </span>set_enable_dynamic_cost_of_storage(
             origin: OriginFor&lt;T&gt;,
             enable_dynamic_cost_of_storage: bool,
         ) -&gt; DispatchResult {
             ensure_root(origin)<span class="question-mark">?</span>;
 
-            EnableBalanceTransfers::&lt;T&gt;::put(enable_dynamic_cost_of_storage);
+            EnableDynamicCostOfStorage::&lt;T&gt;::put(enable_dynamic_cost_of_storage);
 
             <span class="prelude-val">Ok</span>(())
         }
 
         <span class="doccomment">/// Enable or disable balance transfers for all users.
         </span><span class="attr">#[pallet::call_index(<span class="number">2</span>)]
-        #[pallet::weight(&lt;T <span class="kw">as </span>Config&gt;::WeightInfo::set_enable_balance_transfers())]
+        #[pallet::weight(&lt; T <span class="kw">as </span>Config &gt;::WeightInfo::set_enable_balance_transfers())]
         </span><span class="kw">pub fn </span>set_enable_balance_transfers(
             origin: OriginFor&lt;T&gt;,
             enable_balance_transfers: bool,
@@ -329,7 +353,7 @@
 
         <span class="doccomment">/// Enable or disable calls from non-root users.
         </span><span class="attr">#[pallet::call_index(<span class="number">3</span>)]
-        #[pallet::weight(&lt;T <span class="kw">as </span>Config&gt;::WeightInfo::set_enable_non_root_calls())]
+        #[pallet::weight(&lt; T <span class="kw">as </span>Config &gt;::WeightInfo::set_enable_non_root_calls())]
         </span><span class="kw">pub fn </span>set_enable_non_root_calls(
             origin: OriginFor&lt;T&gt;,
             enable_non_root_calls: bool,

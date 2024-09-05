@@ -1,6 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `crates/subspace-networking/src/node.rs`."><title>node.rs - source</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-4e54bb2b497cc83f.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="subspace_networking" data-themes="" data-resource-suffix="" data-rustdoc-version="1.77.0-nightly (25f8d01fd 2024-01-18)" data-channel="nightly" data-search-js="search-dd67cee4cfa65049.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-f2adc0d6ca4d09fb.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-0b2e2def73e61cbe.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-04d5337699b92874.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="src-sidebar-title">
-            <h2>Files</h2></div></nav><div class="sidebar-resizer"></div>
-    <main><nav class="sub"><form class="search-form"><span></span><div id="sidebar-button" tabindex="-1"><a href="../../subspace_networking/all.html" title="show sidebar"></a></div><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" tabindex="-1"><a href="../../help.html" title="help">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source of the Rust file `crates/subspace-networking/src/node.rs`."><title>node.rs - source</title><script>if(window.location.protocol!=="file:")document.head.insertAdjacentHTML("beforeend","SourceSerif4-Regular-46f98efaafac5295.ttf.woff2,FiraSans-Regular-018c141bf0843ffd.woff2,FiraSans-Medium-8f9a781e4970d388.woff2,SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2,SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2".split(",").map(f=>`<link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/${f}">`).join(""))</script><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-970bf1bf55bd1c15.css"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="subspace_networking" data-themes="" data-resource-suffix="" data-rustdoc-version="1.82.0-nightly (28a58f2fa 2024-07-31)" data-channel="nightly" data-search-js="search-ef54e092fea9c776.js" data-settings-js="settings-4313503d2e1961c2.js" ><script src="../../static.files/storage-118b08c4c78b968e.js"></script><script defer src="../../static.files/src-script-e66d777a5a92e9b2.js"></script><script defer src="../../src-files.js"></script><script defer src="../../static.files/main-f9142fe437216fc3.js"></script><noscript><link rel="stylesheet" href="../../static.files/noscript-df360f571f6edeae.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc src"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="src-sidebar-title"><h2>Files</h2></div></nav><div class="sidebar-resizer"></div><main><rustdoc-search></rustdoc-search><section id="main-content" class="content"><div class="example-wrap"><div data-nosnippet><pre class="src-line-numbers"><a href="#1" id="1">1</a>
 <a href="#2" id="2">2</a>
 <a href="#3" id="3">3</a>
 <a href="#4" id="4">4</a>
@@ -626,6 +624,7 @@
 <a href="#624" id="624">624</a>
 <a href="#625" id="625">625</a>
 <a href="#626" id="626">626</a>
+<a href="#627" id="627">627</a>
 </pre></div><pre class="rust"><code><span class="kw">use </span><span class="kw">crate</span>::protocols::request_response::handlers::generic_request_handler::GenericRequest;
 <span class="kw">use </span><span class="kw">crate</span>::protocols::request_response::request_response_factory;
 <span class="kw">use </span><span class="kw">crate</span>::shared::{Command, CreatedSubscription, PeerDiscovered, Shared};
@@ -633,11 +632,10 @@
 <span class="kw">use </span><span class="kw">crate</span>::utils::HandlerFn;
 <span class="kw">use </span>bytes::Bytes;
 <span class="kw">use </span>event_listener_primitives::HandlerId;
-<span class="kw">use </span>futures::channel::mpsc::SendError;
 <span class="kw">use </span>futures::channel::{mpsc, oneshot};
 <span class="kw">use </span>futures::{SinkExt, Stream, StreamExt};
 <span class="kw">use </span>libp2p::gossipsub::{Sha256Topic, SubscriptionError};
-<span class="kw">use </span>libp2p::kad::PeerRecord;
+<span class="kw">use </span>libp2p::kad::{PeerRecord, RecordKey};
 <span class="kw">use </span>libp2p::{Multiaddr, PeerId};
 <span class="kw">use </span>parity_scale_codec::Decode;
 <span class="kw">use </span>std::pin::Pin;
@@ -671,7 +669,7 @@
 
 <span class="attr">#[pin_project::pinned_drop]
 </span><span class="kw">impl </span>PinnedDrop <span class="kw">for </span>TopicSubscription {
-    <span class="kw">fn </span>drop(<span class="kw-2">mut </span><span class="self">self</span>: std::pin::Pin&lt;<span class="kw-2">&amp;mut </span><span class="self">Self</span>&gt;) {
+    <span class="kw">fn </span>drop(<span class="kw-2">mut </span><span class="self">self</span>: Pin&lt;<span class="kw-2">&amp;mut </span><span class="self">Self</span>&gt;) {
         <span class="kw">let </span>topic = <span class="self">self
             </span>.topic
             .take()
@@ -698,7 +696,7 @@
 </span><span class="kw">pub enum </span>GetValueError {
     <span class="doccomment">/// Failed to send command to the node runner
     </span><span class="attr">#[error(<span class="string">"Failed to send command to the node runner: {0}"</span>)]
-    </span>SendCommand(<span class="attr">#[from] </span>SendError),
+    </span>SendCommand(<span class="attr">#[from] </span>mpsc::SendError),
     <span class="doccomment">/// Node runner was dropped
     </span><span class="attr">#[error(<span class="string">"Node runner was dropped"</span>)]
     </span>NodeRunnerDropped,
@@ -715,7 +713,7 @@
 </span><span class="kw">pub enum </span>PutValueError {
     <span class="doccomment">/// Failed to send command to the node runner
     </span><span class="attr">#[error(<span class="string">"Failed to send command to the node runner: {0}"</span>)]
-    </span>SendCommand(<span class="attr">#[from] </span>SendError),
+    </span>SendCommand(<span class="attr">#[from] </span>mpsc::SendError),
     <span class="doccomment">/// Node runner was dropped
     </span><span class="attr">#[error(<span class="string">"Node runner was dropped"</span>)]
     </span>NodeRunnerDropped,
@@ -733,7 +731,7 @@
 </span><span class="kw">pub enum </span>GetClosestPeersError {
     <span class="doccomment">/// Failed to send command to the node runner
     </span><span class="attr">#[error(<span class="string">"Failed to send command to the node runner: {0}"</span>)]
-    </span>SendCommand(<span class="attr">#[from] </span>SendError),
+    </span>SendCommand(<span class="attr">#[from] </span>mpsc::SendError),
     <span class="doccomment">/// Node runner was dropped
     </span><span class="attr">#[error(<span class="string">"Node runner was dropped"</span>)]
     </span>NodeRunnerDropped,
@@ -751,7 +749,7 @@
 </span><span class="kw">pub enum </span>SubscribeError {
     <span class="doccomment">/// Failed to send command to the node runner
     </span><span class="attr">#[error(<span class="string">"Failed to send command to the node runner: {0}"</span>)]
-    </span>SendCommand(<span class="attr">#[from] </span>SendError),
+    </span>SendCommand(<span class="attr">#[from] </span>mpsc::SendError),
     <span class="doccomment">/// Node runner was dropped
     </span><span class="attr">#[error(<span class="string">"Node runner was dropped"</span>)]
     </span>NodeRunnerDropped,
@@ -771,7 +769,7 @@
 </span><span class="kw">pub enum </span>PublishError {
     <span class="doccomment">/// Failed to send command to the node runner
     </span><span class="attr">#[error(<span class="string">"Failed to send command to the node runner: {0}"</span>)]
-    </span>SendCommand(<span class="attr">#[from] </span>SendError),
+    </span>SendCommand(<span class="attr">#[from] </span>mpsc::SendError),
     <span class="doccomment">/// Node runner was dropped
     </span><span class="attr">#[error(<span class="string">"Node runner was dropped"</span>)]
     </span>NodeRunnerDropped,
@@ -791,7 +789,7 @@
 </span><span class="kw">pub enum </span>GetProvidersError {
     <span class="doccomment">/// Failed to send command to the node runner
     </span><span class="attr">#[error(<span class="string">"Failed to send command to the node runner: {0}"</span>)]
-    </span>SendCommand(<span class="attr">#[from] </span>SendError),
+    </span>SendCommand(<span class="attr">#[from] </span>mpsc::SendError),
     <span class="doccomment">/// Node runner was dropped
     </span><span class="attr">#[error(<span class="string">"Node runner was dropped"</span>)]
     </span>NodeRunnerDropped,
@@ -812,7 +810,7 @@
 </span><span class="kw">pub enum </span>SendRequestError {
     <span class="doccomment">/// Failed to send command to the node runner
     </span><span class="attr">#[error(<span class="string">"Failed to send command to the node runner: {0}"</span>)]
-    </span>SendCommand(<span class="attr">#[from] </span>SendError),
+    </span>SendCommand(<span class="attr">#[from] </span>mpsc::SendError),
     <span class="doccomment">/// Node runner was dropped
     </span><span class="attr">#[error(<span class="string">"Node runner was dropped"</span>)]
     </span>NodeRunnerDropped,
@@ -835,7 +833,7 @@
 </span><span class="kw">pub enum </span>ConnectedPeersError {
     <span class="doccomment">/// Failed to send command to the node runner
     </span><span class="attr">#[error(<span class="string">"Failed to send command to the node runner: {0}"</span>)]
-    </span>SendCommand(<span class="attr">#[from] </span>SendError),
+    </span>SendCommand(<span class="attr">#[from] </span>mpsc::SendError),
     <span class="doccomment">/// Node runner was dropped
     </span><span class="attr">#[error(<span class="string">"Node runner was dropped"</span>)]
     </span>NodeRunnerDropped,
@@ -855,7 +853,7 @@
 </span><span class="kw">pub enum </span>BootstrapError {
     <span class="doccomment">/// Failed to send command to the node runner
     </span><span class="attr">#[error(<span class="string">"Failed to send command to the node runner: {0}"</span>)]
-    </span>SendCommand(<span class="attr">#[from] </span>SendError),
+    </span>SendCommand(<span class="attr">#[from] </span>mpsc::SendError),
     <span class="doccomment">/// Node runner was dropped
     </span><span class="attr">#[error(<span class="string">"Node runner was dropped"</span>)]
     </span>NodeRunnerDropped,
@@ -1064,14 +1062,14 @@
     <span class="doccomment">/// Get item providers by its key. Initiate 'providers' Kademlia operation.
     </span><span class="kw">pub async fn </span>get_providers(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        key: Multihash,
+        key: RecordKey,
     ) -&gt; <span class="prelude-ty">Result</span>&lt;<span class="kw">impl </span>Stream&lt;Item = PeerId&gt;, GetProvidersError&gt; {
         <span class="self">self</span>.get_providers_internal(key, <span class="bool-val">true</span>).<span class="kw">await
     </span>}
 
     <span class="kw">async fn </span>get_providers_internal(
         <span class="kw-2">&amp;</span><span class="self">self</span>,
-        key: Multihash,
+        key: RecordKey,
         acquire_permit: bool,
     ) -&gt; <span class="prelude-ty">Result</span>&lt;<span class="kw">impl </span>Stream&lt;Item = PeerId&gt;, GetProvidersError&gt; {
         <span class="kw">let </span>permit = <span class="kw">if </span>acquire_permit {
@@ -1082,7 +1080,7 @@
 
         <span class="kw">let </span>(result_sender, result_receiver) = mpsc::unbounded();
 
-        <span class="macro">trace!</span>(<span class="question-mark">?</span>key, <span class="string">"Starting 'get_providers' request."</span>);
+        <span class="macro">trace!</span>(key = hex::encode(<span class="kw-2">&amp;</span>key), <span class="string">"Starting 'get_providers' request"</span>);
 
         <span class="self">self</span>.shared
             .command_sender
@@ -1099,7 +1097,7 @@
     }
 
     <span class="doccomment">/// Ban peer with specified peer ID.
-    </span><span class="kw">pub async fn </span>ban_peer(<span class="kw-2">&amp;</span><span class="self">self</span>, peer_id: PeerId) -&gt; <span class="prelude-ty">Result</span>&lt;(), SendError&gt; {
+    </span><span class="kw">pub async fn </span>ban_peer(<span class="kw-2">&amp;</span><span class="self">self</span>, peer_id: PeerId) -&gt; <span class="prelude-ty">Result</span>&lt;(), mpsc::SendError&gt; {
         <span class="self">self</span>.shared
             .command_sender
             .clone()
@@ -1111,7 +1109,7 @@
     /// It could be used to test libp2p transports bypassing protocol checks for bootstrap
     /// or listen-on addresses.
     </span><span class="attr">#[doc(hidden)]
-    </span><span class="kw">pub async fn </span>dial(<span class="kw-2">&amp;</span><span class="self">self</span>, address: Multiaddr) -&gt; <span class="prelude-ty">Result</span>&lt;(), SendError&gt; {
+    </span><span class="kw">pub async fn </span>dial(<span class="kw-2">&amp;</span><span class="self">self</span>, address: Multiaddr) -&gt; <span class="prelude-ty">Result</span>&lt;(), mpsc::SendError&gt; {
         <span class="self">self</span>.shared
             .command_sender
             .clone()
@@ -1171,7 +1169,9 @@
         <span class="self">self</span>.shared
             .command_sender
             .clone()
-            .send(Command::Bootstrap { result_sender })
+            .send(Command::Bootstrap {
+                result_sender: <span class="prelude-val">Some</span>(result_sender),
+            })
             .<span class="kw">await</span><span class="question-mark">?</span>;
 
         <span class="kw">for </span>step <span class="kw">in </span><span class="number">0</span>.. {
@@ -1187,14 +1187,14 @@
         <span class="prelude-val">Ok</span>(())
     }
 
-    <span class="doccomment">/// Callback is called when a peer is disconnected.
-    </span><span class="kw">pub fn </span>on_disconnected_peer(<span class="kw-2">&amp;</span><span class="self">self</span>, callback: HandlerFn&lt;PeerId&gt;) -&gt; HandlerId {
-        <span class="self">self</span>.shared.handlers.disconnected_peer.add(callback)
-    }
-
     <span class="doccomment">/// Callback is called when a peer is connected.
     </span><span class="kw">pub fn </span>on_connected_peer(<span class="kw-2">&amp;</span><span class="self">self</span>, callback: HandlerFn&lt;PeerId&gt;) -&gt; HandlerId {
         <span class="self">self</span>.shared.handlers.connected_peer.add(callback)
+    }
+
+    <span class="doccomment">/// Callback is called when a peer is disconnected.
+    </span><span class="kw">pub fn </span>on_disconnected_peer(<span class="kw-2">&amp;</span><span class="self">self</span>, callback: HandlerFn&lt;PeerId&gt;) -&gt; HandlerId {
+        <span class="self">self</span>.shared.handlers.disconnected_peer.add(callback)
     }
 
     <span class="doccomment">/// Callback is called when a routable or unraoutable peer is discovered.
@@ -1226,7 +1226,7 @@
     <span class="doccomment">/// Get item providers by its key. Initiate 'providers' Kademlia operation.
     </span><span class="kw">pub async fn </span>get_providers(
         <span class="kw-2">&amp;mut </span><span class="self">self</span>,
-        key: Multihash,
+        key: RecordKey,
     ) -&gt; <span class="prelude-ty">Result</span>&lt;<span class="kw">impl </span>Stream&lt;Item = PeerId&gt;, GetProvidersError&gt; {
         <span class="self">self</span>.node.get_providers_internal(key, <span class="bool-val">false</span>).<span class="kw">await
     </span>}
